@@ -13,6 +13,24 @@ main {
     align-items: center;
 }
 
+
+.slide-show > input {
+    cursor: pointer;
+    display: flex;
+    margin: 0 5px;
+    border: none;
+    border-radius: 20px;
+    background-color: transparent;
+    transition: 0.3s ease;
+
+}
+
+.slide-show > input:hover {
+    background-color: var(--primary-red);
+    color: white;
+    transition: 0.3s ease;
+}
+
 .slide-show > img {
     cursor: pointer;
 }
@@ -33,12 +51,12 @@ main {
 .side-image > img {
     border-radius: 10px;
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
-    transition: 0.5s ease-in-out;
+    transition: 0.3s ease;
 }
 
 .side-image > img:hover {
-    transition: 1s ease-in-out;
-    transform: scale(1.30);
+    transition: 0.3s ease;
+    transform: scale(1.10);
 }
 
 .lightbox {
@@ -74,7 +92,7 @@ main {
     background: linear-gradient(var(--bg-light), var(--bg-dark));
     margin: 1vh auto;
     padding-bottom: 1vh;
-    margin-bottom: 3vh;
+    margin-bottom: 5vh;
     box-shadow: var(--box-shadow-muted);
     overflow: hidden;
 }
@@ -101,10 +119,19 @@ main {
     text-transform: uppercase;
 }
 
+
+
+.Pfadi {
+    margin-top: 5vh;
+    background-color: var(--bg);
+    padding: 3vh;
+}
+
 .wir-sind-pfadi {
     text-align: center;
     padding: 10px;
-    margin: 20px auto;
+    margin: 0px auto;
+    margin-bottom: 3vh;
     border-radius: 20px;
     text-transform: uppercase;
     letter-spacing: 1px;
@@ -127,7 +154,7 @@ main {
 
 .pfadi-section {
     max-width: 400px;
-    background-color: var(--bg);
+    background-color: var(--bg-dark);
     padding: 20px 40px;
     border-radius: 20px;
     box-shadow: var(--box-shadow-muted);
@@ -215,7 +242,7 @@ main {
     flex-direction: column;
     text-align: center;
     align-items: center;
-    margin: 5vh 0;
+    margin: 10vh 0;
     background-color: var(--bg);
     padding: 30px;
 }
@@ -600,16 +627,6 @@ main {
         width: 310px;
         border-radius: 30px;
         box-shadow: 0 0 5px;
-        margin-bottom: 8vh;
-    }
-
-    .slide-show > input {
-        margin: 50px 5px 100px 5px;
-        font-weight: bolder;
-        font-size: 20px;
-        border: white;
-        background-color: transparent;
-        color: black;
     }
 
     .begruessung {
@@ -732,17 +749,8 @@ main {
     .slide-show > img {
         width: 600px;
         border-radius: 30px;
-        box-shadow: 0 0 5px;
-        margin-bottom: 8vh;
-    }
-
-    .slide-show > input {
-        margin: 100px 5px;
-        font-weight: bolder;
-        font-size: 20px;
-        background-color: transparent;
-        color: black;
-        border: none;
+        box-shadow: 0 0 30px;
+        justify-content: center;
     }
 
     .pfadi-section {
@@ -772,24 +780,6 @@ main {
         box-shadow: 0 0 50px rgba(0, 0, 0, 0.8);
         transition: opacity 2s ease;
         opacity: 1;
-    }
-
-    .slide-show > input {
-        margin: 200px 5px 250px 5px;
-        border: none;
-        background-color: transparent;
-        border-radius: 10px;
-        font-weight: bolder;
-        font-size: 20px;
-        color: black;
-    }
-
-    .slide-show > input:hover {
-        background-color: var(--primary-red);
-        color: white;
-        transition: 0.5s ease;
-        transform: scale(1.1);
-        cursor: pointer;
     }
 
     .begruessung {

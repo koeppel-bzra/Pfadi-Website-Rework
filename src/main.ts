@@ -136,3 +136,22 @@ closeBtn.addEventListener('click', () => {
     lightbox.style.display = 'none';
 })
 
+// Dark Mode Toggle
+// Dark Mode Toggle
+
+const darkModeToggle = document.getElementById('dark-mode-toggle') as HTMLButtonElement;
+const body = document.body;
+const icon = darkModeToggle.querySelector('i') as HTMLElement;
+
+const savedTheme = localStorage.getItem('theme');
+if (savedTheme === 'dark') {
+    body.classList.add('dark-mode');
+    icon.className = 'fas fa-sun';
+}
+
+darkModeToggle.addEventListener('click', () => {
+    body.classList.toggle('dark-mode');
+    const isDark = body.classList.contains('dark-mode');
+    icon.className = isDark ? 'fas fa-sun' : 'fas fa-moon';
+    localStorage.setItem('theme', isDark ? 'dark' : 'light');
+});
