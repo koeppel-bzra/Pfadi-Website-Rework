@@ -137,7 +137,6 @@ closeBtn.addEventListener('click', () => {
 })
 
 // Dark Mode Toggle
-// Dark Mode Toggle
 
 const darkModeToggle = document.getElementById('dark-mode-toggle') as HTMLButtonElement;
 const body = document.body;
