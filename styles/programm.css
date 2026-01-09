@@ -82,6 +82,10 @@ main {
     color: var(--text);
 }
 
+.sc-programm-child hr {
+    border: 1px solid var(--primary-gray);
+}
+
 .sc-programm-child h6 {
     color: var(--primary-blue);
     margin-top: 0.5vh;
@@ -108,9 +112,8 @@ main {
 .sc-programm-child a {
     font-weight: 700;
     text-decoration: none;
-    color: white;
+    color: var(--text);
     transition: 1s ease;
-    background-color: var(--primary-blue);
     padding: 6px 10px;
     border-radius: 10px;
 
