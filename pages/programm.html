@@ -1,28 +1,33 @@
 <!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>pfadi-website</title>
-    <script type="module" src="../src/main.ts"></script>
-    <script src="https://kit.fontawesome.com/920aa667f6.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="../styles/programm.css">
-    <link rel="stylesheet" href="../styles/nav.css">
-    <link rel="stylesheet" href="../styles/root.css">
-  </head>   
-  <body>
-    <header>
-        <nav class="top-nav" id="navbar">
-            <div class="left-nav">
-                <a href="/index.html"><img src="../images/logo_transparent3.png" alt="pfadi-website" width="50px" height="50px"></a>
-                <div class="title">
-                    <h2>PFADI REGULASTEIN</h2>
-                    <div class="subtitle">
-                        <h6>Gommiswald - Rieden - Ernetschwil</h6>
-                    </div>
-                </div>
-            </div>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pfadi Programm</title>
+
+  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+  <script type="module" src="../src/main.ts"></script>
+  <script src="https://kit.fontawesome.com/920aa667f6.js" crossorigin="anonymous"></script>
+  <script src="../src/programm.ts" defer></script>
+
+  <link rel="stylesheet" href="../styles/root.css">
+  <link rel="stylesheet" href="../styles/nav.css">
+  <link rel="stylesheet" href="../styles/programm.css">
+</head>
+
+<body>
+
+<header>
+  <nav class="top-nav" id="navbar">
+    <div class="left-nav">
+      <a href="/index.html">
+        <img src="../images/logo_transparent3.png" alt="Pfadi" width="50" height="50">
+      </a>
+      <div class="title">
+        <h2>PFADI REGULASTEIN</h2>
+        <h6>Gommiswald – Rieden – Ernetschwil</h6>
+      </div>
+    </div>
 
         <div class="right-nav">
             <ul>
@@ -31,7 +36,7 @@
                     <a href="../index.html">Home</a>
                 </li>
                 <li>
-                    <img alt="Programm-Icon" src="../images/programm.svg">
+                    <img alt="Programm-Icon" src="../images/programm.svg" width="24px">
                     <a href="programm.html"><strong>Programm</strong></a>
                 </li>
                 <li>
@@ -53,41 +58,63 @@
             </ul>
             <div class="hamburger">☰</div>
         </div>
-        </nav>
-    </header>
-    
-    <main>
-        <section class="title-section">
-            <h1 class="title-title">Pfadi erleben</h1>
-            <hr>
-            <div class="subtitle-title">
-                <p>In der Pfadi erleben wir <strong>fast jeden zweiten Samstag</strong> spannende Abenteuer in der Natur.</p>
-                <p>Für jede Altersgruppe gibt es eigene Stufen und individuelle Halbjahresprogramme.</p>
-            </div>
-        </section>
+</div>
+  </nav>
+</header>
 
-        <section class="sc-programm">
-            <div class="sc-programm-child">
-                <h3>Halbjahresprogramm Wölflistufe</h3>
-                <h6>Die Schöne und das Biest</h6>
-                <img src="../images/die-schoene-und-das-biest-beauty-and-the-beast,236091_16x9_1280.jpg" alt="Halbjahresprogramm Wölflistufe" width="300px">
-                <p>Entdecke die Halbjahresprogramme der Wölflistufe</p>
-                <hr>
-                <a href="#">Zum Programm</a>
-            </div>
+<main>
+
+  <!-- Titel -->
+  <section class="title-section">
+    <h1 class="title-title">PFADI ERLEBEN</h1>
+    <hr>
+    <p>Fast jeden zweiten Samstag spannende Abenteuer in der Natur.</p>
+  </section>
+
+  <!-- Programm Cards -->
+  <section class="sc-programm">
+
+    <div class="sc-programm-child">
+      <h3>Halbjahresprogramm Wölflistufe</h3>
+      <h6>Die Schöne und das Biest</h6>
+      <img src="../images/die-schoene-und-das-biest-beauty-and-the-beast,236091_16x9_1280.jpg" alt="">
+      <p>Entdecke das Halbjahresprogramm der Wölflistufe</p>
+      <a href="../images/files/woelfli.pdf" download>Als PDF herunterladen</a>
+    </div>
+
+    <div class="sc-programm-child">
+      <h3>Halbjahresprogramm Pfadistufe</h3>
+      <h6>Star Wars</h6>
+      <img src="../images/entertainment-film-star-wars-kylo-ren-rey.webp" alt="">
+      <p>Entdecke das Halbjahresprogramm der Pfadistufe</p>
+      <a href="../images/files/Halbjahresprogramm_2026_Frühling_Pfadistufe.pdf" download>
+        Als PDF herunterladen
+      </a>
+    </div>
+
+  </section>
 
 
-            <div class="sc-programm-child">
-                <h3>Halbjahresprogramm Pfadistufe</h3>
-                <h6>Star Wars</h6>
-                <img src="../images/entertainment-film-star-wars-kylo-ren-rey.webp" alt="Halbjahresprogramm Pfadistufe" width="300px">
-                <p>Entdecke die Halbjahresprogramme der Pfadistufe</p>
-                <hr>
-                <a href="#">Zum Programm</a>
-            </div>
-        </section>
-    </main>
+  <section class="programme">
 
-    
-  </body>
+    <details class="programm-details">
+      <summary>Halbjahresprogramm Wölflistufe 2026</summary>
+      <div class="programm-gallery">
+        <img id="programm-image" src="../images/pfadi-programm.png" alt="Pfadi Programm Seite 1">
+        <img src="../images/pfadi-programm 2.png" alt="Pfadi Programm Seite 2">
+      </div>
+    </details>
+
+    <details class="programm-details">
+      <summary>Halbjahresprogramm Pfadistufe 2026</summary>
+      <div class="programm-gallery">
+        <img src="../images/pfadi-programm.png" alt="Pfadi Programm Seite 1">
+        <img src="../images/pfadi-programm 2.png" alt="Pfadi Programm Seite 2">
+      </div>
+    </details>
+  </section>
+
+</main>
+
+</body>
 </html>
