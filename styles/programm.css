@@ -1,0 +1,195 @@
+/* Allgemein */
+main {
+  margin-top: 3vh;
+}
+
+/* Titel */
+.title-section {
+  text-align: center;
+  padding: 2rem;
+  background: var(--bg);
+  box-shadow: var(--box-shadow-muted);
+}
+
+.title-title {
+  font-size: 40px;
+  letter-spacing: 2px;
+  margin-bottom: 1rem;
+}
+
+.title-section hr {
+  width: 60%;
+  margin: 1rem auto;
+}
+
+/* Programm Cards */
+.sc-programm {
+  display: flex;
+  justify-content: center;
+  gap: 3rem;
+  flex-wrap: wrap;
+  margin-top: 4vh;
+}
+
+.sc-programm-child {
+  background: var(--bg);
+  padding: 1.5rem;
+  border-radius: 20px;
+  box-shadow: var(--box-shadow-muted);
+  width: 100%;
+  max-width: 400px;
+  text-align: center;
+}
+
+.sc-programm-child img {
+  border-radius: 15px;
+  margin: 1rem 0;
+  width: 100%;
+  height: auto;
+  max-height: 60vh;
+  object-fit: contain;
+  display: block;
+}
+
+.sc-programm-child a {
+  display: inline-block;
+  margin-top: 1rem;
+  padding: 0.4rem 0.8rem;
+  border-radius: 6px;
+  background: var(--primary-black);
+  color: white;
+  text-decoration: none;
+  transition: 1s ease;
+  border: 1px solid var(--primary-black);
+}
+
+.sc-programm-child a:hover {
+  transition: 0.3s ease;
+  background: var(--primary-red);
+  border: 1px solid var(--primary-red);
+  box-shadow: 0 0 5px var(--primary-red);
+}
+
+/* Aufklappbarer Bereich */
+.programme {
+  display: flex;
+  justify-content: center;
+  margin: 5vh 0;
+  flex-direction: column;
+  align-items: center;
+  gap: 1vh;
+  background-color: var(--bg);
+  padding: 5vh 0vh;
+  box-shadow: var(--box-shadow-normal);
+}
+
+.programm-details {
+  width: 90%;
+  max-width: 1100px;
+  background: var(--bg-light);
+  padding: 1.5rem;
+  border-radius: 20px;
+  box-shadow: var(--box-shadow-muted);
+}
+
+
+.programm-details summary {
+  font-size: 22px;
+  font-weight: 600;
+  cursor: pointer;
+  text-align: center;
+  list-style: none;
+}
+
+.programm-details summary::-webkit-details-marker {
+  display: none;
+}
+
+/* Galerie */
+.programm-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.25rem;
+  margin-top: 2rem;
+}
+
+.programm-gallery img {
+  border-radius: 15px;
+  box-shadow: var(--box-shadow-muted);
+  transition: transform 0.3s ease;
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: contain;
+  max-height: 65vh;
+}
+
+.programm-gallery img:hover {
+  transform: scale(1.03);
+}
+
+
+
+/* General clickable image behaviour */
+.programm-gallery img,
+.sc-programm-child img {
+  cursor: zoom-in;
+  transition: transform 0.25s ease;
+  will-change: transform;
+}
+
+/* Zoomed state used for any image */
+.zoomed-image {
+  position: fixed !important;
+  top: 50% !important;
+  left: 50% !important;
+  transform: translate(-50%, -50%) !important;
+  width: auto !important;
+  max-width: 95vw !important;
+  max-height: 95vh !important;
+  height: auto !important;
+  z-index: 1001 !important;
+  border-radius: 8px !important;
+  cursor: zoom-out !important;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.6) !important;
+}
+
+/* Overlay that dims the background when any image is zoomed */
+.zoom-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.6);
+  z-index: 1000;
+  opacity: 1;
+}
+
+/* Make sure tappable area is large on touch devices */
+.programm-gallery img,
+.sc-programm-child img {
+  touch-action: manipulation;
+}
+
+
+
+
+
+/* Mobile */
+@media (max-width: 600px) {
+  .title-title {
+    font-size: 32px;
+  }
+
+  .programm-details summary {
+    font-size: 18px;
+  }
+
+  .programm-gallery {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .sc-programm {
+    gap: 1.25rem;
+    padding: 0 1rem;
+  }
+}
