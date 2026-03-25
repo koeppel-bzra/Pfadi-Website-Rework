@@ -1,4 +1,10 @@
-/* Main */
+@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&family=Caveat:wght@400..700&family=Iosevka+Charon:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&family=Schoolbell&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&family=Caveat:wght@400..700&family=Iosevka+Charon:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&family=Playwrite+ID+Guides&family=Schoolbell&display=swap');
+
+* {
+    font-family: "Bricolage Grotesque", sans-serif;
+}
+
 
 main {
     margin-top: 1vh;
@@ -16,23 +22,26 @@ main {
 
 .slide-show > input {
     cursor: pointer;
-    display: flex;
-    margin: 0 5px;
-    border: none;
-    border-radius: 20px;
+    padding: clamp(0.5rem, 1vw, 0.75rem) clamp(1rem, 2vw, 1.5rem);
+    border: 2px solid var(--border);
+    border-radius: var(--radius-full);
     background-color: transparent;
-    transition: 0.3s ease;
-
+    transition: all var(--transition-base);
+    color: var(--text);
+    font-weight: var(--font-weight-bold);
+    font-size: clamp(0.9rem, 2vw, 1rem);
 }
 
 .slide-show > input:hover {
-    background-color: var(--primary-red);
+    background: var(--accent);
     color: white;
-    transition: 0.3s ease;
+    border-color: var(--accent);
+    transform: scale(1.05);
 }
 
 .slide-show > img {
     cursor: pointer;
+    margin: 0 10px;
 }
 
 
@@ -89,16 +98,18 @@ main {
 
 
 .parent-section {
-    background: linear-gradient(var(--bg-light), var(--bg-dark));
+    background-color: var(--bg-light);
     margin: 1vh auto;
     padding-bottom: 1vh;
     margin-bottom: 5vh;
     box-shadow: var(--box-shadow-muted);
     overflow: hidden;
+    max-width: 95%;
+    border-radius: 20px;
 }
 
 .parent-section hr {
-    border: 1px solid var(--primary-gray);
+    border: 1px solid var(--primary-gray-light);
     width: 55rem;
     margin-bottom: 3vh;
 }
@@ -120,77 +131,95 @@ main {
 }
 
 
-
+/* Wir sind Pfadi Section */
 .Pfadi {
-    margin-top: 5vh;
-    background-color: var(--bg);
-    padding: 3vh;
+    background-color: var(--bg-light);
+    padding: clamp(1.5rem, 4vw, 2.5rem);
+    margin: clamp(1.5rem, 4vw, 2.5rem) auto;
+    max-width: 90%;
+    border-radius: 20px;
+    box-shadow: var(--shadow-md);
 }
 
 .wir-sind-pfadi {
     text-align: center;
-    padding: 10px;
-    margin: 0px auto;
-    margin-bottom: 3vh;
-    border-radius: 20px;
+    padding: clamp(1rem, 2vw, 1.5rem);
+    margin: 0 auto;
+    border-radius: var(--radius-lg);
+    font-size: clamp(1.8rem, 5vw, 2.5rem);
+    color: black;
+    max-width: 700px;
+    border: none;
+    font-size:  50px;
     text-transform: uppercase;
-    letter-spacing: 1px;
-    word-spacing: 3px;
-    font-weight: 700;
-    font-size: 40px;
-    background-color: var(--primary-blue);
-    color: white;
-    max-width: 500px;
-    border: 1px solid black;
-    transition: 1s ease;
+    letter-spacing: 2px;
+    word-spacing: 2px;
+}
+
+.Pfadi hr {
+    border: none;
+    border-top: 2px solid var(--primary-gray-light);
+    margin: clamp(0.5rem, 1vw, 0.75rem) auto;
+    width: 80%;
+    margin-bottom: 3vh;
 }
 
 .Pfadi-Regulastein {
     display: flex;
-    gap: 5vw;
+    gap: clamp(1rem, 4vw, 2.5rem);
     justify-content: center;
     flex-wrap: wrap;
 }
 
 .Pfadi-Regulastein div {
-    max-width: 400px;
+    max-width: 100%;
 }
 
 .pfadi-section {
+    background-color: var(--bg-mid);
+    padding: clamp(1rem, 2vw, 1.5rem) clamp(1.5rem, 3vw, 2rem);
+    border-radius: var(--radius-lg);
+    transition: all var(--transition-base);
+    border: 2px solid var(--border-light);
+    min-width: 280px;
     max-width: 400px;
-    background-color: var(--bg-dark);
-    padding: 20px 40px;
-    border-radius: 20px;
-    box-shadow: var(--box-shadow-muted);
-    transition: 0.5s ease;
-    border: 1px solid var(--border)
+    box-shadow: var(--shadow-md);
 }
 
 .pfadi-section h3 {
-    font-size: 30px;
+    font-size: clamp(1.2rem, 3vw, 1.5rem);
     color: var(--text);
     letter-spacing: 1px;
+    margin: 0 0 clamp(0.5rem, 1vw, 0.75rem) 0;
 }
 
 .pfadi-section p {
-    font-size: 18px;
+    font-size: clamp(0.95rem, 2vw, 1.1rem);
     color: var(--text-muted);
-    line-height: 3vh;
+    line-height: 1.8;
+    margin: 0 0 clamp(0.5rem, 1vw, 1rem) 0;
 }
 
 .pfadi-section a {
-    color: #005EB7;
-    font-weight: 600;
+    color: var(--primary-red);
+    font-weight: var(--font-weight-semibold);
+    text-decoration: none;
+    transition: color var(--transition-base);
+}
+
+.pfadi-section a:hover {
+    color: var(--primary-red);
+    text-decoration: underline;
 }
 
 .pfadi-section > hr {
-    border: 1px solid var(--primary-gray);
+    border: none;
+    border-top: 1px solid var(--border);
+    margin: clamp(0.5rem, 1vw, 0.75rem) 0;
 }
 
 .pfadi-section:hover {
-    transform: translateY(-5%);
-    cursor: default;
-    transition: 0.5s ease;
+    transform: translateY(-8px);
 }
 
 .aktuelleanlaesse {
@@ -199,15 +228,9 @@ main {
     justify-content: center;
     gap: 5vw;
     flex-wrap: wrap;
-    text-align: center;
-    background: linear-gradient(0deg, var(--bg), var(--bg-light));
-    margin: auto;
-    margin-bottom: 4vh;
-    padding: 1vh 3vh;
+    margin: 0 auto;
     padding-bottom: 0.5vh;
     border-radius: 15px;
-    box-shadow: var(--box-shadow-muted);
-    border-top: 1px solid white;
     max-width: fit-content;
 
 }
@@ -215,40 +238,51 @@ main {
 .aktuelleanlaesse a {
     margin: 0;
     font-weight: bolder;
-    color: white;
+    color: var(--primary-black);
     text-decoration: none;
 }
 
 .aktuelleanlaesse p {
     margin-bottom: 30px;
-    font-size: 25px;
+    font-size: 20px;
 }
 
 .aktuelleanlaesse_span {
-    background-color: var(--primary-red);
     padding: 6px;
     border-radius: 5px;
-    transition: 0.5s linear;
-    border: 1px solid red;
+    transition: 0.5s ease;
+    text-decoration: underline;
+}
+
+.aktuelleanlaesse_span:hover {
+    color: var(--primary-red);
+    transition: 0.5s ease;
 }
 
 .wichtige-links_span {
-    background-color: var(--primary-gray);
     padding: 6px;
     border-radius: 5px;
-    transition: 0.5s linear;
-    color: black;
-    border: 1px solid black;
+    transition: 0.5s ease;
+    color: var(--primary-black);
+    text-decoration: underline;
 }
+
+    .wichtige-links_span:hover {
+        color: var(--primary-red);
+        transition: 0.5s ease;
+    }
 
 .anlaesse {
     display: flex;
     flex-direction: column;
     text-align: center;
     align-items: center;
-    margin: 10vh 0;
-    background-color: var(--bg);
+    margin: 10vh auto;
+    background-color: var(--bg-light);
     padding: 30px;
+    max-width: 91%;
+    border-radius: 20px;
+    box-shadow: var(--shadow-md);
 }
 
 .anlaesse > h1 {
@@ -272,33 +306,31 @@ main {
 
 .wichtige-links {
     position: relative;
-    background: var(--primary-black);
+    background: var(--bg-light);
     text-align: center;
     padding: 20px 30px;
     overflow: hidden;
-    clip-path: polygon(
-        0 0%, 50% 7%, 100% 0%,  /* obere Kante */
-        100% 93%, 50% 100%, 0 93% /* untere Kante */
-    );
+    max-width: 91%;
+    margin: 0 auto;
+    border-radius: 20px;
+    box-shadow: var(--shadow-md);
 }
 
 .wichtige-links > div > p > a {
-    color: white;
+    color: black;
     text-decoration: none;
+    transition: 0.5s ease;
 }
 
 .wichtige-links > div > span, a {
     color: var(--font-white);
 }
 
-.wichtige-links p:hover {
-    transform: scale(1.10);
-    transform: translateY(-20%);
-}
-
 .wichtige-links > div > p > a:hover {
-    color: var(--primary-yellow);
+    color: var(--primary-red);
+    transform: translateY(-10%);
     text-decoration: underline;
+    transition: 0.5s ease;
     letter-spacing: 1px;
 }
 
@@ -313,24 +345,27 @@ main {
 
 
 .was-ist-pfadi {
-    margin: 5vh 0;
-    background-color: var(--bg);
+    margin: 10vh auto;
+    background-color: var(--bg-light);
     padding: 1vh;
+    max-width: 93%;
+    border-radius: 20px;
+    box-shadow: var(--shadow-md);
 }
 
 .was-ist-pfadi > h1 {
     text-align: center;
-    background-color: #494949;
+    background-color: var(--bg-mid);
     max-width: 30vw;
     margin: 40px auto;
     padding: 10px;
-    color: white;
+    color: black;
     border-radius: 20px;
     letter-spacing: 1px;
     word-spacing: 3px;
     font-size: 40px;
     font-weight: 700;
-    box-shadow: var(--box-shadow-muted)
+    box-shadow: var(--shadow-md);
 }
 
 .was-ist-pfadi > div {
@@ -404,17 +439,19 @@ main {
 
 
 .pfadi-history {
-    margin-bottom: 5vh;
-    margin-top: 15vh;
-    background-color: var(--bg);
+    background-color: var(--bg-light);
     padding: 1vh;
     padding-bottom: 3vh;
+    max-width: 92%;
+    margin: 10vh auto;
+    border-radius: 20px;
+    box-shadow: var(--shadow-md);
 }
 
 .pfadi-history > h1 {
     text-align: center;
     background-color: var(--primary-red);
-    color: white;
+    color: var(--bg-dark);
     max-width: 500px;
     margin: 5vh auto;
     padding: 10px;
@@ -449,7 +486,7 @@ main {
 .right-content {
     width: 35vw;
     min-height: 20vh; 
-    background-color: var(--bg-light);
+    background-color: var(--bg-mid);
     align-content: center;
     padding: 20px 30px;
     border-radius: 20px;
@@ -797,20 +834,6 @@ main {
         font-size: 25px;
         text-align: center;
         font-family: 'Saira', sans-serif;
-    }
-
-    .aktuelleanlaesse_span:hover {
-        background-color: var(--primary-gray);
-        border: 1px solid black;
-        color: black;
-        transition: 0.3s linear;
-    }
-
-    .wichtige-links_span:hover {
-        background-color: var(--primary-red);
-        border: 1px solid red;
-        color: white;
-        transition: 0.3s linear;
     }
 
     .pfadi-image { max-width: 70%; }
