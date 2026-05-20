@@ -1,34 +1,3 @@
-// Datenschutzerklärung 
-
-document.addEventListener('DOMContentLoaded', () => {
-    const banner = document.getElementById('cookie-banner');
-    const button = document.getElementById('accept-btn');
-
-    if (localStorage.getItem('cookiesAccepted')) {
-        banner.style.display = 'none';
-    }
-
-    button.addEventListener('click', () => {
-        localStorage.setItem('cookiesAccepted', 'true');
-        banner.style.display = 'none';
-    })
-})
-
-
-
-
-
-
-
-
-// Hamburger
-
-const hamburger = document.querySelector('.hamburger');
-const rightNav = document.querySelector('.right-nav');
-
-hamburger.addEventListener('click', () => {
-    rightNav.classList.toggle('open');
-})
 
 // Update Padding
 
@@ -44,113 +13,131 @@ window.addEventListener('resize', udpateMainPadding);
 window.addEventListener('load', udpateMainPadding);
 
 
+// =======================
+// COOKIE BANNER
+// =======================
+document.addEventListener('DOMContentLoaded', () => {
+    const banner = document.getElementById('cookie-banner');
+    const button = document.getElementById('accept-btn');
 
-// Scrollbar
+    if (banner && button) {
+        if (localStorage.getItem('cookiesAccepted')) {
+            banner.style.display = 'none';
+        }
 
-let lastScrollY = window.scrollY;
-const navbar = document.getElementById('navbar');
-window.addEventListener('scroll', () => {
-    const currentScrollY = window.scrollY;
-
-    if (currentScrollY <= 0) {
-        navbar.classList.remove('hide');
+        button.addEventListener('click', () => {
+            localStorage.setItem('cookiesAccepted', 'true');
+            banner.style.display = 'none';
+        });
     }
-
-    else if (currentScrollY > lastScrollY) {
-        navbar.classList.add('hide');
-    }
-
-    else if (currentScrollY < lastScrollY) {
-        navbar.classList.remove('hide');
-    }
-
-    lastScrollY = currentScrollY;
 });
 
 
+// =======================
+// HAMBURGER MENU
+// =======================
+const hamburger = document.querySelector('.hamburger');
+const rightNav = document.querySelector('.right-nav');
 
-// Nach-Oben Button
-
-const oben = document.querySelector('#nach-oben');
-
-oben.addEventListener('click', () => {
-    window.scrollTo({
-        top: 0,
-        behavior: "smooth"
+if (hamburger && rightNav) {
+    hamburger.addEventListener('click', () => {
+        rightNav.classList.toggle('open');
     });
-})
+}
 
 
+// =======================
+// SCROLL NAVBAR
+// =======================
+let lastScrollY = window.scrollY;
+const navbar = document.getElementById('navbar');
 
-// Slideshow
+if (navbar) {
+    window.addEventListener('scroll', () => {
+        const currentScrollY = window.scrollY;
 
-const bilder = ["../images/DSC_0039.webp", "../images/DSC_0088.webp", "../images/DSC_0103.webp"];
+        if (currentScrollY > lastScrollY) {
+            navbar.classList.add('hide');
+        } else {
+            navbar.classList.remove('hide');
+        }
+
+        lastScrollY = currentScrollY;
+    });
+}
+
+
+// =======================
+// SLIDESHOW
+// =======================
+const bilder = [
+    "./images/DSC_0039.webp",
+    "./images/DSC_0088.webp",
+    "./images/DSC_0103.webp",
+    "./images/IMG_1867.JPG",
+    "./images/IMG_2011.JPG",
+    "./images/1.jpeg"
+];
+
 let index = 0;
 
 const img = document.getElementById('slideshow-images');
 const leftImage = document.getElementById('left-image');
 const rightImage = document.getElementById('right-image');
 
-leftImage.src = bilder[(index - 1 + bilder.length) % bilder.length];
-rightImage.src = bilder[(index + 1 + bilder.length) % bilder.length];
+function updateImages() {
+    if (!img || !leftImage || !rightImage) return;
 
-setInterval(() => {
-    index = (index + 1) % bilder.length;
     img.src = bilder[index];
     leftImage.src = bilder[(index - 1 + bilder.length) % bilder.length];
-    rightImage.src = bilder[(index + 1 + bilder.length) % bilder.length];
+    rightImage.src = bilder[(index + 1) % bilder.length];
+}
 
-}, 8000);
+// Initial setzen
+updateImages();
 
+// Auto Slide
+setInterval(() => {
+    index = (index + 1) % bilder.length;
+    updateImages();
+}, 5000);
+
+
+// Buttons
 const backButton = document.getElementById('back');
 const forwardButton = document.getElementById('forward');
 
-backButton.addEventListener('click', () => {
-    index = (index - 1 + bilder.length ) % bilder.length;
-    img.src = bilder[index];
-    leftImage.src = bilder[(index - 1 + bilder.length) % bilder.length];
-    rightImage.src = bilder[(index + 1 + bilder.length) % bilder.length];
-})
+if (backButton) {
+    backButton.addEventListener('click', () => {
+        index = (index - 1 + bilder.length) % bilder.length;
+        updateImages();
+    });
+}
 
-forwardButton.addEventListener('click', () => {
-    index = (index + 1 + bilder.length ) % bilder.length;
-    img.src = bilder[index];
-    leftImage.src = bilder[(index - 1 + bilder.length) % bilder.length];
-    rightImage.src = bilder[(index + 1 + bilder.length) % bilder.length];
-})
+if (forwardButton) {
+    forwardButton.addEventListener('click', () => {
+        index = (index + 1) % bilder.length;
+        updateImages();
+    });
+}
 
+
+// =======================
+// LIGHTBOX
+// =======================
 const lightbox = document.getElementById('lightbox');
 const lightboxImg = document.getElementById('lightbox-img');
-const closeBtn = lightbox.querySelector('.close');
+const closeBtn = document.querySelector('.close');
 
-function openLightbox(src) {
-    lightboxImg.src = src;
-    lightbox.style.display = 'flex';
+if (img && lightbox && lightboxImg) {
+    img.addEventListener('click', () => {
+        lightbox.style.display = 'flex';
+        lightboxImg.src = img.src;
+    });
 }
 
-img.addEventListener('click', () => {
-    openLightbox(img.src);
-})
-
-closeBtn.addEventListener('click', () => {
-    lightbox.style.display = 'none';
-})
-
-// Dark Mode Toggle
-
-const darkModeToggle = document.getElementById('dark-mode-toggle');
-const body = document.body;
-const icon = darkModeToggle.querySelector('i');
-
-const savedTheme = localStorage.getItem('theme');
-if (savedTheme === 'dark') {
-    body.classList.add('dark-mode');
-    icon.className = 'fas fa-sun';
+if (closeBtn && lightbox) {
+    closeBtn.addEventListener('click', () => {
+        lightbox.style.display = 'none';
+    });
 }
-
-darkModeToggle.addEventListener('click', () => {
-    body.classList.toggle('dark-mode');
-    const isDark = body.classList.contains('dark-mode');
-    icon.className = isDark ? 'fas fa-sun' : 'fas fa-moon';
-    localStorage.setItem('theme', isDark ? 'dark' : 'light');
-});
