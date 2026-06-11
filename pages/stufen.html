@@ -1,60 +1,260 @@
 <!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>pfadi-website</title>
-    <script type="module" src="../src/main.ts"></script>
-    <script src="https://kit.fontawesome.com/920aa667f6.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="../styles/stufen.css">
-    <link rel="stylesheet" href="../styles/nav.css">
-    <link rel="stylesheet" href="../styles/root.css">
-  </head>   
-  <body>
-    <header>
-        <nav class="top-nav" id="navbar">
-            <div class="left-nav">
-                <a href="/index.html"><img src="../images/logo_transparent3.png" alt="pfadi-website" width="50px" height="50px"></a>
-                <div class="title">
-                    <h2>PFADI REGULASTEIN</h2>
-                    <div class="subtitle">
-                        <h6>Gommiswald - Rieden - Ernetschwil</h6>
-                    </div>
-                </div>
-            </div>
-            
-        <div class="right-nav">
-            <ul>
-                <li>
-                    <img alt="Home-Icon" src="../images/home.svg" width="24px">
-                    <a href="../index.html">Home</a>
-                </li>
-                <li>
-                    <img alt="Programm-Icon" src="../images/programm.svg" width="24px">
-                    <a href="programm.html">Programm</a>
-                </li>
-                <li>
-                    <img alt="Stufen-Icon" src="../images/stufen.svg" width="24px">
-                    <a href="stufen.html"><strong>Stufen</strong></a>
-                </li>
-                <li>
-                    <img alt="Mitglied-werden-Icon" src="../images/mitgliedwerden.svg" width="24px">
-                    <a href="mitglied-werden.html">Mitglied werden</a>
-                </li>
-                <li>
-                    <img alt="Mobile-Kueche-Icon" src="../images/kueche.svg" width="24px">
-                    <a href="vermietung.html">Mobile Küche</a>
-                </li>
-                <li>
-                    <img alt="Galerie-Icon" src="../images/galerie.svg" width="24px">
-                    <a href="galerie.html">Galerie</a>
-                </li>
-            </ul>
-            <div class="hamburger">☰</div>
-        </div>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pfadi Stufen</title>
 
-        </nav>
-    </header>
-  </body>
+  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+  <script type="module" src="../src/main.js"></script>
+  <script src="https://kit.fontawesome.com/920aa667f6.js" crossorigin="anonymous"></script>
+
+  <link rel="stylesheet" href="../styles/root.css">
+  <link rel="stylesheet" href="../styles/nav.css">
+  <link rel="stylesheet" href="../styles/stufen.css">
+</head>
+
+<body>
+
+<header>
+  <nav class="top-nav" id="navbar">
+    <div class="left-nav">
+      <a href="../index.html">
+        <img src="../images/logo_transparent3.png" alt="Pfadi" width="50" height="50">
+      </a>
+      <div class="title">
+        <h2>PFADI REGULASTEIN</h2>
+        <div class="subtitle">
+          <h6>Gommiswald - Rieden - Ernetschwil</h6>
+        </div>
+      </div>
+    </div>
+
+    <div class="right-nav">
+      <ul>
+        <li>
+          <i class="fa-solid fa-house"></i>
+          <a href="../index.html">Home</a>
+        </li>
+        <li>
+          <i class="fa-solid fa-calendar-days"></i>
+          <a href="programm.html">Programm</a>
+        </li>
+        <li>
+          <i class="fa-solid fa-campground"></i>
+          <a href="stufen.html"><strong>Stufen</strong></a>
+        </li>
+        <li>
+          <i class="fa-solid fa-utensils"></i>
+          <a href="vermietung.html">Mobile Küche</a>
+        </li>
+        <li>
+          <i class="fa-solid fa-images"></i>
+          <a href="galerie.html">Galerie</a>
+        </li>
+        <li class="nav-mitglied">
+          <i class="fa-solid fa-user-plus"></i>
+          <a href="mitglied-werden.html">Mitglied werden</a>
+        </li>
+      </ul>
+      <button type="button" id="dark-mode-toggle" aria-label="Darkmode umschalten">🌙</button>
+      <div class="hamburger">☰</div>
+    </div>
+  </nav>
+</header>
+
+<main>
+
+  <section class="title-section">
+    <h1 class="title-title">UNSERE STUFEN</h1>
+    <hr>
+    <p>Die Pfadi bietet für jedes Alter das passende Abenteuer.</p>
+
+    <!-- Quick Navigation -->
+    <nav class="stufen-quicknav">
+    <a href="#woelflistufe"><i class="fa-solid fa-paw"></i> Wölflistufe</a>
+    <a href="#pfadistufe"><i class="fa-solid fa-campground"></i> Pfadistufe</a>
+    <a href="#piostufe"><i class="fa-solid fa-mountain-sun"></i> Piostufe</a>
+    <span class="quicknav-divider"></span>
+    <a href="#organigramm"><i class="fa-solid fa-sitemap"></i> Organigramm</a>
+    <a href="#stufenmodell"><i class="fa-solid fa-layer-group"></i> Stufenmodell</a>
+    </nav>
+  </section>
+
+  <!-- Wölflistufe -->
+  <section class="stufe-section woelfli" id="woelflistufe">
+    <div class="stufe-header">
+      <div class="stufe-header-left">
+        <h2>Wölflistufe</h2>
+        <span class="stufe-badge woelfli-badge">6 – 9 Jahre</span>
+      </div>
+    </div>
+
+    <div class="stufe-body">
+      <div class="stufe-info">
+        <p class="stufe-description woelfli-description">
+          Hier kommt bald eine kurze Beschreibung der Wölflistufe — was die Kinder erleben, lernen und gemeinsam unternehmen.
+        </p>
+        <a href="programm.html" class="stufe-programm-link">
+          <i class="fa-solid fa-calendar-days"></i>
+          Zum Programm der Wölflistufe
+        </a>
+      </div>
+
+      <div class="stufe-leaders">
+        <h3 class="leaders-title">Unsere Leiter</h3>
+        <div class="leader-grid">
+          <div class="leader-card">
+            <img src="../images/leiterfotos/tranquillo.JPG" alt="Tranquillo">
+            <span>Tranquillo</span>
+          </div>
+          <div class="leader-card">
+            <img src="../images/leiterfotos/merida.JPG" alt="Merida">
+            <span>Merida</span>
+          </div>
+          <div class="leader-card">
+            <img src="../images/leiterfotos/moana.JPG" alt="Moana">
+            <span>Moana</span>
+          </div>
+          <div class="leader-card leader-card-group">
+            <img src="../images/leiterfotos/woelfli.JPG" alt="Wölflistufe Gruppe">
+            <span>Wölflistufe</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pfadistufe -->
+  <section class="stufe-section pfadi" id="pfadistufe">
+    <div class="stufe-header">
+      <div class="stufe-header-left">
+        <h2>Pfadistufe</h2>
+        <span class="stufe-badge pfadi-badge">10 – 13 Jahre</span>
+      </div>
+    </div>
+
+    <div class="stufe-body">
+      <div class="stufe-info">
+        <p class="stufe-description pfadi-description">
+          Hier kommt bald eine kurze Beschreibung der Pfadistufe — was die Jugendlichen erleben, lernen und gemeinsam unternehmen.
+        </p>
+        <a href="programm.html" class="stufe-programm-link">
+          <i class="fa-solid fa-calendar-days"></i>
+          Zum Programm der Pfadistufe
+        </a>
+      </div>
+
+      <div class="stufe-leaders">
+        <h3 class="leaders-title">Unsere Leiter</h3>
+        <div class="leader-grid">
+          <div class="leader-card">
+            <img src="../images/leiterfotos/stitch.JPG" alt="Gil">
+            <span>Stitch</span>
+          </div>
+          <div class="leader-card">
+            <img src="../images/leiterfotos/faro.JPG" alt="Faro">
+            <span>Faro</span>
+          </div>
+          <div class="leader-card">
+            <img src="../images/leiterfotos/riendo.JPG" alt="Riendo">
+            <span>Riendo</span>
+          </div>
+          <div class="leader-card leader-card-group">
+            <img src="../images/leiterfotos/pfadi.JPG" alt="Pfadistufe Gruppe">
+            <span>Pfadistufe</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Piostufe -->
+  <section class="stufe-section pio" id="piostufe">
+    <div class="stufe-header">
+      <div class="stufe-header-left">
+        <h2>Piostufe</h2>
+        <span class="stufe-badge pio-badge">14 – 16 Jahre</span>
+      </div>
+    </div>
+
+    <div class="stufe-body">
+      <div class="stufe-info">
+        <p class="stufe-description pio-description">
+          Hier kommt bald eine kurze Beschreibung der Piostufe — was die Jugendlichen erleben, lernen und gemeinsam unternehmen.
+        </p>
+        <a href="programm.html" class="stufe-programm-link">
+          <i class="fa-solid fa-calendar-days"></i>
+          Zum Programm der Piostufe
+        </a>
+      </div>
+
+      <div class="stufe-leaders">
+        <h3 class="leaders-title">Unsere Leiter</h3>
+        <div class="leader-grid-solo">
+          <div class="leader-card">
+            <img src="../images/leiterfotos/salto.JPG" alt="Salto">
+            <span>Salto</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Organigramm -->
+  <section class="dok-section" id="organigramm">
+    <div class="dok-header">
+      <div class="dok-header-left">
+        <h2>Organigramm 2026</h2>
+        <p class="dok-subtitle">Abteilungsstruktur mit allen Leitenden und Mitgliedern</p>
+      </div>
+      <a href="../files/organisatorisches/organigramm-2026.pdf" download class="stufe-programm-link">
+        <i class="fa-solid fa-download"></i>
+        Als PDF herunterladen
+      </a>
+    </div>
+    <div class="dok-embed">
+      <img src="../files/organisatorisches/organigramm.jpg" alt="Organigramm 2026">
+    </div>
+  </section>
+
+  <!-- Stufenmodell -->
+  <section class="dok-section" id="stufenmodell">
+    <div class="dok-header">
+      <div class="dok-header-left">
+        <h2>Stufenmodell</h2>
+        <p class="dok-subtitle">Das Pfadi-Stufenmodell — Altersgruppen und Inhalte im Überblick</p>
+      </div>
+      <a href="../files/organisatorisches/stufenmodell.pdf" download class="stufe-programm-link">
+        <i class="fa-solid fa-download"></i>
+        Als PDF herunterladen
+      </a>
+    </div>
+    <div class="dok-embed">
+      <img src="../files/organisatorisches/stufenmodell.jpg" alt="Stufenmodell">
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="footer">
+    <div class="sponsoren">
+      <h3>Sponsoren</h3>
+      <p><a rel="noopener" href="https://www.raiffeisen.ch/benken/de.html" target="_blank">Raiffeisenbank Benken</a></p>
+      <p><a rel="noopener" href="https://www.raiffeisen.ch/am-ricken/de.html" target="_blank">Raiffeisenbank am Ricken</a></p>
+      <p><a rel="noopener" href="https://gommiswald.ch/" target="_blank">Gemeinde Gommiswald</a></p>
+      <p><a rel="noopener" href="https://ortsgemeinde-gommiswald.ch/" target="_blank">Ortsgemeinde Gommiswald</a></p>
+      <p><a rel="noopener" href="https://www.schreinerwerk.com/firma/" target="_blank">Schreinerei Kaufmann Gommiswald</a></p>
+      <p><a rel="noopener" href="https://www.jugendundsport.ch/de" target="_blank">Jugend &amp; Sport</a></p>
+    </div>
+    <div class="social-media">
+      <h3>Social Media</h3>
+      <a title="Instagram" rel="noopener" target="_blank" href="https://www.instagram.com/pfadi.regulastein/"><i class="fa-brands fa-instagram fa-2xl"></i></a>
+      <a title="Facebook" rel="noopener" target="_blank" href="https://www.facebook.com/pfadi.regulastein"><i class="fa-brands fa-facebook fa-2xl"></i></a>
+    </div>
+  </div>
+</footer>
+
+</body>
 </html>

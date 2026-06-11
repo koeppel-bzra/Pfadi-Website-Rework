@@ -1,116 +1,263 @@
 @import url('https://fonts.googleapis.com/css2?family=Bitcount+Single+Ink:wght@100..900&family=Saira:ital,wght@0,100..900;1,100..900&display=swap');
 
 :root {
-    /* === BRAND COLORS (Original Pfadi) === */
-    --primary-red: #F41D19;
-    --primary-red-dark: #D1180E;
-    
-    --primary-blue: #005EB6;
-    --primary-blue-light: #1E73B7;
-    
-    --primary-green: #30670B;
-    --primary-yellow: #FFFF00;
-    
-    --primary-black: #1c1c1c;
-    --primary-gray: #7F8C8D;
+    /* ================================================
+       BRAND COLORS — Pfadi Regulastein Palette
+    ================================================ */
+    --primary-red:        #F41D19;
+    --primary-red-dark:   #D1180E;
+
+    --primary-blue:       #005EB6;
+
+    --primary-black:      #1c1c1c;
+    --primary-gray:       #7F8C8D;
     --primary-gray-light: #BDC3C7;
 
-    /* === SEMANTIC COLORS === */
+    /* Semantic alias */
     --accent: var(--primary-red);
-    --accent-hover: var(--primary-red-dark);
-    --success: var(--primary-green);
-    --warning: var(--primary-yellow);
-    --info: var(--primary-blue-light);
 
-    /* === BACKGROUND & TEXT === */
-    --bg-dark: #e9e9e9;
-    --bg: #f1efef;
+    /* ================================================
+       STUFEN COLORS — Wölfli / Pfadi / Pio
+    ================================================ */
+    --woelfli-color:       #F5B800;
+    --woelfli-color-light: rgba(245, 184, 0, 0.10);
+    --woelfli-color-dark:  #a07800;
+
+    --pfadi-color:       var(--primary-red);
+    --pfadi-color-light: rgba(244, 29, 25, 0.10);
+
+    --pio-color:       var(--primary-blue);
+    --pio-color-light: rgba(0, 94, 182, 0.10);
+
+    /* ================================================
+       SECTION BACKGROUNDS — Was ist Pfadi cards
+    ================================================ */
+    --section-blue-bg:     rgba(0, 94, 182, 0.08);
+    --section-blue-glow:   rgba(0, 94, 182, 0.15);
+
+    --section-red-bg:      rgba(244, 29, 25, 0.10);
+    --section-red-glow:    rgba(244, 29, 25, 0.12);
+
+    --section-yellow-bg:   rgba(255, 255, 0, 0.15);
+    --section-yellow-glow: rgba(255, 255, 0, 0.20);
+
+    /* ================================================
+       BACKGROUNDS & TEXT
+    ================================================ */
+    --bg-dark:  #e9e9e9;
+    --bg:       #f1efef;
     --bg-light: #f2f1f1;
-    --bg-mid: #f0f0f0;
-    
-    --text: #1A1A1A;
+    --bg-mid:   #f0f0f0;
+
+    --text:           #1A1A1A;
     --text-secondary: #4A4A4A;
-    --text-muted: #7F8C8D;
-    --text-light: #A9ACB1;
-    --text-white: #FFFFFF;
+    --text-muted:     #7F8C8D;
+    --text-white:     #FFFFFF;
 
-    --border: #E1E5EB;
+    --border:       #E1E5EB;
     --border-light: #EEF0F5;
+    --border-card: solid 1px var(--border);
 
-    /* === SHADOWS === */
-    --shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.05);
+    /* ================================================
+       NAV INTERACTION TINTS  (avoid repeating rgba())
+    ================================================ */
+    --nav-hover-bg:     rgba(244, 29, 25, 0.07);
+    --nav-hover-border: rgba(244, 29, 25, 0.22);
+    --nav-cta-bg:       rgba(244, 29, 25, 0.06);
+    --nav-cta-shadow:   rgba(244, 29, 25, 0.38);
+
+    /* ================================================
+       OVERLAYS
+    ================================================ */
+    --overlay-dark:   rgba(0, 0, 0, 0.80);
+    --overlay-medium: rgba(0, 0, 0, 0.60);
+    --overlay-soft:   rgba(0, 0, 0, 0.30);
+
+    /* ================================================
+       ACCENT EFFECTS
+    ================================================ */
+    --accent-glow: rgba(244, 29, 25, 0.35);
+
+    /* ================================================
+       SHADOWS
+    ================================================ */
     --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.08);
     --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.12);
     --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.15);
     --shadow-xl: 0 12px 32px rgba(0, 0, 0, 0.18);
-    
-    --box-shadow-normal: var(--shadow-md);
+
     --box-shadow-muted: var(--shadow-sm);
 
-    /* === SPACING === */
-    --spacing-xs: 0.25rem;
-    --spacing-sm: 0.5rem;
-    --spacing-md: 1rem;
-    --spacing-lg: 1.5rem;
-    --spacing-xl: 2rem;
+    /* ================================================
+       SPACING
+    ================================================ */
+    --spacing-xs:  0.25rem;
+    --spacing-sm:  0.5rem;
+    --spacing-md:  1rem;
+    --spacing-lg:  1.5rem;
+    --spacing-xl:  2rem;
     --spacing-2xl: 3rem;
 
-    /* === BORDER RADIUS === */
-    --radius-sm: 6px;
-    --radius-md: 12px;
-    --radius-lg: 16px;
+    /* ================================================
+       BORDER RADIUS
+    ================================================ */
+    --radius-sm:   6px;
+    --radius-md:   12px;
+    --radius-lg:   16px;
     --radius-full: 9999px;
 
-    /* === TYPOGRAPHY === */
+    /* ================================================
+       TYPOGRAPHY
+    ================================================ */
     --font-family-base: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', sans-serif;
-    --font-size-xs: 0.75rem;
-    --font-size-sm: 0.875rem;
-    --font-size-base: 1rem;
-    --font-size-lg: 1.125rem;
-    --font-size-xl: 1.25rem;
-    --font-size-2xl: 1.5rem;
-    --font-size-3xl: 1.875rem;
-    --font-size-4xl: 2.25rem;
+
+    --font-size-xs:    0.75rem;
+    --font-size-sm:    0.875rem;
+    --font-size-base:  1rem;
+    --font-size-lg:    1.125rem;
+    --font-size-xl:    1.25rem;
+    --font-size-2xl:   1.5rem;
+    --font-size-3xl:   1.875rem;
+    --font-size-4xl:   2.25rem;
     --font-size-title: 3rem;
 
-    --font-weight-light: 300;
     --font-weight-normal: 400;
-    --font-weight-medium: 500;
-    --font-weight-semibold: 600;
-    --font-weight-bold: 700;
-    --font-weight-extrabold: 1000;
 
-    /* === TRANSITIONS === */
-    --transition-fast: 0.15s ease;
+    /* ================================================
+       TRANSITIONS
+    ================================================ */
     --transition-base: 0.3s ease;
     --transition-slow: 0.5s ease;
-
-    /* === GRADIENTS === */
-    --gradient-primary: linear-gradient(135deg, var(--primary-red) 0%, #FF3D37 100%);
-    --gradient-blue: linear-gradient(135deg, var(--primary-blue) 0%, var(--primary-blue-light) 100%);
-    --gradient-subtle: linear-gradient(180deg, var(--bg) 0%, var(--bg-light) 100%);
-
-    --border-card: solid 1px var(--border);
-
 }
 
+/* Dark Mode overrides */
 .dark-mode {
-    --bg-dark: #0F1116;
-    --bg: #16171D;
+    /* Backgrounds */
+    --bg-dark:  #0F1116;
+    --bg:       #16171D;
     --bg-light: #1E1F27;
-    --bg-card: #242933;
-    
-    --text: #E8E8E8;
+    --bg-mid:   #252630;
+
+    /* Text */
+    --text:           #E8E8E8;
     --text-secondary: #B8B8B8;
-    --text-muted: #7F8C8D;
-    --text-light: #5A5F6F;
-    
-    --border: #2D3139;
+    --text-muted:     #888F96;
+
+    /* Borders */
+    --border:       #2D3139;
     --border-light: #3A3F4A;
+    --border-card:  solid 1px #2D3139;
+
+    /* Section tints — slightly stronger so they read on dark bg */
+    --section-blue-bg:     rgba(0,   94, 182, 0.16);
+    --section-blue-glow:   rgba(0,   94, 182, 0.25);
+    --section-red-bg:      rgba(244, 29,  25, 0.16);
+    --section-red-glow:    rgba(244, 29,  25, 0.22);
+    --section-yellow-bg:   rgba(245, 184,  0, 0.14);
+    --section-yellow-glow: rgba(245, 184,  0, 0.22);
+
+    /* Woelfli / stufen tints */
+    --woelfli-color-light: rgba(245, 184, 0, 0.15);
+    --pfadi-color-light:   rgba(244, 29, 25, 0.15);
+    --pio-color-light:     rgba(0, 94, 182, 0.15);
+
+    /* Shadows deeper on dark */
+    --shadow-sm: 0 2px  4px rgba(0, 0, 0, 0.35);
+    --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.45);
+    --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.55);
+    --shadow-xl: 0 12px 32px rgba(0, 0, 0, 0.65);
+
+    /* Nav tints slightly more visible on dark */
+    --nav-hover-bg:     rgba(244, 29, 25, 0.12);
+    --nav-hover-border: rgba(244, 29, 25, 0.35);
+    --nav-cta-bg:       rgba(244, 29, 25, 0.10);
 }
 
 
-/* Allgemeines Styling */
+/* ================================================
+   DARK MODE — COMPONENT OVERRIDES
+   (for elements that use var(--primary-black) as bg
+    or other values that don't auto-flip)
+================================================ */
+
+/* Black download buttons → white-outlined in dark mode */
+.dark-mode .sc-programm-child a,
+.dark-mode .wip-btn {
+    background: transparent;
+    color: var(--text);
+    border-color: var(--border);
+}
+.dark-mode .sc-programm-child a:hover,
+.dark-mode .wip-btn:hover {
+    background: var(--primary-red);
+    border-color: var(--primary-red);
+    color: var(--text-white);
+}
+
+/* Stufe programm-link buttons */
+.dark-mode .stufe-programm-link {
+    background: transparent;
+    color: var(--text);
+    border-color: var(--border);
+}
+.dark-mode .stufe-programm-link:hover {
+    background: var(--primary-red);
+    border-color: var(--primary-red);
+    color: var(--text-white);
+}
+
+/* ---- index.html: links/spans with hardcoded var(--primary-black) color ---- */
+.dark-mode .aktuelleanlaesse a {
+    color: var(--text-secondary);
+}
+.dark-mode .wichtige-links_span {
+    color: var(--text-secondary);
+}
+.dark-mode .wichtige-links > div > p > a {
+    color: var(--text-secondary);
+}
+
+/* ---- stufen.html: black borders on dok-section + dok-header ---- */
+.dark-mode .dok-section {
+    border-left-color: var(--border);
+}
+.dark-mode .dok-header {
+    border-bottom-color: var(--border);
+}
+
+/* ---- stufen quicknav: black hover bg for organigramm / stufenmodell ---- */
+.dark-mode .stufen-quicknav a[href="#organigramm"]:hover,
+.dark-mode .stufen-quicknav a[href="#stufenmodell"]:hover {
+    background: var(--bg-mid);
+    border-color: var(--border);
+    color: var(--text);
+}
+
+/* ---- programm.html summary: woelfli dark text needs lighter shade ---- */
+.dark-mode .programm-details.woelfli[open] summary,
+.dark-mode .programm-details.woelfli summary:hover {
+    color: var(--woelfli-color);
+}
+
+/* Leaflet map popup text */
+.dark-mode .leaflet-popup-content-wrapper {
+    background: var(--bg-light);
+    color: var(--text);
+    box-shadow: var(--shadow-md);
+}
+.dark-mode .leaflet-popup-tip {
+    background: var(--bg-light);
+}
+
+/* Iframe border */
+.dark-mode .anlaesse > iframe {
+    border-color: var(--border);
+    filter: invert(0.85) hue-rotate(180deg);
+}
+
+/* ================================================
+   GLOBAL BASE STYLES
+================================================ */
 
 html {
     scroll-behavior: smooth;
@@ -122,11 +269,10 @@ body {
     border: 0;
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     background-color: var(--bg);
+    color: var(--text);
 }
 
-h1 {
-    margin: 0;
-}
+h1 { margin: 0; }
 
 h2 {
     margin: 0;

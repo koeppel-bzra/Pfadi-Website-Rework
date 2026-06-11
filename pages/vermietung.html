@@ -5,7 +5,7 @@
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>pfadi-website</title>
-    <script type="module" src="../src/main.ts"></script>
+    <script type="module" src="../src/main.js"></script>
     <script src="https://kit.fontawesome.com/920aa667f6.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="../styles/vermietung.css">
     <link rel="stylesheet" href="../styles/nav.css">
@@ -27,34 +27,74 @@
         <div class="right-nav">
             <ul>
                 <li>
-                    <img alt="Home-Icon" src="../images/home.svg" width="24px">
+                    <i class="fa-solid fa-house"></i>
                     <a href="../index.html">Home</a>
                 </li>
                 <li>
-                    <img alt="Programm-Icon" src="../images/programm.svg" width="24px">
+                    <i class="fa-solid fa-calendar-days"></i>
                     <a href="programm.html">Programm</a>
                 </li>
                 <li>
-                    <img alt="Stufen-Icon" src="../images/stufen.svg" width="24px">
+                    <i class="fa-solid fa-campground"></i>
                     <a href="stufen.html">Stufen</a>
                 </li>
                 <li>
-                    <img alt="Mitglied-werden-Icon" src="../images/mitgliedwerden.svg" width="24px">
-                    <a href="mitglied-werden.html">Mitglied werden</a>
-                </li>
-                <li>
-                    <img alt="Mobile-Kueche-Icon" src="../images/kueche.svg" width="24px">
+                    <i class="fa-solid fa-utensils"></i>
                     <a href="vermietung.html"><strong>Mobile Küche</strong></a>
                 </li>
                 <li>
-                    <img alt="Galerie-Icon" src="../images/galerie.svg" width="24px">
+                    <i class="fa-solid fa-images"></i>
                     <a href="galerie.html">Galerie</a>
                 </li>
+                <li class="nav-mitglied">
+                    <i class="fa-solid fa-user-plus"></i>
+                    <a href="mitglied-werden.html">Mitglied werden</a>
+                </li>
             </ul>
+            <button type="button" id="dark-mode-toggle" aria-label="Darkmode umschalten">🌙</button>
             <div class="hamburger">☰</div>
         </div>
 
         </nav>
     </header>
+
+    <main>
+      <section class="title-section">
+        <h1 class="title-title">MOBILE KÜCHE</h1>
+        <hr>
+        <p>Unsere mobile Küche für Anlässe und Lager.</p>
+      </section>
+
+      <section class="wip-section">
+        <div class="wip-icon">
+          <i class="fa-solid fa-utensils"></i>
+        </div>
+        <h2>Diese Seite ist noch in Arbeit</h2>
+        <p>Hier findest du bald alle Infos zur Vermietung unserer mobilen Küche.</p>
+        <a href="../index.html" class="wip-btn">
+          <i class="fa-solid fa-house"></i> Zur Startseite
+        </a>
+      </section>
+    </main>
+
+    <footer>
+      <div class="footer">
+        <div class="sponsoren">
+          <h3>Sponsoren</h3>
+          <p><a rel="noopener" href="https://www.raiffeisen.ch/benken/de.html" target="_blank">Raiffeisenbank Benken</a></p>
+          <p><a rel="noopener" href="https://www.raiffeisen.ch/am-ricken/de.html" target="_blank">Raiffeisenbank am Ricken</a></p>
+          <p><a rel="noopener" href="https://gommiswald.ch/" target="_blank">Gemeinde Gommiswald</a></p>
+          <p><a rel="noopener" href="https://ortsgemeinde-gommiswald.ch/" target="_blank">Ortsgemeinde Gommiswald</a></p>
+          <p><a rel="noopener" href="https://www.schreinerwerk.com/firma/" target="_blank">Schreinerei Kaufmann Gommiswald</a></p>
+          <p><a rel="noopener" href="https://www.jugendundsport.ch/de" target="_blank">Jugend &amp; Sport</a></p>
+        </div>
+        <div class="social-media">
+          <h3>Social Media</h3>
+          <a title="Instagram" rel="noopener" target="_blank" href="https://www.instagram.com/pfadi.regulastein/"><i class="fa-brands fa-instagram fa-2xl"></i></a>
+          <a title="Facebook" rel="noopener" target="_blank" href="https://www.facebook.com/pfadi.regulastein"><i class="fa-brands fa-facebook fa-2xl"></i></a>
+        </div>
+      </div>
+    </footer>
+
   </body>
 </html>

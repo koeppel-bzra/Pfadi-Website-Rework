@@ -10,9 +10,11 @@
   <script src="https://kit.fontawesome.com/920aa667f6.js" crossorigin="anonymous"></script>
   <script src="../src/programm.js" defer></script>
 
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
   <link rel="stylesheet" href="../styles/root.css">
   <link rel="stylesheet" href="../styles/nav.css">
   <link rel="stylesheet" href="../styles/programm.css">
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 </head>
 
 <body>
@@ -34,30 +36,31 @@
         <div class="right-nav">
             <ul>
                 <li>
-                    <img alt="Home-Icon" src="../images/home.svg" width="24px">
+                    <i class="fa-solid fa-house"></i>
                     <a href="../index.html">Home</a>
                 </li>
                 <li>
-                    <img alt="Programm-Icon" src="../images/programm.svg" width="24px">
+                    <i class="fa-solid fa-calendar-days"></i>
                     <a href="programm.html"><strong>Programm</strong></a>
                 </li>
                 <li>
-                    <img alt="Stufen-Icon" src="../images/stufen.svg" width="24px">
+                    <i class="fa-solid fa-campground"></i>
                     <a href="stufen.html">Stufen</a>
                 </li>
                 <li>
-                    <img alt="Mitglied-werden-Icon" src="../images/mitgliedwerden.svg" width="24px">
-                    <a href="mitglied-werden.html">Mitglied werden</a>
-                </li>
-                <li>
-                    <img alt="Mobile-Kueche-Icon" src="../images/kueche.svg" width="24px">
+                    <i class="fa-solid fa-utensils"></i>
                     <a href="vermietung.html">Mobile Küche</a>
                 </li>
                 <li>
-                    <img alt="Galerie-Icon" src="../images/galerie.svg" width="24px">
+                    <i class="fa-solid fa-images"></i>
                     <a href="galerie.html">Galerie</a>
                 </li>
+                <li class="nav-mitglied">
+                    <i class="fa-solid fa-user-plus"></i>
+                    <a href="mitglied-werden.html">Mitglied werden</a>
+                </li>
             </ul>
+            <button type="button" id="dark-mode-toggle" aria-label="Darkmode umschalten">🌙</button>
             <div class="hamburger">☰</div>
         </div>
 </div>
@@ -70,46 +73,97 @@
     <h1 class="title-title">PFADI ERLEBEN</h1>
     <hr>
     <p>Fast jeden zweiten Samstag spannende Abenteuer in der Natur.</p>
+
+    <!-- Quick Navigation -->
+    <nav class="programm-quicknav">
+      <a href="#halbjahresprogramm"><i class="fa-solid fa-calendar-days"></i> Halbjahresprogramme</a>
+      <a href="#programme"><i class="fa-solid fa-list-ul"></i> Detailprogramm</a>
+      <span class="quicknav-divider"></span>
+      <a href="#besammlungsorte"><i class="fa-solid fa-map-location-dot"></i> Besammlungsorte</a>
+    </nav>
   </section>
 
-  <section class="sc-programm">
-    <div class="sc-programm-child">
+  <section class="sc-programm" id="halbjahresprogramm">
+    <div class="sc-programm-child woelfli">
       <h3>Halbjahresprogramm Wölflistufe</h3>
       <h6>Die Schöne und das Biest</h6>
-      <img src="../images/die-schoene-und-das-biest-beauty-and-the-beast,236091_16x9_1280.jpg" alt="">
+      <img src="../images/woelfli-programm-cover.jpg" alt="Wölflistufe Halbjahresprogramm Cover">
       <p>Entdecke das Halbjahresprogramm der Wölflistufe</p>
-      <a href="../files/Programm Woelfli 1.pdf" download>Als PDF herunterladen</a>
+      <a href="../files/woelfli-halbjahresprogramm-2026.pdf" download>Als PDF herunterladen</a>
     </div>
 
-    <div class="sc-programm-child">
+    <div class="sc-programm-child pfadi">
       <h3>Halbjahresprogramm Pfadistufe</h3>
       <h6>Star Wars</h6>
-      <img src="../images/entertainment-film-star-wars-kylo-ren-rey.webp" alt="">
+      <img src="../images/pfadi-programm-cover.webp" alt="Pfadistufe Halbjahresprogramm Cover">
       <p>Entdecke das Halbjahresprogramm der Pfadistufe</p>
-      <a href="../files/Halbjahresprogramm_2026 Frühling_Pfadistufe (1).pdf" download>Als PDF herunterladen</a>
+      <a href="../files/pfadi-halbjahresprogramm-2026.pdf" download>Als PDF herunterladen</a>
     </div>
   </section>
 
 
-  <section class="programme">
-    <details class="programm-details">
-      <summary>Halbjahresprogramm Wölflistufe 2026</summary>
+  <section class="programme" id="programme">
+    <details class="programm-details woelfli">
+      <summary>
+        <span class="summary-left">
+          <i class="fa-solid fa-paw"></i>
+          Halbjahresprogramm Wölflistufe 2026
+        </span>
+        <span class="summary-toggle"><i class="fa-solid fa-chevron-down"></i></span>
+      </summary>
       <div class="programm-gallery">
-        <img id="programm-image" src="../files/woelfli-programm.jpeg" alt="Wölfli Programm Seite 1">
-        <img id="programm-image" src="../files/woelfli-programm2.jpeg" alt="Wölfli Programm Seite 2">
+        <img src="../files/woelfli-programm.jpeg" alt="Wölfli Programm Seite 1">
+        <img src="../files/woelfli-programm-seite2.jpeg" alt="Wölfli Programm Seite 2">
       </div>
     </details>
 
-    <details class="programm-details">
-      <summary>Halbjahresprogramm Pfadistufe 2026</summary>
+    <details class="programm-details pfadi">
+      <summary>
+        <span class="summary-left">
+          <i class="fa-solid fa-campground"></i>
+          Halbjahresprogramm Pfadistufe 2026
+        </span>
+        <span class="summary-toggle"><i class="fa-solid fa-chevron-down"></i></span>
+      </summary>
       <div class="programm-gallery">
         <img src="../files/pfadi-programm.png" alt="Pfadi Programm Seite 1">
-        <img src="../files/pfadi-programm 2.png" alt="Pfadi Programm Seite 2">
+        <img src="../files/pfadi-programm-seite2.png" alt="Pfadi Programm Seite 2">
       </div>
     </details>
+  </section>
+
+  <section class="besammlungsorte" id="besammlungsorte">
+    <div class="bso-header">
+      <h2 class="title-title">BESAMMLUNGSORTE</h2>
+      <hr>
+      <p>Alle möglichen Treffpunkte für unsere Übungen auf einen Blick.</p>
+    </div>
+    <div class="bso-content">
+      <div id="bso-map"></div>
+      <ul class="bso-list" id="bso-list"></ul>
+    </div>
   </section>
 
 </main>
+
+<footer>
+  <div class="footer">
+    <div class="sponsoren">
+      <h3>Sponsoren</h3>
+      <p><a rel="noopener" href="https://www.raiffeisen.ch/benken/de.html" target="_blank">Raiffeisenbank Benken</a></p>
+      <p><a rel="noopener" href="https://www.raiffeisen.ch/am-ricken/de.html" target="_blank">Raiffeisenbank am Ricken</a></p>
+      <p><a rel="noopener" href="https://gommiswald.ch/" target="_blank">Gemeinde Gommiswald</a></p>
+      <p><a rel="noopener" href="https://ortsgemeinde-gommiswald.ch/" target="_blank">Ortsgemeinde Gommiswald</a></p>
+      <p><a rel="noopener" href="https://www.schreinerwerk.com/firma/" target="_blank">Schreinerei Kaufmann Gommiswald</a></p>
+      <p><a rel="noopener" href="https://www.jugendundsport.ch/de" target="_blank">Jugend &amp; Sport</a></p>
+    </div>
+    <div class="social-media">
+      <h3>Social Media</h3>
+      <a title="Instagram" rel="noopener" target="_blank" href="https://www.instagram.com/pfadi.regulastein/"><i class="fa-brands fa-instagram fa-2xl"></i></a>
+      <a title="Facebook" rel="noopener" target="_blank" href="https://www.facebook.com/pfadi.regulastein"><i class="fa-brands fa-facebook fa-2xl"></i></a>
+    </div>
+  </div>
+</footer>
 
 </body>
 </html>

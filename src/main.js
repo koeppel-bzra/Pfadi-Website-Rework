@@ -34,6 +34,23 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 // =======================
+// DARK MODE
+// =======================
+const darkToggle = document.getElementById('dark-mode-toggle');
+if (darkToggle) {
+    if (localStorage.getItem('darkMode') === 'true') {
+        document.body.classList.add('dark-mode');
+        darkToggle.textContent = '☀️';
+    }
+    darkToggle.addEventListener('click', () => {
+        const isDark = document.body.classList.toggle('dark-mode');
+        darkToggle.textContent = isDark ? '☀️' : '🌙';
+        localStorage.setItem('darkMode', String(isDark));
+    });
+}
+
+
+// =======================
 // HAMBURGER MENU
 // =======================
 const hamburger = document.querySelector('.hamburger');
@@ -56,13 +73,15 @@ if (navbar) {
     window.addEventListener('scroll', () => {
         const currentScrollY = window.scrollY;
 
-        if (currentScrollY > lastScrollY) {
+        if (currentScrollY <= 0) {
+            navbar.classList.remove('hide');
+        } else if (currentScrollY > lastScrollY) {
             navbar.classList.add('hide');
         } else {
             navbar.classList.remove('hide');
         }
 
-        lastScrollY = currentScrollY;
+        lastScrollY = Math.max(0, currentScrollY);
     });
 }
 
@@ -71,12 +90,12 @@ if (navbar) {
 // SLIDESHOW
 // =======================
 const bilder = [
-    "./images/DSC_0039.webp",
-    "./images/DSC_0088.webp",
-    "./images/DSC_0103.webp",
-    "./images/IMG_1867.JPG",
-    "./images/IMG_2011.JPG",
-    "./images/1.jpeg"
+    "./images/slideshow-01.webp",
+    "./images/slideshow-02.webp",
+    "./images/slideshow-03.webp",
+    "./images/slideshow-04.jpg",
+    "./images/slideshow-05.jpg",
+    "./images/slideshow-06.jpg",
 ];
 
 let index = 0;

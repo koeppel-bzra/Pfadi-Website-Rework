@@ -27,30 +27,31 @@
 <div class="right-nav">
     <ul>
         <li>
-            <img alt="Home-Icon" src="./images/home.svg" width="24px">
+            <i class="fa-solid fa-house"></i>
             <a href="index.html"><strong>Home</strong></a>
         </li>
         <li>
-            <img alt="Programm-Icon" src="./images/programm.svg" width="24px">
+            <i class="fa-solid fa-calendar-days"></i>
             <a href="./pages/programm.html">Programm</a>
         </li>
         <li>
-            <img alt="Stufen-Icon" src="./images/stufen.svg" width="24px">
+            <i class="fa-solid fa-campground"></i>
             <a href="./pages/stufen.html">Stufen</a>
         </li>
         <li>
-            <img alt="Mitglied-werden-Icon" src="./images/mitgliedwerden.svg" width="24px">
-            <a href="./pages/mitglied-werden.html">Mitglied werden</a>
-        </li>
-        <li>
-            <img alt="Mobile-Kueche-Icon" src="./images/kueche.svg" width="24px">
+            <i class="fa-solid fa-utensils"></i>
             <a href="./pages/vermietung.html">Mobile Küche</a>
         </li>
         <li>
-            <img alt="Galerie-Icon" src="./images/galerie.svg" width="24px">
+            <i class="fa-solid fa-images"></i>
             <a href="./pages/galerie.html">Galerie</a>
         </li>
+        <li class="nav-mitglied">
+            <i class="fa-solid fa-user-plus"></i>
+            <a href="./pages/mitglied-werden.html">Mitglied werden</a>
+        </li>
     </ul>
+    <button type="button" id="dark-mode-toggle" aria-label="Darkmode umschalten">🌙</button>
     <div class="hamburger">☰</div>
 </div>
 
@@ -66,23 +67,27 @@
 
             <hr>
 
-            <div class="aktuelleanlaesse">
-                <p><a href="#anlaesse"><span class="aktuelleanlaesse_span">Aktuelle Anlässe</span></a></p>
-                <p><a href="#wichtige-links"><span class="wichtige-links_span">Wichtige Links</span></a></p>
-            </div>
+            <!-- Quick Navigation -->
+            <nav class="index-quicknav">
+            <a href="#anlaesse"><i class="fa-solid fa-calendar-days"></i> Aktuelle Anlässe</a>
+            <a href="#wichtige-links"><i class="fa-solid fa-link"></i> Wichtige Links</a>
+            <span class="quicknav-divider"></span>
+            <a href="#wir-sind-pfadi"><i class="fa-solid fa-users"></i> Wir sind Pfadi</a>
+            <a href="#was-ist-pfadi"><i class="fa-solid fa-circle-info"></i> Was ist Pfadi</a>
+            </nav>
         </div>
 
         <div class="slide">
             <div class="side-image">
-                <img src="./images/DSC_0103.webp" alt="dasd" width="300px" id="left-image">
+                <img src="./images/slideshow-03.webp" alt="dasd" width="300px" id="left-image">
             </div>
             <div class="slide-show">
                 <input type="button" value="<" id="back">
-                <img src="./images/DSC_0103.webp" alt="cycle-image" id="slideshow-images" >
+                <img src="./images/slideshow-03.webp" alt="cycle-image" id="slideshow-images" >
                 <input type="button" value=">" id="forward">
             </div>
             <div class="side-image">
-                <img src="./images/DSC_0103.webp" alt="dasd" width="300px" id="right-image">
+                <img src="./images/slideshow-03.webp" alt="dasd" width="300px" id="right-image">
             </div>
         </div>
 
@@ -91,7 +96,7 @@
             <img id="lightbox-img" src="" alt="Vergrössertes Bild">
         </div>
 
-        <section class="Pfadi">
+        <section class="Pfadi" id="wir-sind-pfadi">
         <h1 class="wir-sind-pfadi">Wir sind Pfadi</h1>
         <hr>
             <div class="Pfadi-Regulastein">
@@ -129,29 +134,31 @@
 
         <section class="anlaesse" id="anlaesse">
             <h1>Aktuelle Anlässe</h1>
+            <hr>
             <iframe title="Kalender" src="https://calendar.google.com/calendar/b/1/embed?showTitle=0&amp;showNav=0&amp;showDate=0&amp;showPrint=0&amp;showTabs=0&amp;showCalendars=0&amp;showTz=0&amp;mode=AGENDA&amp;height=250&amp;wkst=1&amp;hl=de&amp;bgcolor=%23ffffff&amp;src=ef802k6kaolfpd4g6007qhcce8%40group.calendar.google.com&amp;color=%232952A3&amp;ctz=Europe%2FZurich"></iframe>
             <h3>Halbjahresprogramme unter <a href="./pages/programm.html">Programm</a></h3>
         </section>
 
         <section class="wichtige-links" id="wichtige-links">
             <h3>Wichtige Links</h3>
+            <hr class="accent">
             <div>
                 <hr>
                 <p><a href="#">Bestellformular Kleider</a></p>
                 <hr>
                 <p><a href="#">Telefonliste Elternrat</a></p>
                 <hr>
-                <p><a href="#">Organigramm</a></p>
+                <p><a href="./pages/stufen.html#organigramm">Organigramm</a></p>
                 <span>Unter <a href="./pages/stufen.html">Stufen</a></span>
                 <hr>
-                <p><a href="#">Stufenmodell</a></p>
-                <span>Unter <a href="./pages/stufen.html">Stufen</a></a></span>
+                <p><a href="./pages/stufen.html#stufenmodell">Stufenmodell</a></p>
+                <span>Unter <a href="./pages/stufen.html">Stufen</a></span>
             </div>
 
 
         </section>
 
-        <section class="was-ist-pfadi">
+        <section class="was-ist-pfadi" id="was-ist-pfadi">
             <h1>WAS IST PFADI? </h1>
             <div>
                 <div class="was-ist-pfadi-section" id="blue-section">
