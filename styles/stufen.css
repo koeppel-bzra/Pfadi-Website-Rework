@@ -141,13 +141,13 @@
   gap: var(--spacing-lg);
 }
 
-/* ---- Description Placeholder ---- */
+/* ---- Description ---- */
 
 .stufe-description {
-  font-style: italic;
-  color: var(--text-muted);
-  line-height: 1.7;
-  padding-left: var(--spacing-md);
+  color: var(--text-secondary);
+  line-height: 1.85;
+  font-size: var(--font-size-base);
+  padding: var(--spacing-sm) var(--spacing-md);
   border-left: 3px solid;
   border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
   margin: 0;
@@ -155,14 +155,17 @@
 
 .woelfli-description {
   border-left-color: var(--woelfli-color);
+  background: var(--woelfli-color-light);
 }
 
 .pfadi-description {
   border-left-color: var(--pfadi-color);
+  background: var(--pfadi-color-light);
 }
 
 .pio-description {
   border-left-color: var(--pio-color);
+  background: var(--pio-color-light);
 }
 
 /* ---- Programm Link Button ---- */
@@ -300,6 +303,58 @@
   font-size: var(--font-size-sm);
   font-weight: 600;
   color: var(--text-secondary);
+}
+
+/* ---- Stufenleitung highlight ---- */
+
+.leader-card-leitung img {
+  border: 2.5px solid transparent;
+}
+
+.woelfli .leader-card-leitung img {
+  border-color: var(--woelfli-color);
+  box-shadow: 0 0 0 3px rgba(245, 184, 0, 0.2), var(--shadow-sm);
+}
+
+.pfadi .leader-card-leitung img {
+  border-color: var(--pfadi-color);
+  box-shadow: 0 0 0 3px rgba(244, 29, 25, 0.18), var(--shadow-sm);
+}
+
+.pio .leader-card-leitung img {
+  border-color: var(--pio-color);
+  box-shadow: 0 0 0 3px rgba(0, 94, 182, 0.18), var(--shadow-sm);
+}
+
+.leader-role {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.4px;
+  text-transform: uppercase;
+  padding: 0.18rem 0.55rem;
+  border-radius: var(--radius-full);
+  border: 1.5px solid;
+}
+
+.woelfli .leader-role {
+  background: var(--woelfli-color-light);
+  color: var(--woelfli-color-dark);
+  border-color: var(--woelfli-color);
+}
+
+.pfadi .leader-role {
+  background: var(--pfadi-color-light);
+  color: var(--pfadi-color);
+  border-color: var(--pfadi-color);
+}
+
+.pio .leader-role {
+  background: var(--pio-color-light);
+  color: var(--pio-color);
+  border-color: var(--pio-color);
 }
 
 .leader-card-group {
