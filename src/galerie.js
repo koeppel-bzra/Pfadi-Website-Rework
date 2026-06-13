@@ -1,179 +1,146 @@
-// ===== Galerie Lightbox =====
+const API_KEY = "AIzaSyBBlF2D1mftbAYFwRzaTomYqae6QOZFyH4";
+const FOLDER_ID = "1mQyuSWXdds_uH_0m9UdmGEWcoWsi-sQd";
 
-document.addEventListener('DOMContentLoaded', () => {
-
-const lightbox     = document.getElementById('lightbox');
-if (!lightbox) return; // not on the gallery page
-
-const lbImg        = document.getElementById('lb-img');
-const lbCaption    = document.getElementById('lb-caption');
-const lbCounter    = document.getElementById('lb-counter');
-const lbClose      = document.querySelector('.lb-close');
-const lbPrev       = document.querySelector('.lb-prev');
-const lbNext       = document.querySelector('.lb-next');
-const lbImageWrap  = document.querySelector('.lb-image-wrap');
-
-let album        = [];
+let galleryImages = [];
 let currentIndex = 0;
-let isZoomed     = false;
 
-// ----- Open / Close -----
+async function fetchAllImages() {
+  const images = [];
+  let pageToken = "";
 
-function openLightbox(items, index) {
-    album        = items;
-    currentIndex = index;
-    renderImage();
-    lightbox.classList.add('active');
-    document.body.style.overflow = 'hidden';
+  do {
+    const url = new URL("https://www.googleapis.com/drive/v3/files");
+    url.searchParams.set("q", `'${FOLDER_ID}' in parents and mimeType contains 'image/'`);
+    url.searchParams.set("fields", "nextPageToken, files(id, name)");
+    url.searchParams.set("key", API_KEY);
+    url.searchParams.set("pageSize", "100");
+    if (pageToken) url.searchParams.set("pageToken", pageToken);
+
+    const res = await fetch(url);
+    const data = await res.json();
+
+    if (data.error) {
+      throw new Error(`Drive API Fehler ${data.error.code}: ${data.error.message}`);
+    }
+
+    console.log("Drive API Antwort:", data);
+    if (data.files) images.push(...data.files);
+    pageToken = data.nextPageToken || "";
+  } while (pageToken);
+
+  return images;
+}
+
+function driveThumb(id, size = "w600") {
+  return `https://drive.google.com/thumbnail?id=${id}&sz=${size}`;
+}
+
+function renderGallery(images) {
+  const container = document.getElementById("galerie-container");
+
+  const section = document.createElement("section");
+  section.className = "galerie-album";
+  section.id = "pfila-2026";
+
+  section.innerHTML = `
+    <div class="album-header">
+      <div class="album-header-left">
+        <h2>Pfila 2026</h2>
+        <span class="album-badge"><i class="fa-solid fa-tent"></i> Lager</span>
+        <span class="album-count"><i class="fa-solid fa-images"></i> ${images.length} Fotos</span>
+      </div>
+    </div>
+  `;
+
+  const grid = document.createElement("div");
+  grid.className = "photo-grid";
+
+  images.forEach((file, index) => {
+    const item = document.createElement("div");
+    item.className = "photo-item";
+    item.tabIndex = 0;
+    item.setAttribute("role", "button");
+    item.setAttribute("aria-label", `Foto öffnen: ${file.name}`);
+
+    item.innerHTML = `
+      <img src="${driveThumb(file.id, "w400")}" alt="${file.name}" loading="lazy">
+      <div class="photo-overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+    `;
+
+    item.addEventListener("click", () => openLightbox(index));
+    item.addEventListener("keydown", (e) => {
+      if (e.key === "Enter" || e.key === " ") {
+        e.preventDefault();
+        openLightbox(index);
+      }
+    });
+
+    grid.appendChild(item);
+  });
+
+  section.appendChild(grid);
+  container.appendChild(section);
+}
+
+function openLightbox(index) {
+  currentIndex = index;
+  const file = galleryImages[index];
+  const lbImg = document.getElementById("lb-img");
+
+  lbImg.src = driveThumb(file.id, "w1600");
+  document.getElementById("lb-caption").textContent = file.name;
+  document.getElementById("lb-counter").textContent = `${index + 1} / ${galleryImages.length}`;
+  document.getElementById("lightbox").classList.add("active");
 }
 
 function closeLightbox() {
-    if (isZoomed) { resetZoom(); return; }
-    lightbox.classList.remove('active');
-    document.body.style.overflow = '';
+  document.getElementById("lightbox").classList.remove("active");
 }
 
-// ----- Render -----
-function renderImage() {
-    const item = album[currentIndex];
-    lbImg.classList.add('fading');
-
-    setTimeout(() => {
-        lbImg.src           = item.src;
-        lbImg.alt           = item.alt;
-        lbCaption.textContent = item.caption;
-        lbCounter.textContent = `${currentIndex + 1} / ${album.length}`;
-        lbPrev.disabled     = currentIndex === 0;
-        lbNext.disabled     = currentIndex === album.length - 1;
-        resetZoom(false);
-        lbImg.classList.remove('fading');
-        hasTimeout = null;
-    }, 120);
+function navigate(direction) {
+  currentIndex = (currentIndex + direction + galleryImages.length) % galleryImages.length;
+  const lbImg = document.getElementById("lb-img");
+  lbImg.classList.add("fading");
+  setTimeout(() => {
+    openLightbox(currentIndex);
+    lbImg.classList.remove("fading");
+  }, 150);
 }
 
-// ----- Navigate -----
-let hasTimeout = null;
+document.addEventListener("DOMContentLoaded", async () => {
+  const container = document.getElementById("galerie-container");
+  container.innerHTML =
+    '<p style="text-align:center;padding:2rem;color:var(--text-muted)">Bilder werden geladen…</p>';
 
-function navigate(dir) {    
-    if (!hasTimeout) {
-        hasTimeout = setTimeout(() => {
-            const next = currentIndex + dir;
-            if (next < 0 || next >= album.length) return;
-            currentIndex = next;
-            renderImage();
-            hasTimeout = null;
-        }, 300);
+  try {
+    galleryImages = await fetchAllImages();
+    container.innerHTML = "";
+
+    if (galleryImages.length === 0) {
+      container.innerHTML =
+        '<p style="text-align:center;padding:2rem">Keine Bilder gefunden.</p>';
+      return;
     }
-}
 
-// ----- Zoom -----
+    renderGallery(galleryImages);
+  } catch (err) {
+    console.error("Galerie konnte nicht geladen werden:", err);
+    container.innerHTML =
+      '<p style="text-align:center;padding:2rem;color:var(--primary-red)">Fehler beim Laden der Bilder.</p>';
+  }
 
-function resetZoom(transition = true) {
-    isZoomed = false;
-    if (!transition) lbImg.style.transition = 'none';
-    lbImg.style.transform       = 'scale(1)';
-    lbImg.style.transformOrigin = 'center center';
-    lbImg.classList.remove('zoomed');
-    // re-enable transition on next frame
-    if (!transition) requestAnimationFrame(() => {
-        lbImg.style.transition = '';
-    });
-}
+  document.querySelector(".lb-close").addEventListener("click", closeLightbox);
+  document.querySelector(".lb-prev").addEventListener("click", () => navigate(-1));
+  document.querySelector(".lb-next").addEventListener("click", () => navigate(1));
 
-lbImg.addEventListener('click', (e) => {
-    if (!isZoomed) {
-        const rect = lbImg.getBoundingClientRect();
-        const x    = ((e.clientX - rect.left)  / rect.width)  * 100;
-        const y    = ((e.clientY - rect.top)   / rect.height) * 100;
-        lbImg.style.transformOrigin = `${x}% ${y}%`;
-        lbImg.style.transform       = 'scale(2.6)';
-        lbImg.classList.add('zoomed');
-        isZoomed = true;
-    } else {
-        resetZoom();
-    }
+  document.getElementById("lightbox").addEventListener("click", (e) => {
+    if (e.target === e.currentTarget) closeLightbox();
+  });
+
+  document.addEventListener("keydown", (e) => {
+    if (!document.getElementById("lightbox").classList.contains("active")) return;
+    if (e.key === "ArrowLeft") navigate(-1);
+    if (e.key === "ArrowRight") navigate(1);
+    if (e.key === "Escape") closeLightbox();
+  });
 });
-
-// Pan while zoomed: update transform-origin on mousemove
-lbImg.addEventListener('mousemove', (e) => {
-    if (!isZoomed) return;
-    const rect = lbImg.getBoundingClientRect();
-    const x    = ((e.clientX - rect.left)  / rect.width)  * 100;
-    const y    = ((e.clientY - rect.top)   / rect.height) * 100;
-    lbImg.style.transformOrigin = `${x}% ${y}%`;
-});
-
-// ----- Touch: swipe left/right to navigate -----
-
-let touchStartX  = 0;
-let touchStartY  = 0;
-let didSwipe     = false;
-
-lightbox.addEventListener('touchstart', (e) => {
-    if (e.touches.length !== 1) return;
-    touchStartX = e.touches[0].clientX;
-    touchStartY = e.touches[0].clientY;
-    didSwipe    = false;
-}, { passive: true });
-
-lightbox.addEventListener('touchmove', (e) => {
-    if (e.touches.length !== 1 || isZoomed) return;
-    const dx = Math.abs(e.touches[0].clientX - touchStartX);
-    const dy = Math.abs(e.touches[0].clientY - touchStartY);
-    if (dx > 12 && dx > dy) didSwipe = true;
-}, { passive: true });
-
-lightbox.addEventListener('touchend', (e) => {
-    if (!didSwipe || isZoomed) return;
-    const dx = e.changedTouches[0].clientX - touchStartX;
-    if (Math.abs(dx) > 48) navigate(dx < 0 ? 1 : -1);
-});
-
-// ----- Keyboard -----
-
-document.addEventListener('keydown', (e) => {
-    if (!lightbox.classList.contains('active')) return;
-    if (e.key === 'ArrowRight') navigate(1);
-    if (e.key === 'ArrowLeft')  navigate(-1);
-    if (e.key === 'Escape')     closeLightbox();
-});
-
-// ----- Button listeners -----
-
-lbClose.addEventListener('click', () => {
-    lightbox.classList.remove('active');
-    document.body.style.overflow = '';
-    resetZoom(false);
-});
-
-lbPrev.addEventListener('click', () => navigate(-1));
-lbNext.addEventListener('click', () => navigate(1));
-
-// Close on backdrop click (not on image / buttons)
-lightbox.addEventListener('click', (e) => {
-    if (e.target === lightbox || e.target === lbImageWrap) closeLightbox();
-});
-
-// ----- Wire up all photo grids -----
-
-document.querySelectorAll('.galerie-album').forEach((albumEl) => {
-    const items = Array.from(albumEl.querySelectorAll('.photo-item')).map((item) => ({
-        src:     item.dataset.fullSrc || item.querySelector('img').src,
-        alt:     item.querySelector('img').alt,
-        caption: item.dataset.caption || '',
-    }));
-
-    albumEl.querySelectorAll('.photo-item').forEach((item, index) => {
-        item.setAttribute('tabindex', '0');
-        item.setAttribute('role', 'button');
-        item.addEventListener('click', () => openLightbox(items, index));
-        item.addEventListener('keydown', (e) => {
-            if (e.key === 'Enter' || e.key === ' ') {
-                e.preventDefault();
-                openLightbox(items, index);
-            }
-        });
-    });
-});
-
-}); // DOMContentLoaded
