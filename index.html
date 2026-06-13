@@ -67,15 +67,16 @@
                 <h1 class="hero__title">Herzlich willkommen bei der<br><span>Pfadi Regulastein</span></h1>
                 <p class="hero__lead">
                     Jeden zweiten Samstag erleben Kinder und Jugendliche bei uns Abenteuer in der
-                    Natur — gespielt, gelacht, draussen. Begleitet von einem <strong>ausgebildeten,
-                    ehrenamtlichen Leiterteam</strong>, das euer Kind kennt und ernst nimmt.
+                    Natur — gespielt, gelacht, draussen. Vom <strong>Wölfli</strong> über die
+                    <strong>Pfadi</strong> bis zum <strong>Pio</strong> wächst dein Kind in seiner
+                    Stufe mit, begleitet von einem ehrenamtlichen Leiterteam.
                 </p>
                 <div class="hero__actions">
                     <a class="thread-btn thread-btn--solid" href="./pages/mitglied-werden.html">
                         <i class="fa-solid fa-user-plus" aria-hidden="true"></i> Schnuppern &amp; mitmachen
                     </a>
-                    <a class="thread-btn" href="#leiterteam">
-                        <i class="fa-solid fa-people-group" aria-hidden="true"></i> Unser Leiterteam
+                    <a class="thread-btn" href="#stufen">
+                        <i class="fa-solid fa-layer-group" aria-hidden="true"></i> Unsere Stufen
                     </a>
                 </div>
             </div>
@@ -100,100 +101,84 @@
 
         <!-- Pinned quick-tabs -->
         <nav class="jumptabs" aria-label="Schnellnavigation">
-            <a href="#stufenprogramme"><i class="fa-solid fa-calendar-days" aria-hidden="true"></i> Programme</a>
-            <a href="#leiterteam"><i class="fa-solid fa-people-group" aria-hidden="true"></i> Leiterteam</a>
+            <a href="#stufen"><i class="fa-solid fa-layer-group" aria-hidden="true"></i> Unsere Stufen</a>
             <a href="#anlaesse"><i class="fa-solid fa-calendar-days" aria-hidden="true"></i> Anlässe</a>
             <a href="#was-ist-pfadi"><i class="fa-solid fa-circle-info" aria-hidden="true"></i> Was ist Pfadi</a>
+            <a href="#leiterteam"><i class="fa-solid fa-people-group" aria-hidden="true"></i> Leiterteam</a>
             <a href="#eltern-faq"><i class="fa-solid fa-circle-question" aria-hidden="true"></i> Eltern-FAQ</a>
         </nav>
 
-        <!-- STUFENPROGRAMME — Quicklinks für Eltern -->
-        <section class="proglinks" id="stufenprogramme" data-reveal>
-            <div class="proglinks__head">
-                <p class="proglinks__eyebrow">Direkt zu den Programmen</p>
-                <h2 class="proglinks__title">Stufenprogramme</h2>
+        <!-- UNSERE STUFEN — Hauptfokus: welche Stufen gibt es -->
+        <section class="stufen-home" id="stufen" data-reveal>
+            <header class="section-head">
+                <p class="section-head__eyebrow">Für jedes Alter das passende Abenteuer</p>
+                <h2 class="section-head__title">Unsere Stufen</h2>
+            </header>
+
+            <div class="stufen-home__grid">
+                <article class="stufecard stufecard--woelfli">
+                    <div class="stufecard__top">
+                        <span class="stufecard__icon" aria-hidden="true"><i class="fa-solid fa-paw"></i></span>
+                        <div>
+                            <h3 class="stufecard__name">Wölflistufe</h3>
+                            <span class="stufecard__age">6 – 9 Jahre</span>
+                        </div>
+                    </div>
+                    <p class="stufecard__desc">Spielen, basteln und erste Abenteuer in der Natur — mit viel Fantasie und in der Gruppe.</p>
+                    <div class="stufecard__links">
+                        <a class="thread-btn" href="./pages/programm.html#halbjahresprogramm">
+                            <i class="fa-solid fa-calendar-days" aria-hidden="true"></i> Programm
+                        </a>
+                        <a class="stufecard__more" href="./pages/stufen.html#woelflistufe">Mehr zur Stufe <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+                    </div>
+                </article>
+
+                <article class="stufecard stufecard--pfadi">
+                    <div class="stufecard__top">
+                        <span class="stufecard__icon" aria-hidden="true"><i class="fa-solid fa-campground"></i></span>
+                        <div>
+                            <h3 class="stufecard__name">Pfadistufe</h3>
+                            <span class="stufecard__age">10 – 13 Jahre</span>
+                        </div>
+                    </div>
+                    <p class="stufecard__desc">Lager, Geländespiele und eigene Projekte — mehr Verantwortung und echtes Pfadi-Abenteuer.</p>
+                    <div class="stufecard__links">
+                        <a class="thread-btn" href="./pages/programm.html#halbjahresprogramm">
+                            <i class="fa-solid fa-calendar-days" aria-hidden="true"></i> Programm
+                        </a>
+                        <a class="stufecard__more" href="./pages/stufen.html#pfadistufe">Mehr zur Stufe <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+                    </div>
+                </article>
+
+                <article class="stufecard stufecard--pio">
+                    <div class="stufecard__top">
+                        <span class="stufecard__icon" aria-hidden="true"><i class="fa-solid fa-mountain-sun"></i></span>
+                        <div>
+                            <h3 class="stufecard__name">Piostufe</h3>
+                            <span class="stufecard__age">14 – 16 Jahre</span>
+                        </div>
+                    </div>
+                    <p class="stufecard__desc">Eigene Lager und Projekte planen — Verantwortung übernehmen und die Pfadi mitgestalten.</p>
+                    <div class="stufecard__links">
+                        <a class="thread-btn" href="./pages/programm.html#halbjahresprogramm">
+                            <i class="fa-solid fa-calendar-days" aria-hidden="true"></i> Programm
+                        </a>
+                        <a class="stufecard__more" href="./pages/stufen.html#piostufe">Mehr zur Stufe <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+                    </div>
+                </article>
             </div>
-            <div class="proglinks__grid">
-                <a class="proglink proglink--woelfli" href="./pages/programm.html#halbjahresprogramm">
-                    <span class="proglink__icon" aria-hidden="true"><i class="fa-solid fa-paw"></i></span>
-                    <span class="proglink__text">
-                        <span class="proglink__label">Wölflistufe</span>
-                        <span class="proglink__sub">6 – 9 Jahre · Halbjahresprogramm</span>
-                    </span>
-                    <span class="proglink__arrow" aria-hidden="true"><i class="fa-solid fa-arrow-right"></i></span>
+
+            <p class="stufen-home__foot">
+                <a class="thread-btn thread-btn--pio" href="./pages/stufen.html">
+                    <i class="fa-solid fa-campground" aria-hidden="true"></i> Alle Stufen im Detail
                 </a>
-                <a class="proglink proglink--pfadi" href="./pages/programm.html#halbjahresprogramm">
-                    <span class="proglink__icon" aria-hidden="true"><i class="fa-solid fa-campground"></i></span>
-                    <span class="proglink__text">
-                        <span class="proglink__label">Pfadistufe</span>
-                        <span class="proglink__sub">10 – 13 Jahre · Halbjahresprogramm</span>
-                    </span>
-                    <span class="proglink__arrow" aria-hidden="true"><i class="fa-solid fa-arrow-right"></i></span>
-                </a>
-                <a class="proglink proglink--pio" href="./pages/programm.html#halbjahresprogramm">
-                    <span class="proglink__icon" aria-hidden="true"><i class="fa-solid fa-mountain-sun"></i></span>
-                    <span class="proglink__text">
-                        <span class="proglink__label">Piostufe</span>
-                        <span class="proglink__sub">14 – 16 Jahre · Halbjahresprogramm</span>
-                    </span>
-                    <span class="proglink__arrow" aria-hidden="true"><i class="fa-solid fa-arrow-right"></i></span>
-                </a>
-            </div>
+            </p>
         </section>
 
         <div id="lightbox" class="lightbox">
             <span class="close">&times;</span>
             <img id="lightbox-img" src="" alt="Vergrössertes Bild">
         </div>
-
-        <!-- LEITERTEAM-TEASER → verlinkt zur Stufen-Seite -->
-        <section class="board" id="leiterteam" data-reveal>
-            <div class="board__head">
-                <p class="board__eyebrow">Wer für euer Kind da ist</p>
-                <h2 class="board__title">Das Leiterteam</h2>
-                <p class="board__lead">
-                    Für jede Stufe gibt es eine Stufenleiterin oder einen Stufenleiter — die erste
-                    Ansprechperson für euch Eltern. Das ganze Team findest du nach Stufe geordnet bei den Stufen.
-                </p>
-            </div>
-
-            <div class="patchwall patchwall--leads">
-                <article class="patch patch--woelfli" style="--i:0" tabindex="0">
-                    <span class="patch__pin" aria-hidden="true"></span>
-                    <span class="patch__icon" aria-hidden="true"><i class="fa-solid fa-paw"></i></span>
-                    <h3 class="patch__name">merida</h3>
-                    <img class="patch__photo" src="./images/leiterfotos/merida.JPG" alt="Stufenleiterin merida" loading="lazy">
-                    <span class="patch__role">Stufenleiterin Wölfli</span>
-                </article>
-
-                <article class="patch patch--pfadi" style="--i:1" tabindex="0">
-                    <span class="patch__pin" aria-hidden="true"></span>
-                    <span class="patch__icon" aria-hidden="true"><i class="fa-solid fa-campground"></i></span>
-                    <h3 class="patch__name">stitch</h3>
-                    <img class="patch__photo" src="./images/leiterfotos/stitch.JPG" alt="Stufenleiter stitch" loading="lazy">
-                    <span class="patch__role">Stufenleiter Pfadi</span>
-                </article>
-
-                <article class="patch patch--pio" style="--i:2" tabindex="0">
-                    <span class="patch__pin" aria-hidden="true"></span>
-                    <span class="patch__icon" aria-hidden="true"><i class="fa-solid fa-mountain-sun"></i></span>
-                    <h3 class="patch__name">salto</h3>
-                    <img class="patch__photo" src="./images/leiterfotos/salto.JPG" alt="Stufenleiter salto" loading="lazy">
-                    <span class="patch__role">Stufenleiter Pio</span>
-                </article>
-            </div>
-
-            <div class="board__cta">
-                <a class="thread-btn" href="./pages/stufen.html#woelflistufe">
-                    <i class="fa-solid fa-people-group" aria-hidden="true"></i> Das ganze Team nach Stufe ansehen
-                </a>
-            </div>
-
-            <p class="board__foot">
-                <i class="fa-solid fa-thumbtack" aria-hidden="true"></i>
-                Alle Leitenden absolvieren die Ausbildung der Pfadibewegung Schweiz und von Jugend+Sport.
-            </p>
-        </section>
 
         <!-- WIR SIND PFADI -->
         <section class="notes" id="wir-sind-pfadi" data-reveal>
@@ -286,6 +271,49 @@
             <p class="pillars__note">Mehr über die Pfadibewegung auf <a title="Pfadi" rel="noopener" target="_blank" href="https://pfadi.swiss/de/das-ist-pfadi/">pfadi.swiss</a>.</p>
         </section>
 
+        <!-- LEITERTEAM-TEASER (kompakt) → verlinkt zur Stufen-Seite -->
+        <section class="board board--compact" id="leiterteam" data-reveal>
+            <div class="board__head">
+                <p class="board__eyebrow">Wer euer Kind begleitet</p>
+                <h2 class="board__title">Die Stufenleitenden</h2>
+                <p class="board__lead">
+                    Jede Stufe hat eine feste Ansprechperson. Das ganze Team findest du nach Stufe geordnet bei den Stufen.
+                </p>
+            </div>
+
+            <div class="patchwall patchwall--leads">
+                <article class="patch patch--woelfli" style="--i:0" tabindex="0">
+                    <span class="patch__pin" aria-hidden="true"></span>
+                    <span class="patch__icon" aria-hidden="true"><i class="fa-solid fa-paw"></i></span>
+                    <h3 class="patch__name">merida</h3>
+                    <img class="patch__photo" src="./images/leiterfotos/merida.JPG" alt="Stufenleiterin merida" loading="lazy">
+                    <span class="patch__role">Stufenleiterin Wölfli</span>
+                </article>
+
+                <article class="patch patch--pfadi" style="--i:1" tabindex="0">
+                    <span class="patch__pin" aria-hidden="true"></span>
+                    <span class="patch__icon" aria-hidden="true"><i class="fa-solid fa-campground"></i></span>
+                    <h3 class="patch__name">stitch</h3>
+                    <img class="patch__photo" src="./images/leiterfotos/stitch.JPG" alt="Stufenleiter stitch" loading="lazy">
+                    <span class="patch__role">Stufenleiter Pfadi</span>
+                </article>
+
+                <article class="patch patch--pio" style="--i:2" tabindex="0">
+                    <span class="patch__pin" aria-hidden="true"></span>
+                    <span class="patch__icon" aria-hidden="true"><i class="fa-solid fa-mountain-sun"></i></span>
+                    <h3 class="patch__name">salto</h3>
+                    <img class="patch__photo" src="./images/leiterfotos/salto.JPG" alt="Stufenleiter salto" loading="lazy">
+                    <span class="patch__role">Stufenleiter Pio</span>
+                </article>
+            </div>
+
+            <div class="board__cta">
+                <a class="thread-btn thread-btn--light" href="./pages/stufen.html#woelflistufe">
+                    <i class="fa-solid fa-people-group" aria-hidden="true"></i> Das ganze Team nach Stufe ansehen
+                </a>
+            </div>
+        </section>
+
         <!-- GESCHICHTE -->
         <section class="history" data-reveal>
             <header class="section-head">
@@ -356,25 +384,12 @@
                 </details>
 
                 <details class="qa">
-                    <summary>Was kostet die Teilnahme?</summary>
-                    <div class="qa__body">
-                        <p>Der Mitgliederbeitrag ist bewusst tief gehalten; Lager werden separat und fair verrechnet. <strong>Niemand soll aus finanziellen Gründen nicht dabei sein</strong> — sprich uns in dem Fall einfach vertraulich an.</p>
-                    </div>
-                </details>
-
-                <details class="qa">
                     <summary>Mein Kind hat eine Allergie oder besondere Bedürfnisse.</summary>
                     <div class="qa__body">
                         <p>Sag uns vor dem ersten Besuch kurz Bescheid. Wir nehmen Rücksicht und besprechen mit dir, was dein Kind braucht, damit es sich wohlfühlt.</p>
                     </div>
                 </details>
 
-                <details class="qa">
-                    <summary>Wie erreiche ich die Abteilungsleitung?</summary>
-                    <div class="qa__body">
-                        <p>Am schnellsten über <a rel="noopener" target="_blank" href="https://www.instagram.com/pfadi.regulastein/">Instagram</a> oder das Formular unter <a href="./pages/mitglied-werden.html">Mitglied werden</a>. Wir melden uns zeitnah zurück.</p>
-                    </div>
-                </details>
             </div>
         </section>
     </main>

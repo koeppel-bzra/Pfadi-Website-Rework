@@ -119,62 +119,61 @@
 #back:active, #forward:active { transform: scale(0.94); }
 
 /* ================================================================
-   STUFENPROGRAMME — Quicklinks (Eltern finden Programme sofort)
+   UNSERE STUFEN — Hauptfokus der Startseite
 ================================================================ */
-.proglinks { max-width: 1080px; margin: 0 auto clamp(2.6rem, 7vw, 4.5rem); padding-inline: clamp(1rem, 4vw, 2.5rem); }
-.proglinks__head { text-align: center; margin-bottom: clamp(1.2rem, 3vw, 1.9rem); }
-.proglinks__eyebrow {
-    font-family: "Caveat", cursive;
-    font-size: clamp(1.2rem, 2.8vw, 1.6rem);
-    color: var(--pfadi-color);
-    transform: rotate(-1.5deg);
-    display: inline-block;
-    margin: 0;
-}
-.proglinks__title {
-    font-family: "Bricolage Grotesque", sans-serif;
-    font-size: clamp(1.5rem, 4.4vw, 2.3rem);
-    font-weight: 800;
-    letter-spacing: -0.5px;
-    margin: 0.1rem 0 0;
-    color: var(--rw-ink);
-}
-.proglinks__grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(225px, 1fr)); gap: clamp(0.9rem, 2.5vw, 1.5rem); }
-.proglink {
+.stufen-home { max-width: 1080px; margin: 0 auto clamp(2.8rem, 7vw, 4.5rem); padding-inline: clamp(1rem, 4vw, 2.5rem); }
+.stufen-home__grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(270px, 1fr)); gap: clamp(1rem, 2.6vw, 1.6rem); }
+.stufecard {
     --c: var(--pfadi-color);
     display: flex;
-    align-items: center;
+    flex-direction: column;
     gap: 0.9rem;
-    padding: 1.1rem 1.3rem;
-    text-decoration: none;
+    padding: clamp(1.3rem, 3vw, 1.8rem);
     background: var(--rw-card);
     border: 1px solid var(--rw-line);
-    border-left: 6px solid var(--c);
-    border-radius: 12px;
-    box-shadow: 0 8px 18px rgba(40, 30, 15, 0.12);
+    border-top: 6px solid var(--c);
+    border-radius: 14px;
+    box-shadow: 0 10px 24px rgba(40, 30, 15, 0.12);
     transition: transform 0.16s ease, box-shadow 0.2s ease;
 }
-.proglink--woelfli { --c: var(--woelfli-color); }
-.proglink--pfadi   { --c: var(--pfadi-color); }
-.proglink--pio     { --c: var(--pio-color); }
-.proglink__icon {
+.stufecard:hover { transform: translateY(-4px); box-shadow: 0 16px 32px rgba(40, 30, 15, 0.18); }
+.stufecard--woelfli { --c: var(--woelfli-color); }
+.stufecard--pfadi   { --c: var(--pfadi-color); }
+.stufecard--pio     { --c: var(--pio-color); }
+.stufecard__top { display: flex; align-items: center; gap: 0.9rem; }
+.stufecard__icon {
     flex: 0 0 auto;
-    width: 48px; height: 48px;
+    width: 54px; height: 54px;
     display: grid; place-items: center;
     background: var(--c);
     color: #fff;
-    border-radius: 12px;
-    font-size: 1.3rem;
+    border-radius: 13px;
+    font-size: 1.5rem;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.18), inset 0 0 0 2px rgba(255,255,255,0.22);
 }
-.proglink--woelfli .proglink__icon { color: var(--woelfli-ink); }
-.proglink__text { display: flex; flex-direction: column; line-height: 1.25; }
-.proglink__label { font-family: "Bricolage Grotesque", sans-serif; font-weight: 800; font-size: 1.05rem; color: var(--rw-ink); }
-.proglink__sub { font-size: 0.85rem; color: var(--rw-ink-soft); }
-.proglink__arrow { margin-left: auto; color: var(--c); font-size: 1.05rem; transition: transform 0.2s ease; }
-.proglink:hover { transform: translateY(-3px); box-shadow: 0 14px 28px rgba(40, 30, 15, 0.2); }
-.proglink:hover .proglink__arrow { transform: translateX(4px); }
-.proglink:focus-visible { outline: 3px solid var(--c); outline-offset: 3px; }
+.stufecard--woelfli .stufecard__icon { color: var(--woelfli-ink); }
+.stufecard__name { font-family: "Bricolage Grotesque", sans-serif; font-size: 1.4rem; font-weight: 800; margin: 0; color: var(--rw-ink); line-height: 1.1; }
+.stufecard__age { font-size: 0.85rem; font-weight: 700; color: var(--c); }
+.stufecard--woelfli .stufecard__age { color: var(--woelfli-ink); }
+.stufecard__desc { font-size: 1rem; line-height: 1.6; color: var(--rw-ink-soft); margin: 0; flex: 1; }
+.stufecard__links { display: flex; align-items: center; justify-content: space-between; gap: 0.8rem; flex-wrap: wrap; margin-top: 0.2rem; }
+.stufecard__links .thread-btn { --btn-color: var(--c); padding: 0.55rem 1rem; font-size: 0.95rem; }
+.stufecard--woelfli .stufecard__links .thread-btn { --btn-on: var(--woelfli-ink); --btn-rest: var(--woelfli-ink); }
+.stufecard__more {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    font-family: "Bricolage Grotesque", sans-serif;
+    font-weight: 700;
+    font-size: 0.92rem;
+    color: var(--c);
+    text-decoration: none;
+    transition: gap 0.2s ease;
+}
+.stufecard--woelfli .stufecard__more { color: var(--woelfli-ink); }
+.stufecard__more:hover { gap: 0.6rem; text-decoration: underline; }
+.stufecard__more:focus-visible { outline: 3px solid var(--c); outline-offset: 3px; }
+.stufen-home__foot { display: flex; justify-content: center; margin: clamp(1.6rem, 4vw, 2.4rem) 0 0; }
 
 /* ================================================================
    LEITERTEAM-TEASER (verlinkt zur Stufen-Seite)
@@ -194,6 +193,12 @@
     border-bottom: 3px dashed var(--rw-thread-dim);
     box-shadow: inset 0 0 90px rgba(8, 26, 16, 0.45);
 }
+/* Kompakt: dezenter & weniger raumgreifend (Leiter sind nicht mehr Hauptfokus) */
+.board--compact { padding: clamp(1.6rem, 4vw, 2.4rem) clamp(1rem, 4vw, 2.5rem); }
+.board--compact .board__title { font-size: clamp(1.6rem, 4vw, 2.3rem); }
+.board--compact .board__head { margin-bottom: clamp(1.3rem, 3vw, 1.8rem); }
+.board--compact .patchwall--leads { max-width: 460px; }
+
 .board__head { text-align: center; max-width: 640px; margin: 0 auto clamp(1.8rem, 4vw, 2.4rem); }
 .board__eyebrow {
     font-family: "Caveat", cursive;
@@ -332,7 +337,7 @@ html.js .board .patch { opacity: 0; }
 
 .board__cta { display: flex; justify-content: center; margin-top: clamp(1.8rem, 4vw, 2.6rem); }
 /* Auf dem roten Anschlagbrett: heller Outline-Button, füllt sich weiss */
-.board__cta .thread-btn { --btn-color: #fff; --btn-on: var(--primary-red-dark); --btn-rest: #fff; }
+.board__cta .thread-btn { --btn-color: #fff; --btn-on: #234A37; --btn-rest: #fff; }
 
 .board__foot {
     display: flex;
@@ -517,6 +522,6 @@ html.js .board .patch { opacity: 0; }
     .board.is-visible .patch { animation: none !important; }
     .patch { transition: none !important; }
     .patch:hover, .patch:focus-visible { transform: none; }
-    .proglink, .proglink__arrow { transition: none !important; }
-    .proglink:hover { transform: none; }
+    .stufecard, .stufecard__more { transition: none !important; }
+    .stufecard:hover { transform: none; }
 }

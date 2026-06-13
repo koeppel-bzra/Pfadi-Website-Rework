@@ -261,7 +261,7 @@ html.js [data-reveal].is-visible { opacity: 1; transform: none; }
 /* Farb-Varianten */
 .thread-btn--woelfli { --btn-color: var(--woelfli-color); --btn-on: var(--woelfli-ink); --btn-rest: var(--woelfli-ink); }
 .thread-btn--pfadi   { --btn-color: var(--pfadi-color); }
-.thread-btn--pio     { --btn-color: var(--pio-color); }
+.thread-btn--pio     { --btn-color: var(--pfadi-color); }
 .thread-btn--green   { --btn-color: var(--primary-green); }
 
 /* Für dunkle/farbige Hintergründe (heller Outline → füllt sich weiss) */
