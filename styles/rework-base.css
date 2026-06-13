@@ -1,0 +1,454 @@
+@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&family=Caveat:wght@400..700&display=swap');
+
+/* ================================================================
+   PFADI REGULASTEIN — Rework BASE
+   Geteiltes Fundament für alle Rework-Seiten:
+   Tokens · Navigation · Footer · Buttons · Sektions-Köpfe ·
+   Quicknav · Lightbox · Cookie · Dark-Mode.
+   Lädt nach root.css (nutzt dessen Stufenfarben & Tokens).
+   nav.css wird NICHT mehr geladen — die Navigation ist hier neu.
+================================================================ */
+
+:root {
+    --rw-paper:      #ECE5D6;
+    --rw-paper-2:    #E4DBC8;
+    --rw-card:       #F5F0E4;
+    --rw-kraft:      #D8C6A6;
+    --rw-ink:        #221C15;
+    --rw-ink-soft:   #5C5142;
+    --rw-line:       #CDBE9F;
+
+    --rw-felt:       #213A30;
+    --rw-felt-2:     #192C24;
+    --rw-thread:     #F5F0E4;
+    --rw-thread-dim: rgba(245, 240, 228, 0.66);
+
+    --woelfli-ink:   #7A5C00;
+    --nav-h:         66px;
+}
+
+body.dark-mode {
+    --rw-paper:      #14161B;
+    --rw-paper-2:    #1A1D24;
+    --rw-card:       #20242C;
+    --rw-kraft:      #2A2C26;
+    --rw-ink:        #ECE7DC;
+    --rw-ink-soft:   #ABA597;
+    --rw-line:       #353A43;
+    --rw-felt:       #141C18;
+    --rw-felt-2:     #0E1410;
+    --woelfli-ink:   #F5B800;
+}
+
+body {
+    margin: 0;
+    background-color: var(--rw-paper);
+    background-image:
+        radial-gradient(rgba(120, 100, 60, 0.05) 1px, transparent 1.3px),
+        radial-gradient(rgba(120, 100, 60, 0.04) 1px, transparent 1.3px);
+    background-size: 9px 9px, 13px 13px;
+    background-position: 0 0, 4px 6px;
+    color: var(--rw-ink);
+    font-family: "Bricolage Grotesque", sans-serif;
+}
+button, input, select, textarea { font-family: inherit; }
+
+main {
+    width: 100%;
+    padding-top: var(--nav-h);
+    overflow-x: clip;
+}
+
+/* ---- Scroll-Reveal (progressiv: nur mit JS aktiv) ---- */
+html.js [data-reveal] {
+    opacity: 0;
+    transform: translateY(26px);
+    transition: opacity 0.7s ease, transform 0.7s cubic-bezier(0.2, 0.8, 0.25, 1);
+}
+html.js [data-reveal].is-visible { opacity: 1; transform: none; }
+
+/* ================================================================
+   NAVIGATION — Pfadi-Anschlagbrett, Halstuch-Streifen unten
+================================================================ */
+.top-nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 1000;
+    min-height: var(--nav-h);
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.55rem 1.5rem;
+    background: var(--rw-card);
+    border-bottom: 2px dashed var(--rw-line);
+    box-shadow: 0 3px 14px rgba(40, 30, 15, 0.12);
+    transition: transform var(--transition-base, 0.3s ease);
+}
+
+.top-nav.hide { transform: translateY(-110%); }
+
+.left-nav { display: flex; align-items: center; gap: 0.7rem; flex-shrink: 0; }
+.left-nav > a { display: flex; align-items: center; text-decoration: none; transition: transform 0.25s ease; }
+.left-nav > a:hover { transform: rotate(-4deg) scale(1.05); }
+.left-nav img { width: 44px; height: 44px; object-fit: contain; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.18)); }
+.title { display: flex; flex-direction: column; gap: 1px; }
+.title h2 {
+    font-size: clamp(1rem, 2.4vw, 1.3rem);
+    font-weight: 800;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    color: var(--rw-ink);
+}
+.subtitle h6 {
+    font-family: "Caveat", cursive;
+    font-size: clamp(0.85rem, 1.5vw, 1.05rem);
+    font-weight: 600;
+    color: var(--pfadi-color);
+    letter-spacing: 0.3px;
+}
+
+.right-nav { flex: 1; display: flex; align-items: center; gap: 0.5rem; }
+.right-nav > ul {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    list-style: none;
+    margin: 0; padding: 0;
+    gap: 0.15rem;
+}
+.right-nav > ul > li {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.45rem 0.8rem;
+    border-radius: 9px;
+    border: 1.5px solid transparent;
+    transition: background 0.18s ease, border-color 0.18s ease, transform 0.12s ease;
+}
+.right-nav > ul > li i { font-size: 0.82rem; color: var(--rw-ink-soft); width: 15px; text-align: center; }
+.right-nav > ul > li > a {
+    text-decoration: none;
+    color: var(--rw-ink);
+    font-size: 0.92rem;
+    font-weight: 600;
+    white-space: nowrap;
+}
+.right-nav > ul > li:hover { background: var(--rw-paper-2); transform: translateY(-1px); }
+.right-nav > ul > li:hover i,
+.right-nav > ul > li:hover > a { color: var(--pfadi-color); }
+
+/* Aktive Seite: Kraft-Pill mit gestricheltem Rand */
+.right-nav > ul > li strong { display: contents; }
+.right-nav > ul > li:has(strong) {
+    background: var(--rw-kraft);
+    border-color: var(--rw-line);
+    border-style: dashed;
+}
+.right-nav > ul > li:has(strong) i,
+.right-nav > ul > li:has(strong) > a { color: var(--rw-ink); }
+
+/* Mitglied-werden CTA: gestempelter roter Button */
+.right-nav > ul > li.nav-mitglied {
+    margin-left: auto;
+    background: var(--pfadi-color);
+    border: 2px solid var(--rw-ink);
+    box-shadow: 2px 2px 0 var(--rw-ink);
+}
+.right-nav > ul > li.nav-mitglied i,
+.right-nav > ul > li.nav-mitglied > a { color: #fff; font-weight: 700; }
+.right-nav > ul > li.nav-mitglied:hover { transform: translate(-1px, -1px); box-shadow: 3px 3px 0 var(--rw-ink); }
+.right-nav > ul > li.nav-mitglied:has(strong) { background: var(--pfadi-color); }
+
+#dark-mode-toggle, .hamburger {
+    flex-shrink: 0;
+    width: 38px; height: 38px;
+    display: flex; align-items: center; justify-content: center;
+    background: var(--rw-card);
+    border: 2px solid var(--rw-ink);
+    border-radius: 9px;
+    box-shadow: 2px 2px 0 var(--rw-ink);
+    color: var(--rw-ink);
+    font-size: 1rem;
+    cursor: pointer;
+    transition: transform 0.12s ease, box-shadow 0.12s ease;
+}
+#dark-mode-toggle:hover, .hamburger:hover { transform: translate(-1px, -1px); box-shadow: 3px 3px 0 var(--rw-ink); }
+#dark-mode-toggle:active, .hamburger:active { transform: translate(1px, 1px); box-shadow: 1px 1px 0 var(--rw-ink); }
+.hamburger { display: none; }
+
+/* Mobile-Navigation */
+@media (max-width: 1100px) {
+    .top-nav { padding: 0.55rem 1rem; }
+    .right-nav { margin-left: auto; }
+    .right-nav > ul {
+        display: none;
+        position: fixed;
+        top: var(--nav-h); left: 0; right: 0;
+        flex-direction: column;
+        gap: 0.25rem;
+        padding: 0.8rem;
+        background: var(--rw-card);
+        border-bottom: 3px dashed var(--rw-line);
+        box-shadow: 0 12px 28px rgba(40, 30, 15, 0.2);
+        max-height: calc(100vh - var(--nav-h));
+        overflow-y: auto;
+    }
+    .right-nav.open > ul { display: flex; }
+    .right-nav > ul > li { width: 100%; padding: 0.7rem 0.9rem; box-sizing: border-box; }
+    .right-nav > ul > li.nav-mitglied { margin-left: 0; justify-content: center; }
+    .hamburger { display: flex; order: 3; }
+    #dark-mode-toggle { order: 2; }
+}
+
+/* ================================================================
+   STAMPED BUTTONS
+================================================================ */
+.thread-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.72rem 1.25rem;
+    font-family: "Bricolage Grotesque", sans-serif;
+    font-size: 1rem;
+    font-weight: 700;
+    text-decoration: none;
+    color: var(--rw-ink);
+    background: var(--rw-card);
+    border: 2px solid var(--rw-ink);
+    border-radius: 11px;
+    box-shadow: 3px 3px 0 var(--rw-ink);
+    transition: transform 0.14s ease, box-shadow 0.14s ease;
+    cursor: pointer;
+}
+.thread-btn:hover { transform: translate(-1px, -1px); box-shadow: 5px 5px 0 var(--rw-ink); }
+.thread-btn:active { transform: translate(2px, 2px); box-shadow: 1px 1px 0 var(--rw-ink); }
+.thread-btn:focus-visible { outline: 3px solid var(--pio-color); outline-offset: 3px; }
+.thread-btn--solid { background: var(--pfadi-color); color: #fff; border-color: var(--rw-ink); }
+
+/* ================================================================
+   SEKTIONS-KÖPFE & SEITEN-INTRO
+================================================================ */
+.section-head { text-align: center; margin: 0 auto clamp(1.6rem, 4vw, 2.6rem); }
+.section-head__eyebrow {
+    font-family: "Caveat", cursive;
+    font-size: clamp(1.3rem, 3vw, 1.7rem);
+    color: var(--pfadi-color);
+    margin: 0 0 0.1rem;
+    display: inline-block;
+    transform: rotate(-2.5deg);
+}
+.section-head__title {
+    font-family: "Bricolage Grotesque", sans-serif;
+    font-size: clamp(1.9rem, 5.2vw, 3.1rem);
+    font-weight: 800;
+    letter-spacing: -0.5px;
+    margin: 0;
+    color: var(--rw-ink);
+}
+.section-head__title::after {
+    content: "";
+    display: block;
+    width: 78px; height: 4px;
+    margin: 0.7rem auto 0;
+    border-radius: 4px;
+    background: repeating-linear-gradient(90deg, var(--pfadi-color) 0 9px, transparent 9px 15px);
+}
+
+.page-intro {
+    max-width: 820px;
+    margin-inline: auto;
+    padding: clamp(1.6rem, 5vw, 3rem) clamp(1rem, 4vw, 2.5rem) 0;
+    text-align: center;
+}
+.page-intro__eyebrow {
+    font-family: "Caveat", cursive;
+    font-size: clamp(1.3rem, 3vw, 1.75rem);
+    color: var(--pio-color);
+    margin: 0 0 0.2rem;
+    transform: rotate(-1.5deg);
+    display: inline-block;
+}
+.page-intro__title {
+    font-family: "Bricolage Grotesque", sans-serif;
+    font-size: clamp(2rem, 6vw, 3.4rem);
+    font-weight: 800;
+    letter-spacing: -1px;
+    margin: 0 0 0.6rem;
+    color: var(--rw-ink);
+    text-transform: uppercase;
+}
+.page-intro__lead { font-size: clamp(1rem, 1.6vw, 1.15rem); line-height: 1.55; color: var(--rw-ink-soft); margin: 0 auto; max-width: 46ch; }
+
+/* ================================================================
+   QUICKNAV — angepinnte Papier-Reiter
+================================================================ */
+.jumptabs {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.6rem;
+    max-width: 1080px;
+    margin: clamp(1.4rem, 3vw, 2rem) auto 1rem;
+    padding-inline: 1rem;
+}
+.jumptabs a {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    padding: 0.45rem 0.95rem;
+    font-size: 0.92rem;
+    font-weight: 600;
+    text-decoration: none;
+    color: var(--rw-ink);
+    background: var(--rw-kraft);
+    border: 1px solid var(--rw-line);
+    border-radius: 8px;
+    box-shadow: 0 3px 0 rgba(120, 95, 55, 0.25);
+    transition: transform 0.14s ease, background 0.2s ease;
+}
+.jumptabs a:nth-child(odd) { transform: rotate(-1.5deg); }
+.jumptabs a:nth-child(even) { transform: rotate(1.5deg); }
+.jumptabs a:hover { transform: translateY(-2px) rotate(0); background: var(--woelfli-color); }
+.jumptabs a:focus-visible { outline: 3px solid var(--pio-color); outline-offset: 2px; }
+.jumptabs a i { color: var(--pfadi-color); }
+.jumptabs .quicknav-divider { width: 1px; align-self: stretch; background: var(--rw-line); margin-inline: 0.2rem; }
+
+/* ================================================================
+   FOOTER — kompakt & ausgewogen (Sponsoren als Chips)
+================================================================ */
+.site-footer {
+    margin-top: clamp(3rem, 7vw, 5rem);
+    background-color: var(--rw-felt);
+    background-image: radial-gradient(rgba(0, 0, 0, 0.2) 0.9px, transparent 1.1px);
+    background-size: 8px 8px;
+    border-top: 3px dashed var(--rw-thread-dim);
+    color: var(--rw-thread);
+    padding: clamp(1.8rem, 4vw, 2.6rem) clamp(1rem, 4vw, 2.5rem);
+}
+.site-footer__top {
+    max-width: 1000px;
+    margin-inline: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1.2rem;
+    padding-bottom: 1.3rem;
+    border-bottom: 1px dashed var(--rw-thread-dim);
+}
+.site-footer__brand { display: flex; align-items: center; gap: 0.9rem; }
+.site-footer__brand img { filter: drop-shadow(0 3px 6px rgba(0, 0, 0, 0.4)); }
+.site-footer__brand strong { display: block; font-size: 1.15rem; color: var(--rw-thread); }
+.site-footer__motto { font-family: "Caveat", cursive; font-size: 1.35rem; color: var(--woelfli-color); }
+.site-footer__social { display: flex; gap: 0.6rem; flex-wrap: wrap; }
+.site-footer__social a {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    padding: 0.45rem 0.9rem;
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-decoration: none;
+    color: var(--rw-thread);
+    border: 1.5px solid var(--rw-thread-dim);
+    border-radius: 9px;
+    transition: background 0.18s ease, color 0.18s ease;
+}
+.site-footer__social a:hover { background: var(--pfadi-color); border-color: var(--pfadi-color); color: #fff; }
+
+.site-footer__sponsors {
+    max-width: 1000px;
+    margin: 1.2rem auto 0;
+    display: flex;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: 0.5rem 0.7rem;
+}
+.site-footer__sponsors-label {
+    font-family: "Caveat", cursive;
+    font-size: 1.2rem;
+    color: var(--woelfli-color);
+    margin-right: 0.3rem;
+}
+.site-footer__sponsors ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    list-style: none;
+    margin: 0; padding: 0;
+}
+.site-footer__sponsors a {
+    display: inline-block;
+    padding: 0.3rem 0.7rem;
+    font-size: 0.82rem;
+    text-decoration: none;
+    color: var(--rw-thread-dim);
+    background: rgba(245, 240, 228, 0.06);
+    border: 1px solid var(--rw-thread-dim);
+    border-radius: 7px;
+    transition: color 0.18s ease, background 0.18s ease;
+}
+.site-footer__sponsors a:hover { color: var(--rw-ink); background: var(--woelfli-color); border-color: var(--woelfli-color); }
+
+@media (max-width: 599px) {
+    .site-footer__top { flex-direction: column; align-items: flex-start; }
+}
+
+/* ================================================================
+   LIGHTBOX (von main.js gesteuert)
+================================================================ */
+.lightbox {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 2000;
+    background: rgba(20, 18, 12, 0.9);
+    align-items: center;
+    justify-content: center;
+}
+.lightbox img {
+    max-width: 90vw; max-height: 84vh;
+    padding: 10px 10px 26px;
+    background: var(--rw-card);
+    border-radius: 3px;
+    box-shadow: 0 24px 60px rgba(0, 0, 0, 0.6);
+}
+.lightbox .close { position: absolute; top: 16px; right: 26px; font-size: 2.6rem; line-height: 1; color: var(--rw-thread); cursor: pointer; }
+
+/* ================================================================
+   COOKIE BANNER (von main.js gesteuert)
+================================================================ */
+#cookie-banner { position: fixed; left: 1rem; right: 1rem; bottom: 1rem; z-index: 1500; display: flex; justify-content: center; }
+.cookie-box {
+    max-width: 660px;
+    background: var(--rw-card);
+    border: 1px solid var(--rw-line);
+    border-radius: 14px;
+    padding: 1.1rem 1.3rem;
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.3);
+}
+.cookie-box h3 { font-family: "Bricolage Grotesque", sans-serif; margin: 0 0 0.5rem; color: var(--rw-ink); }
+.cookie-box p { font-size: 0.86rem; line-height: 1.5; color: var(--rw-ink-soft); margin: 0 0 0.8rem; }
+.cookie-box a { color: var(--pfadi-color); }
+#accept-btn {
+    display: inline-flex;
+    padding: 0.55rem 1.4rem;
+    font-family: "Bricolage Grotesque", sans-serif;
+    font-weight: 700;
+    color: #fff;
+    background: var(--pfadi-color);
+    border: 2px solid var(--rw-ink);
+    border-radius: 9px;
+    box-shadow: 2px 2px 0 var(--rw-ink);
+    cursor: pointer;
+}
+#accept-btn:hover { transform: translate(-1px, -1px); box-shadow: 3px 3px 0 var(--rw-ink); }
+
+/* ================================================================
+   REDUCED MOTION (Basis)
+================================================================ */
+@media (prefers-reduced-motion: reduce) {
+    html.js [data-reveal] { opacity: 1 !important; transform: none !important; transition: none; }
+    .thread-btn, .jumptabs a, .right-nav > ul > li, #dark-mode-toggle, .hamburger { transition: none !important; }
+    html { scroll-behavior: auto; }
+}

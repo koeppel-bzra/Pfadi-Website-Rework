@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Programm – Pfadi Regulastein</title>
+  <meta name="description" content="Halbjahresprogramme von Wölfli und Pfadi, das Detailprogramm zum Durchblättern und alle Besammlungsorte der Pfadi Regulastein auf einen Blick." />
+  <link rel="icon" type="image/png" href="../images/logo_transparent3.png" />
+  <script defer src="https://kit.fontawesome.com/920aa667f6.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <link rel="stylesheet" href="../styles/root.css">
+  <link rel="stylesheet" href="../styles/rework-base.css">
+  <link rel="stylesheet" href="../styles/programm-rework.css">
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script defer src="../src/main.js"></script>
+  <script defer src="../src/rework.js"></script>
+  <script defer src="../src/programm.js"></script>
+</head>
+<body>
+
+<header>
+  <nav class="top-nav" id="navbar">
+    <div class="left-nav">
+      <a href="../index-rework.html"><img src="../images/logo_transparent3.png" alt="Pfadi Regulastein Logo" width="50" height="50"></a>
+      <div class="title">
+        <h2>PFADI REGULASTEIN</h2>
+        <div class="subtitle"><h6>Gommiswald - Rieden - Ernetschwil</h6></div>
+      </div>
+    </div>
+    <div class="right-nav">
+      <ul>
+        <li><i class="fa-solid fa-house"></i><a href="../index-rework.html">Home</a></li>
+        <li><i class="fa-solid fa-calendar-days"></i><a href="programm-rework.html"><strong>Programm</strong></a></li>
+        <li><i class="fa-solid fa-campground"></i><a href="stufen-rework.html">Stufen</a></li>
+        <li><i class="fa-solid fa-utensils"></i><a href="vermietung.html">Mobile Küche</a></li>
+        <li><i class="fa-solid fa-images"></i><a href="galerie.html">Galerie</a></li>
+        <li class="nav-mitglied"><i class="fa-solid fa-user-plus"></i><a href="mitglied-werden.html">Mitglied werden</a></li>
+      </ul>
+      <button type="button" id="dark-mode-toggle" aria-label="Darkmode umschalten">🌙</button>
+      <div class="hamburger">☰</div>
+    </div>
+  </nav>
+</header>
+
+<main>
+  <section class="page-intro">
+    <p class="page-intro__eyebrow">Fast jeden zweiten Samstag</p>
+    <h1 class="page-intro__title">Pfadi erleben</h1>
+    <p class="page-intro__lead">Spannende Abenteuer in der Natur — hier findest du, was diese Saison ansteht und wo wir uns treffen.</p>
+    <nav class="jumptabs" aria-label="Schnellnavigation">
+      <a href="#halbjahresprogramm"><i class="fa-solid fa-calendar-days" aria-hidden="true"></i> Halbjahresprogramme</a>
+      <a href="#programme"><i class="fa-solid fa-list-ul" aria-hidden="true"></i> Detailprogramm</a>
+      <span class="quicknav-divider"></span>
+      <a href="#besammlungsorte"><i class="fa-solid fa-map-location-dot" aria-hidden="true"></i> Besammlungsorte</a>
+    </nav>
+  </section>
+
+  <!-- Halbjahresprogramme -->
+  <section class="hjp" id="halbjahresprogramm" data-reveal>
+    <header class="section-head">
+      <p class="section-head__eyebrow">Dieses Halbjahr</p>
+      <h2 class="section-head__title">Halbjahresprogramme</h2>
+    </header>
+
+    <div class="sc-programm">
+      <div class="sc-programm-child woelfli">
+        <span class="hjp-tag"><i class="fa-solid fa-paw" aria-hidden="true"></i> Wölflistufe</span>
+        <h3>Halbjahresprogramm Wölflistufe</h3>
+        <h6>«Die Schöne und das Biest»</h6>
+        <img src="../images/woelfli-programm-cover.jpg" alt="Cover Halbjahresprogramm Wölflistufe">
+        <p>Entdecke das Halbjahresprogramm der Wölflistufe.</p>
+        <a class="thread-btn" href="../files/woelfli-halbjahresprogramm-2026.pdf" download>
+          <i class="fa-solid fa-download" aria-hidden="true"></i> Als PDF herunterladen
+        </a>
+      </div>
+
+      <div class="sc-programm-child pfadi">
+        <span class="hjp-tag"><i class="fa-solid fa-campground" aria-hidden="true"></i> Pfadistufe</span>
+        <h3>Halbjahresprogramm Pfadistufe</h3>
+        <h6>«Star Wars»</h6>
+        <img src="../images/pfadi-programm-cover.webp" alt="Cover Halbjahresprogramm Pfadistufe">
+        <p>Entdecke das Halbjahresprogramm der Pfadistufe.</p>
+        <a class="thread-btn" href="../files/pfadi-halbjahresprogramm-2026.pdf" download>
+          <i class="fa-solid fa-download" aria-hidden="true"></i> Als PDF herunterladen
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Detailprogramm -->
+  <section class="programme" id="programme" data-reveal>
+    <header class="section-head">
+      <p class="section-head__eyebrow">Zum Durchblättern</p>
+      <h2 class="section-head__title">Detailprogramm</h2>
+    </header>
+
+    <details class="programm-details woelfli">
+      <summary>
+        <span class="summary-left"><i class="fa-solid fa-paw" aria-hidden="true"></i> Halbjahresprogramm Wölflistufe 2026</span>
+        <span class="summary-toggle"><i class="fa-solid fa-chevron-down" aria-hidden="true"></i></span>
+      </summary>
+      <div class="programm-gallery">
+        <img src="../files/woelfli-programm.jpeg" alt="Wölfli Programm Seite 1">
+        <img src="../files/woelfli-programm-seite2.jpeg" alt="Wölfli Programm Seite 2">
+      </div>
+    </details>
+
+    <details class="programm-details pfadi">
+      <summary>
+        <span class="summary-left"><i class="fa-solid fa-campground" aria-hidden="true"></i> Halbjahresprogramm Pfadistufe 2026</span>
+        <span class="summary-toggle"><i class="fa-solid fa-chevron-down" aria-hidden="true"></i></span>
+      </summary>
+      <div class="programm-gallery">
+        <img src="../files/pfadi-programm.png" alt="Pfadi Programm Seite 1">
+        <img src="../files/pfadi-programm-seite2.png" alt="Pfadi Programm Seite 2">
+      </div>
+    </details>
+    <p class="programme__hint">Tipp: Tippe auf eine Seite, um sie gross anzusehen.</p>
+  </section>
+
+  <!-- Besammlungsorte -->
+  <section class="besammlungsorte" id="besammlungsorte" data-reveal>
+    <header class="section-head">
+      <p class="section-head__eyebrow">Wo wir uns treffen</p>
+      <h2 class="section-head__title">Besammlungsorte</h2>
+    </header>
+    <div class="bso-content">
+      <div id="bso-map"></div>
+      <ul class="bso-list" id="bso-list"></ul>
+    </div>
+    <p class="besammlungsorte__hint">Tippe auf einen Ort in der Liste, um ihn auf der Karte zu zeigen.</p>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="site-footer__top">
+    <div class="site-footer__brand">
+      <img src="../images/logo_transparent3.png" alt="" width="54" height="54">
+      <div>
+        <strong>Pfadi Regulastein</strong>
+        <span class="site-footer__motto">Allzeit bereit.</span>
+      </div>
+    </div>
+    <div class="site-footer__social">
+      <a rel="noopener" target="_blank" href="https://www.instagram.com/pfadi.regulastein/"><i class="fa-brands fa-instagram" aria-hidden="true"></i> Instagram</a>
+      <a rel="noopener" target="_blank" href="https://www.facebook.com/pfadi.regulastein"><i class="fa-brands fa-facebook" aria-hidden="true"></i> Facebook</a>
+    </div>
+  </div>
+  <div class="site-footer__sponsors">
+    <span class="site-footer__sponsors-label">Unterstützt von</span>
+    <ul>
+      <li><a rel="noopener" href="https://www.raiffeisen.ch/benken/de.html" target="_blank">Raiffeisenbank Benken</a></li>
+      <li><a rel="noopener" href="https://www.raiffeisen.ch/am-ricken/de.html" target="_blank">Raiffeisenbank am Ricken</a></li>
+      <li><a rel="noopener" href="https://gommiswald.ch/" target="_blank">Gemeinde Gommiswald</a></li>
+      <li><a rel="noopener" href="https://ortsgemeinde-gommiswald.ch/" target="_blank">Ortsgemeinde Gommiswald</a></li>
+      <li><a rel="noopener" href="https://www.schreinerwerk.com/firma/" target="_blank">Schreinerei Kaufmann</a></li>
+      <li><a rel="noopener" href="https://www.jugendundsport.ch/de" target="_blank">Jugend &amp; Sport</a></li>
+    </ul>
+  </div>
+</footer>
+
+<div id="cookie-banner">
+  <div class="cookie-box">
+    <h3>Datenschutzerklärung</h3>
+    <p>
+    Um die Bedienung unserer Website angenehm zu gestalten, verwenden wir Cookies. Für den Fotos-Bereich
+    setzen wir Social Plugins ein, die Facebook-Beiträge einblenden. Zudem nutzen wir Tracking-Tools, um
+    die Seite laufend zu verbessern. Durch die weitere Nutzung erklären Sie sich damit einverstanden.<br><br>
+    Die Pfadi Regulastein ist Teil der Pfadibewegung Schweiz, deren Datenschutzerklärung in unserer
+    Abteilung gilt.<br>
+    <a rel="noopener" href="https://pfadi.swiss/de/verband/datenschutz/dse/" target="_blank">Datenschutzerklärung Pfadibewegung Schweiz</a>
+    </p>
+    <button id="accept-btn">Akzeptieren</button>
+  </div>
+</div>
+
+</body>
+</html>

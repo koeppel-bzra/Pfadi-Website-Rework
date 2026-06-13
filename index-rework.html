@@ -1,0 +1,406 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/png" href="./images/logo_transparent3.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pfadi Regulastein – Gommiswald · Rieden · Ernetschwil</title>
+    <meta name="description" content="Die Pfadi Regulastein: jeden zweiten Samstag Abenteuer in der Natur, begleitet von einem ausgebildeten, ehrenamtlichen Leiterteam. Wölfli, Pfadi und Pio in Gommiswald, Rieden und Ernetschwil." />
+    <script defer src="https://kit.fontawesome.com/920aa667f6.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="./styles/root.css">
+    <link rel="stylesheet" href="./styles/rework-base.css">
+    <link rel="stylesheet" href="./styles/index-rework.css">
+    <script defer src="./src/main.js"></script>
+    <script defer src="./src/rework.js"></script>
+  </head>
+  <body>
+    <header>
+        <nav class="top-nav" id="navbar">
+            <div class="left-nav">
+                <a href="index-rework.html"><img src="./images/logo_transparent3.png" alt="Pfadi Regulastein Logo" width="50" height="50"></a>
+                <div class="title">
+                    <h2>PFADI REGULASTEIN</h2>
+                    <div class="subtitle">
+                        <h6>Gommiswald - Rieden - Ernetschwil</h6>
+                    </div>
+                </div>
+            </div>
+
+            <div class="right-nav">
+                <ul>
+                    <li>
+                        <i class="fa-solid fa-house"></i>
+                        <a href="index-rework.html"><strong>Home</strong></a>
+                    </li>
+                    <li>
+                        <i class="fa-solid fa-calendar-days"></i>
+                        <a href="./pages/programm-rework.html">Programm</a>
+                    </li>
+                    <li>
+                        <i class="fa-solid fa-campground"></i>
+                        <a href="./pages/stufen-rework.html">Stufen</a>
+                    </li>
+                    <li>
+                        <i class="fa-solid fa-utensils"></i>
+                        <a href="./pages/vermietung.html">Mobile Küche</a>
+                    </li>
+                    <li>
+                        <i class="fa-solid fa-images"></i>
+                        <a href="./pages/galerie.html">Galerie</a>
+                    </li>
+                    <li class="nav-mitglied">
+                        <i class="fa-solid fa-user-plus"></i>
+                        <a href="./pages/mitglied-werden.html">Mitglied werden</a>
+                    </li>
+                </ul>
+                <button type="button" id="dark-mode-toggle" aria-label="Darkmode umschalten">🌙</button>
+                <div class="hamburger">☰</div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <!-- HERO -->
+        <section class="hero" id="top">
+            <div class="hero__intro">
+                <p class="hero__eyebrow">Abteilung im Linthgebiet · seit Generationen</p>
+                <h1 class="hero__title">Herzlich willkommen bei der<br><span>Pfadi Regulastein</span></h1>
+                <p class="hero__lead">
+                    Jeden zweiten Samstag erleben Kinder und Jugendliche bei uns Abenteuer in der
+                    Natur — gespielt, gelacht, draussen. Begleitet von einem <strong>ausgebildeten,
+                    ehrenamtlichen Leiterteam</strong>, das euer Kind kennt und ernst nimmt.
+                </p>
+                <div class="hero__actions">
+                    <a class="thread-btn thread-btn--solid" href="./pages/mitglied-werden.html">
+                        <i class="fa-solid fa-user-plus" aria-hidden="true"></i> Schnuppern &amp; mitmachen
+                    </a>
+                    <a class="thread-btn" href="#leiterteam">
+                        <i class="fa-solid fa-people-group" aria-hidden="true"></i> Unser Leiterteam
+                    </a>
+                </div>
+            </div>
+
+            <div class="hero__photos">
+                <div class="slide">
+                    <div class="side-image">
+                        <img src="./images/slideshow-02.webp" alt="" width="300" id="left-image">
+                    </div>
+                    <figure class="slide-show">
+                        <img src="./images/slideshow-03.webp" alt="Pfadi Regulastein in der Natur" id="slideshow-images">
+                        <input type="button" value="‹" id="back" aria-label="Vorheriges Bild">
+                        <input type="button" value="›" id="forward" aria-label="Nächstes Bild">
+                        <figcaption>Aus unserem Pfadialltag — tippe für gross</figcaption>
+                    </figure>
+                    <div class="side-image">
+                        <img src="./images/slideshow-04.jpg" alt="" width="300" id="right-image">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Pinned quick-tabs -->
+        <nav class="jumptabs" aria-label="Schnellnavigation">
+            <a href="#leiterteam"><i class="fa-solid fa-people-group" aria-hidden="true"></i> Leiterteam</a>
+            <a href="#anlaesse"><i class="fa-solid fa-calendar-days" aria-hidden="true"></i> Anlässe</a>
+            <a href="#was-ist-pfadi"><i class="fa-solid fa-circle-info" aria-hidden="true"></i> Was ist Pfadi</a>
+            <a href="#eltern-faq"><i class="fa-solid fa-circle-question" aria-hidden="true"></i> Eltern-FAQ</a>
+        </nav>
+
+        <div id="lightbox" class="lightbox">
+            <span class="close">&times;</span>
+            <img id="lightbox-img" src="" alt="Vergrössertes Bild">
+        </div>
+
+        <!-- LEITERTEAM-TEASER → verlinkt zur Stufen-Seite -->
+        <section class="board" id="leiterteam" data-reveal>
+            <div class="board__head">
+                <p class="board__eyebrow">Wer für euer Kind da ist</p>
+                <h2 class="board__title">Das Leiterteam</h2>
+                <p class="board__lead">
+                    Hinter jedem Pfadinamen steckt ein Mensch, der seine Samstage freiwillig schenkt.
+                    Hier ein kleiner Vorgeschmack — das ganze Team findest du nach Stufe geordnet bei den Stufen.
+                </p>
+            </div>
+
+            <div class="patchwall">
+                <article class="patch patch--woelfli" style="--i:0" tabindex="0">
+                    <span class="patch__pin" aria-hidden="true"></span>
+                    <span class="patch__icon" aria-hidden="true"><i class="fa-solid fa-compass"></i></span>
+                    <h3 class="patch__name">merida</h3>
+                    <img class="patch__photo" src="./images/leiterfotos/merida.JPG" alt="Leiterin merida" loading="lazy">
+                    <span class="patch__role">Wölflistufe</span>
+                </article>
+
+                <article class="patch patch--woelfli" style="--i:1" tabindex="0">
+                    <span class="patch__pin" aria-hidden="true"></span>
+                    <span class="patch__icon" aria-hidden="true"><i class="fa-solid fa-feather"></i></span>
+                    <h3 class="patch__name">tranquillo</h3>
+                    <img class="patch__photo" src="./images/leiterfotos/tranquillo.JPG" alt="Leiter tranquillo" loading="lazy">
+                    <span class="patch__role">Wölflistufe</span>
+                </article>
+
+                <article class="patch patch--pfadi" style="--i:2" tabindex="0">
+                    <span class="patch__pin" aria-hidden="true"></span>
+                    <span class="patch__icon" aria-hidden="true"><i class="fa-solid fa-star"></i></span>
+                    <h3 class="patch__name">stitch</h3>
+                    <img class="patch__photo" src="./images/leiterfotos/stitch.JPG" alt="Leiter stitch" loading="lazy">
+                    <span class="patch__role">Pfadistufe</span>
+                </article>
+
+                <article class="patch patch--pfadi" style="--i:3" tabindex="0">
+                    <span class="patch__pin" aria-hidden="true"></span>
+                    <span class="patch__icon" aria-hidden="true"><i class="fa-solid fa-tower-observation"></i></span>
+                    <h3 class="patch__name">faro</h3>
+                    <img class="patch__photo" src="./images/leiterfotos/faro.JPG" alt="Leiter faro" loading="lazy">
+                    <span class="patch__role">Pfadistufe</span>
+                </article>
+
+                <article class="patch patch--pio" style="--i:4" tabindex="0">
+                    <span class="patch__pin" aria-hidden="true"></span>
+                    <span class="patch__icon" aria-hidden="true"><i class="fa-solid fa-bolt"></i></span>
+                    <h3 class="patch__name">salto</h3>
+                    <img class="patch__photo" src="./images/leiterfotos/salto.JPG" alt="Leiter salto" loading="lazy">
+                    <span class="patch__role">Piostufe</span>
+                </article>
+            </div>
+
+            <div class="board__cta">
+                <a class="thread-btn" href="./pages/stufen-rework.html#woelflistufe">
+                    <i class="fa-solid fa-people-group" aria-hidden="true"></i> Das ganze Team nach Stufe ansehen
+                </a>
+            </div>
+
+            <p class="board__foot">
+                <i class="fa-solid fa-thumbtack" aria-hidden="true"></i>
+                Alle Leitenden absolvieren die Ausbildung der Pfadibewegung Schweiz und von Jugend+Sport.
+            </p>
+        </section>
+
+        <!-- WIR SIND PFADI -->
+        <section class="notes" id="wir-sind-pfadi" data-reveal>
+            <header class="section-head">
+                <p class="section-head__eyebrow">Erlebe Pfadi</p>
+                <h2 class="section-head__title">Wir sind Pfadi</h2>
+            </header>
+
+            <div class="notes__grid">
+                <article class="note">
+                    <h3>Draussen, jeden zweiten Samstag</h3>
+                    <p>
+                        Wir treffen uns <strong>fast jeden zweiten Samstag</strong> und verbringen
+                        erlebnisreiche Stunden in der Natur. Ausgangspunkt ist unser
+                        <a rel="noopener" target="_blank" href="https://www.google.com/maps/place/Schlattstrasse+15,+8725+Ernetschwil/@47.2407205,9.0038913,18z">Pfadiheim in Ernetschwil</a>
+                        und die Wälder ringsum.
+                    </p>
+                </article>
+
+                <article class="note">
+                    <h3>Drei Stufen, eine Reise</h3>
+                    <p>
+                        Vom <strong>Wölfli</strong> über die <strong>Pfadi</strong> bis zum <strong>Pio</strong>
+                        wächst dein Kind mit. Mehr dazu unter <a href="./pages/stufen-rework.html">Stufen</a>,
+                        die Halbjahresprogramme findest du unter <a href="./pages/programm-rework.html">Programm</a>.
+                    </p>
+                </article>
+
+                <article class="note">
+                    <h3>Einfach mal schnuppern</h3>
+                    <p>
+                        Finde heraus, wieviel Pfadi in <strong>deinem Kind</strong> steckt — und
+                        kommt unverbindlich an einer <a href="#anlaesse">der nächsten Übungen</a> vorbei.
+                        Wir freuen uns auf euch.
+                    </p>
+                </article>
+            </div>
+        </section>
+
+        <!-- AKTUELLE ANLÄSSE -->
+        <section class="events" id="anlaesse" data-reveal>
+            <header class="section-head">
+                <p class="section-head__eyebrow">Was als Nächstes ansteht</p>
+                <h2 class="section-head__title">Aktuelle Anlässe</h2>
+            </header>
+
+            <div class="events__frame">
+                <iframe title="Kalender der Pfadi Regulastein" src="https://calendar.google.com/calendar/b/1/embed?showTitle=0&amp;showNav=0&amp;showDate=0&amp;showPrint=0&amp;showTabs=0&amp;showCalendars=0&amp;showTz=0&amp;mode=AGENDA&amp;height=250&amp;wkst=1&amp;hl=de&amp;bgcolor=%23ffffff&amp;src=ef802k6kaolfpd4g6007qhcce8%40group.calendar.google.com&amp;color=%232952A3&amp;ctz=Europe%2FZurich"></iframe>
+            </div>
+            <p class="events__note">Alle Halbjahresprogramme als PDF findest du unter <a href="./pages/programm-rework.html">Programm</a>.</p>
+        </section>
+
+        <!-- WAS IST PFADI -->
+        <section class="pillars" id="was-ist-pfadi" data-reveal>
+            <header class="section-head">
+                <p class="section-head__eyebrow">Für Eltern, kurz erklärt</p>
+                <h2 class="section-head__title">Was ist Pfadi?</h2>
+            </header>
+
+            <div class="pillars__grid">
+                <article class="pillar pillar--blue">
+                    <span class="pillar__tab"><i class="fa-solid fa-tree" aria-hidden="true"></i></span>
+                    <h3>Abenteuer in der Natur</h3>
+                    <p>
+                        Kinder und Jugendliche erleben draussen Abenteuer, übernehmen Verantwortung und
+                        wachsen in einer starken Gemeinschaft. Durch Spiel, Sport und Kreatives bauen sie
+                        Selbstvertrauen und soziale Kompetenzen auf.
+                    </p>
+                </article>
+
+                <article class="pillar pillar--red">
+                    <span class="pillar__tab"><i class="fa-solid fa-handshake-angle" aria-hidden="true"></i></span>
+                    <h3>Werte und Teamgeist</h3>
+                    <p>
+                        Altersgerechte Programme fördern Selbstständigkeit, Teamgeist und Mitbestimmung.
+                        Dabei geht es um respektvollen Umgang und Werte wie Toleranz und Verantwortung.
+                    </p>
+                </article>
+
+                <article class="pillar pillar--yellow">
+                    <span class="pillar__tab"><i class="fa-solid fa-seedling" aria-hidden="true"></i></span>
+                    <h3>Persönliche Entwicklung</h3>
+                    <p>
+                        Ziel ist die ganzheitliche Entwicklung jedes Kindes: zu sich selbst, zu anderen,
+                        zur Natur und zur Gesellschaft. Ein Raum, in dem Kinder sich ausprobieren und
+                        ihre Stärken entdecken.
+                    </p>
+                </article>
+            </div>
+            <p class="pillars__note">Mehr über die Pfadibewegung auf <a title="Pfadi" rel="noopener" target="_blank" href="https://pfadi.swiss/de/das-ist-pfadi/">pfadi.swiss</a>.</p>
+        </section>
+
+        <!-- GESCHICHTE -->
+        <section class="history" data-reveal>
+            <header class="section-head">
+                <p class="section-head__eyebrow">Aus dem Feldtagebuch</p>
+                <h2 class="section-head__title">Geschichte der Pfadi</h2>
+            </header>
+
+            <ol class="timeline">
+                <li class="timeline__item">
+                    <span class="timeline__year">1900</span>
+                    <p>Während des Burenkriegs verteidigt <strong>Baden-Powell</strong> die Stadt Mafeking. Weil Erwachsene fehlten, übernahmen Jugendliche wichtige Aufgaben — eine zentrale Idee für die Pfadi.</p>
+                </li>
+                <li class="timeline__item">
+                    <span class="timeline__year">1907</span>
+                    <p>Auf Brownsea Island veranstaltet Baden-Powell mit <strong>22 Jungen</strong> das erste Pfadilager und legt den Grundstein der Bewegung.</p>
+                </li>
+                <li class="timeline__item">
+                    <span class="timeline__year">1908</span>
+                    <p>Mit <strong>«Scouting for Boys»</strong> gibt er praktische Anleitungen zum Erkunden, Lernen und Spielen. Das Werk macht die Pfadi in ganz England populär.</p>
+                </li>
+                <li class="timeline__item">
+                    <span class="timeline__year">1910</span>
+                    <p>Agnes Baden-Powell gründet die <strong>«Girl Guides»</strong>, damit auch Mädchen Teil der Bewegung werden. Die Pfadi öffnet sich und wächst weiter.</p>
+                </li>
+                <li class="timeline__item">
+                    <span class="timeline__year">1912</span>
+                    <p>Olave Baden-Powell engagiert sich in der Bewegung und übernimmt später die <strong>Leitung der Girl Guides</strong>.</p>
+                </li>
+                <li class="timeline__item timeline__item--now">
+                    <span class="timeline__year">Heute</span>
+                    <p>Die Pfadi ist die <strong>grösste Jugendorganisation</strong> der Welt — rund 38 Millionen Mitglieder, die Gemeinschaft, Verantwortung und Abenteuer leben.</p>
+                </li>
+            </ol>
+
+            <figure class="founder">
+                <img src="./images/baden-powell.jpg" alt="Robert Baden-Powell">
+                <figcaption><strong>Robert Baden-Powell</strong><span>Gründer der Pfadi</span></figcaption>
+            </figure>
+        </section>
+
+        <!-- ELTERN-FAQ -->
+        <section class="faq" id="eltern-faq" data-reveal>
+            <header class="section-head">
+                <p class="section-head__eyebrow">Häufige Fragen von Eltern</p>
+                <h2 class="section-head__title">Gut zu wissen</h2>
+            </header>
+
+            <div class="faq__list">
+                <details class="qa" open>
+                    <summary>Ab welchem Alter kann mein Kind mitmachen?</summary>
+                    <div class="qa__body">
+                        <p>Bei uns wächst dein Kind durch drei Stufen mit: <strong>Wölfli</strong> (6–9), <strong>Pfadi</strong> (10–13) und <strong>Pio</strong> (14–16). Was in welcher Stufe passiert, findest du unter <a href="./pages/stufen-rework.html">Stufen</a>.</p>
+                    </div>
+                </details>
+
+                <details class="qa">
+                    <summary>Wie läuft ein Schnuppernachmittag ab?</summary>
+                    <div class="qa__body">
+                        <p>Komm einfach an einer Übung vorbei — unverbindlich und kostenlos. Wettertaugliche Kleidung, die schmutzig werden darf, gute Schuhe und ein Znüni reichen. Um alles andere kümmern wir uns. Die nächsten Daten stehen bei den <a href="#anlaesse">Anlässen</a>.</p>
+                    </div>
+                </details>
+
+                <details class="qa">
+                    <summary>Sind die Leiterinnen und Leiter ausgebildet?</summary>
+                    <div class="qa__body">
+                        <p>Ja. Unsere Leitenden besuchen die Ausbildungskurse der <strong>Pfadibewegung Schweiz</strong> und von <strong>Jugend+Sport (J+S)</strong>. Sicherheit und ein wertschätzender Umgang stehen bei jeder Aktivität an erster Stelle.</p>
+                    </div>
+                </details>
+
+                <details class="qa">
+                    <summary>Was kostet die Teilnahme?</summary>
+                    <div class="qa__body">
+                        <p>Der Mitgliederbeitrag ist bewusst tief gehalten; Lager werden separat und fair verrechnet. <strong>Niemand soll aus finanziellen Gründen nicht dabei sein</strong> — sprich uns in dem Fall einfach vertraulich an.</p>
+                    </div>
+                </details>
+
+                <details class="qa">
+                    <summary>Mein Kind hat eine Allergie oder besondere Bedürfnisse.</summary>
+                    <div class="qa__body">
+                        <p>Sag uns vor dem ersten Besuch kurz Bescheid. Wir nehmen Rücksicht und besprechen mit dir, was dein Kind braucht, damit es sich wohlfühlt.</p>
+                    </div>
+                </details>
+
+                <details class="qa">
+                    <summary>Wie erreiche ich die Abteilungsleitung?</summary>
+                    <div class="qa__body">
+                        <p>Am schnellsten über <a rel="noopener" target="_blank" href="https://www.instagram.com/pfadi.regulastein/">Instagram</a> oder das Formular unter <a href="./pages/mitglied-werden.html">Mitglied werden</a>. Wir melden uns zeitnah zurück.</p>
+                    </div>
+                </details>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="site-footer__top">
+            <div class="site-footer__brand">
+                <img src="./images/logo_transparent3.png" alt="" width="54" height="54">
+                <div>
+                    <strong>Pfadi Regulastein</strong>
+                    <span class="site-footer__motto">Allzeit bereit.</span>
+                </div>
+            </div>
+            <div class="site-footer__social">
+                <a rel="noopener" target="_blank" href="https://www.instagram.com/pfadi.regulastein/"><i class="fa-brands fa-instagram" aria-hidden="true"></i> Instagram</a>
+                <a rel="noopener" target="_blank" href="https://www.facebook.com/pfadi.regulastein"><i class="fa-brands fa-facebook" aria-hidden="true"></i> Facebook</a>
+            </div>
+        </div>
+        <div class="site-footer__sponsors">
+            <span class="site-footer__sponsors-label">Unterstützt von</span>
+            <ul>
+                <li><a rel="noopener" href="https://www.raiffeisen.ch/benken/de.html" target="_blank">Raiffeisenbank Benken</a></li>
+                <li><a rel="noopener" href="https://www.raiffeisen.ch/am-ricken/de.html" target="_blank">Raiffeisenbank am Ricken</a></li>
+                <li><a rel="noopener" href="https://gommiswald.ch/" target="_blank">Gemeinde Gommiswald</a></li>
+                <li><a rel="noopener" href="https://ortsgemeinde-gommiswald.ch/" target="_blank">Ortsgemeinde Gommiswald</a></li>
+                <li><a rel="noopener" href="https://www.schreinerwerk.com/firma/" target="_blank">Schreinerei Kaufmann</a></li>
+                <li><a rel="noopener" href="https://www.jugendundsport.ch/de" target="_blank">Jugend &amp; Sport</a></li>
+            </ul>
+        </div>
+    </footer>
+
+    <div id="cookie-banner">
+        <div class="cookie-box">
+            <h3>Datenschutzerklärung</h3>
+            <p>
+            Um die Bedienung unserer Website angenehm zu gestalten, verwenden wir Cookies. Für den
+            Fotos-Bereich setzen wir Social Plugins ein, die Facebook-Beiträge einblenden. Zudem nutzen
+            wir Tracking-Tools, um die Seite laufend zu verbessern. Durch die weitere Nutzung erklären
+            Sie sich damit einverstanden.<br><br>
+            Die Pfadi Regulastein ist Teil der Pfadibewegung Schweiz, deren Datenschutzerklärung in
+            unserer Abteilung gilt.<br>
+            <a rel="noopener" href="https://pfadi.swiss/de/verband/datenschutz/dse/" target="_blank">Datenschutzerklärung Pfadibewegung Schweiz</a>
+            </p>
+            <button id="accept-btn">Akzeptieren</button>
+        </div>
+    </div>
+  </body>
+</html>
