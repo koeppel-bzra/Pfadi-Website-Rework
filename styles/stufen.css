@@ -1,555 +1,202 @@
-/* ===== Stufen Page ===== */
-
-/* ---- Title Section ---- */
-
-.title-section {
-  text-align: center;
-  background: var(--bg-light);
-  box-shadow: var(--shadow-sm);
-  padding: clamp(1.5rem, 4vw, 2.5rem);
-  margin-bottom: clamp(2rem, 5vw, 4rem);
-}
-
-.title-title {
-  font-size: clamp(1.8rem, 5vw, 3rem);
-  font-weight: 800;
-  letter-spacing: 2px;
-}
-
-.title-section hr {
-  max-width: 80px;
-  margin: 0.75rem auto;
-  border: none;
-  border-top: 3px solid var(--primary-red);
-  border-radius: var(--radius-full);
-}
-
-.title-section p {
-  color: var(--text-secondary);
-  font-size: var(--font-size-lg);
-}
-
-/* ---- Stufe Section Card ---- */
-
-.stufe-section {
-  background: var(--bg-light);
-  border-radius: var(--radius-lg);
-  box-shadow: var(--shadow-md);
-  max-width: 900px;
-  margin: 0 auto var(--spacing-2xl);
-  padding: var(--spacing-xl);
-  border-left: 5px solid transparent;
-  transition: box-shadow var(--transition-base);
-}
-
-.stufe-section:hover {
-  box-shadow: var(--shadow-lg);
-}
-
-.stufe-section.woelfli {
-  border-left-color: var(--woelfli-color);
-}
-
-.stufe-section.pfadi {
-  border-left-color: var(--pfadi-color);
-}
-
-.stufe-section.pio {
-  border-left-color: var(--pio-color);
-}
-
-/* ---- Stufe Header ---- */
-
-.stufe-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  gap: var(--spacing-sm);
-  padding-bottom: var(--spacing-md);
-  margin-bottom: var(--spacing-lg);
-}
-
-.woelfli .stufe-header {
-  border-bottom: 2px solid var(--woelfli-color);
-}
-
-.pfadi .stufe-header {
-  border-bottom: 2px solid var(--pfadi-color);
-}
-
-.pio .stufe-header {
-  border-bottom: 2px solid var(--pio-color);
-}
-
-.stufe-header-left {
-  display: flex;
-  align-items: center;
-  gap: var(--spacing-lg);
-  flex-wrap: wrap;
-}
-
-.stufe-header h2 {
-  font-size: clamp(1.8rem, 4vw, 2.4rem);
-  font-weight: 800;
-  letter-spacing: 0.5px;
-  margin: 0;
-}
-
-/* ---- Stufe Badge ---- */
-
-.stufe-badge {
-  display: inline-block;
-  padding: 0.3rem 1rem;
-  border-radius: var(--radius-full);
-  font-size: var(--font-size-sm);
-  font-weight: 600;
-  border: 1.5px solid;
-}
-
-.woelfli-badge {
-  background: var(--woelfli-color-light);
-  color: var(--woelfli-color-dark);
-  border-color: var(--woelfli-color);
-}
-
-.pfadi-badge {
-  background: var(--pfadi-color-light);
-  color: var(--pfadi-color);
-  border-color: var(--pfadi-color);
-}
-
-.pio-badge {
-  background: var(--pio-color-light);
-  color: var(--pio-color);
-  border-color: var(--pio-color);
-}
-
-/* ---- Stufe Body ---- */
-
-.stufe-body {
-  display: flex;
-  gap: var(--spacing-2xl);
-  flex-wrap: wrap;
-  align-items: flex-start;
-}
-
-.stufe-info {
-  flex: 1 1 300px;
-  display: flex;
-  flex-direction: column;
-  gap: var(--spacing-lg);
-}
-
-/* ---- Description ---- */
-
-.stufe-description {
-  color: var(--text-secondary);
-  line-height: 1.85;
-  font-size: var(--font-size-base);
-  padding: var(--spacing-sm) var(--spacing-md);
-  border-left: 3px solid;
-  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
-  margin: 0;
-}
-
-.woelfli-description {
-  border-left-color: var(--woelfli-color);
-  background: var(--woelfli-color-light);
-}
-
-.pfadi-description {
-  border-left-color: var(--pfadi-color);
-  background: var(--pfadi-color-light);
-}
-
-.pio-description {
-  border-left-color: var(--pio-color);
-  background: var(--pio-color-light);
-}
-
-/* ---- Programm Link Button ---- */
-
-.stufe-programm-link {
-  display: inline-flex;
-  align-items: center;
-  gap: var(--spacing-sm);
-  padding: var(--spacing-sm) var(--spacing-lg);
-  border-radius: var(--radius-sm);
-  background: var(--primary-black);
-  color: var(--text-white);
-  text-decoration: none;
-  font-size: var(--font-size-sm);
-  font-weight: 600;
-  border: 1px solid var(--primary-black);
-  transition: background var(--transition-base), border-color var(--transition-base), box-shadow var(--transition-base);
-  align-self: flex-start;
-}
-
-.stufe-programm-link:hover {
-  background: var(--primary-red);
-  border-color: var(--primary-red);
-  box-shadow: 0 4px 14px var(--accent-glow);
-}
-
-/* ---- Leaders Section ---- */
-
-.stufe-leaders {
-  flex: 1 1 260px;
-}
-
-.leaders-title {
-  font-size: var(--font-size-lg);
-  font-weight: 700;
-  margin-bottom: var(--spacing-md);
-  color: var(--text-secondary);
-}
-
-/* ---- Leader Grid ---- */
-
-.leader-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-  gap: var(--spacing-md);
-}
-
-.leader-grid-2 {
-  grid-template-columns: repeat(2, minmax(120px, 160px));
-}
-
-/* ---- Leader Placeholder ---- */
-
-.leader-placeholder {
-  aspect-ratio: 1;
-  background: var(--bg-dark);
-  border-radius: var(--radius-md);
-  border: 2px dashed var(--border);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: var(--spacing-sm);
-  cursor: default;
-  transition: transform var(--transition-base), border-color var(--transition-base), box-shadow var(--transition-base);
-}
-
-.leader-placeholder i {
-  font-size: 2rem;
-  color: var(--text-muted);
-  transition: color var(--transition-base);
-}
-
-.leader-placeholder span {
-  font-size: var(--font-size-sm);
-  color: var(--text-muted);
-  font-weight: 500;
-}
-
-.leader-placeholder:hover {
-  transform: scale(1.04);
-  box-shadow: var(--shadow-sm);
-}
-
-.woelfli-placeholder:hover {
-  border-color: var(--woelfli-color);
-}
-
-.woelfli-placeholder:hover i {
-  color: var(--woelfli-color);
-}
-
-.pfadi-placeholder:hover {
-  border-color: var(--pfadi-color);
-}
-
-.pfadi-placeholder:hover i {
-  color: var(--pfadi-color);
-}
-
-.pio-placeholder:hover {
-  border-color: var(--pio-color);
-}
-
-.pio-placeholder:hover i {
-  color: var(--pio-color);
-}
-
-/* ---- Leader Cards (echte Fotos) ---- */
-
-.leader-card {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: var(--spacing-xs);
-}
-
-.leader-card img {
-  width: 100%;
-  aspect-ratio: 3 / 4;
-  object-fit: cover;
-  object-position: top;
-  border-radius: var(--radius-md);
-  display: block;
-  box-shadow: var(--shadow-sm);
-  transition: transform var(--transition-base), box-shadow var(--transition-base);
-}
-
-.leader-card img:hover {
-  transform: scale(1.03);
-  box-shadow: var(--shadow-md);
-}
-
-.leader-card span {
-  font-size: var(--font-size-sm);
-  font-weight: 600;
-  color: var(--text-secondary);
-}
-
-/* ---- Stufenleitung highlight ---- */
-
-.leader-card-leitung img {
-  border: 2.5px solid transparent;
-}
-
-.woelfli .leader-card-leitung img {
-  border-color: var(--woelfli-color);
-  box-shadow: 0 0 0 3px rgba(245, 184, 0, 0.2), var(--shadow-sm);
-}
-
-.pfadi .leader-card-leitung img {
-  border-color: var(--pfadi-color);
-  box-shadow: 0 0 0 3px rgba(244, 29, 25, 0.18), var(--shadow-sm);
-}
-
-.pio .leader-card-leitung img {
-  border-color: var(--pio-color);
-  box-shadow: 0 0 0 3px rgba(0, 94, 182, 0.18), var(--shadow-sm);
-}
-
-.leader-role {
-  display: inline-flex;
-  align-items: center;
-  gap: 4px;
-  font-size: 0.68rem;
-  font-weight: 700;
-  letter-spacing: 0.4px;
-  text-transform: uppercase;
-  padding: 0.18rem 0.55rem;
-  border-radius: var(--radius-full);
-  border: 1.5px solid;
-}
-
-.woelfli .leader-role {
-  background: var(--woelfli-color-light);
-  color: var(--woelfli-color-dark);
-  border-color: var(--woelfli-color);
-}
-
-.pfadi .leader-role {
-  background: var(--pfadi-color-light);
-  color: var(--pfadi-color);
-  border-color: var(--pfadi-color);
-}
-
-.pio .leader-role {
-  background: var(--pio-color-light);
-  color: var(--pio-color);
-  border-color: var(--pio-color);
-}
-
-.leader-card-group {
-  grid-column: 1 / -1;
-}
-
-.leader-card-group img {
-  aspect-ratio: 16 / 9;
-  object-position: center;
-}
-
-.leader-grid-solo {
-  display: flex;
-  justify-content: flex-start;
-}
-
-.leader-grid-solo .leader-card {
-  max-width: 160px;
-}
-
-/* ---- Responsive ---- */
-
-@media (max-width: 768px) {
-  .stufe-section {
-    padding: var(--spacing-lg);
-    margin: 0 1rem var(--spacing-xl);
-  }
-
-  .dok-section {
-    margin: 0 1rem var(--spacing-2xl);
-  }
-
-  .stufe-body {
-    flex-direction: column;
-    gap: var(--spacing-xl);
-  }
-
-  .leader-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .leader-grid-2 {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (max-width: 480px) {
-  .stufe-header-left {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: var(--spacing-xs);
-  }
-
-  .stufe-header h2 {
-    font-size: clamp(1.5rem, 6vw, 2rem);
-  }
-}
-
-
-/* ===== Quick Navigation ===== */
-
-.stufen-quicknav {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: var(--spacing-sm);
-  padding-top: var(--spacing-lg);
-}
-
-.stufen-quicknav a {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.4rem;
-  padding: 0.4rem var(--spacing-md);
-  border-radius: var(--radius-full);
-  background: var(--bg-mid);
-  color: var(--text);
-  text-decoration: none;
-  font-size: var(--font-size-sm);
-  font-weight: 600;
-  border: 1.5px solid var(--border);
-  transition: background var(--transition-base), color var(--transition-base), border-color var(--transition-base), transform var(--transition-base);
-}
-
-.stufen-quicknav a:hover {
-  color: var(--text-white);
-  transform: translateY(-2px);
-}
-
-.stufen-quicknav a[href="#woelflistufe"]:hover {
-  background: var(--woelfli-color);
-  border-color: var(--woelfli-color);
-  color: var(--primary-black);
-}
-
-.stufen-quicknav a[href="#pfadistufe"]:hover {
-  background: var(--pfadi-color);
-  border-color: var(--pfadi-color);
-}
-
-.stufen-quicknav a[href="#piostufe"]:hover {
-  background: var(--pio-color);
-  border-color: var(--pio-color);
-}
-
-.stufen-quicknav a[href="#organigramm"]:hover,
-.stufen-quicknav a[href="#stufenmodell"]:hover {
-  background: var(--primary-black);
-  border-color: var(--primary-black);
-}
-
-.quicknav-divider {
-  width: 1px;
-  height: 24px;
-  background: var(--border);
-  flex-shrink: 0;
-}
-
-@media (max-width: 600px) {
-  .stufen-quicknav { gap: var(--spacing-xs); }
-  .quicknav-divider { display: none; }
-}
-
-
-/* ===== Dokument Sektionen (Organigramm / Stufenmodell) ===== */
-
-.dok-section {
-  background: var(--bg-light);
-  border-radius: var(--radius-lg);
-  box-shadow: var(--shadow-md);
-  max-width: 900px;
-  margin: 0 auto var(--spacing-2xl);
-  padding: var(--spacing-xl);
-  border-left: 5px solid var(--primary-black);
-  transition: box-shadow var(--transition-base);
-}
-
-.dok-section:hover {
-  box-shadow: var(--shadow-lg);
-}
-
-.dok-header {
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  gap: var(--spacing-md);
-  padding-bottom: var(--spacing-md);
-  margin-bottom: var(--spacing-lg);
-  border-bottom: 2px solid var(--primary-black);
-}
-
-.dok-header-left h2 {
-  font-size: clamp(1.8rem, 4vw, 2.4rem);
-  font-weight: 800;
-  letter-spacing: 0.5px;
-  margin: 0 0 var(--spacing-xs) 0;
-}
-
-.dok-subtitle {
-  color: var(--text-muted);
-  font-size: var(--font-size-sm);
-  margin: 0;
-}
-
-.dok-embed {
-  border-radius: var(--radius-md);
-  overflow: hidden;
-  box-shadow: var(--shadow-sm);
-}
-
-.dok-embed img {
-  display: block;
-  width: 100%;
-  height: auto;
-  border-radius: var(--radius-sm);
-}
-
-.dok-embed iframe {
-  display: block;
-  width: 100%;
-  height: 70vh;
-  min-height: 420px;
-  border: none;
-}
-
-@media (max-width: 768px) {
-  .dok-header {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .dok-embed iframe {
-    height: 55vh;
-    min-height: 320px;
-  }
+/* ================================================================
+   PFADI REGULASTEIN — Stufen-Seite (Rework)
+   Lädt nach root.css + rework-base.css.
+   Leitende leben hier: nach Stufe gruppiert, als gestickte Foto-Karten.
+================================================================ */
+
+.stufe {
+    --c: var(--pfadi-color);
+    max-width: 1080px;
+    margin: 0 auto clamp(2.6rem, 6vw, 4rem);
+    padding: clamp(1.6rem, 4vw, 2.6rem) clamp(1rem, 4vw, 2.5rem) 0;
+    scroll-margin-top: calc(var(--nav-h) + 10px);
+}
+.stufe--woelfli { --c: var(--woelfli-color); }
+.stufe--pfadi   { --c: var(--pfadi-color); }
+.stufe--pio     { --c: var(--pio-color); }
+
+.stufe__head {
+    display: flex;
+    align-items: center;
+    gap: 0.9rem;
+    padding-bottom: 0.9rem;
+    margin-bottom: 1.6rem;
+    border-bottom: 3px dashed var(--c);
+}
+.stufe__icon {
+    flex-shrink: 0;
+    width: 52px; height: 52px;
+    display: grid; place-items: center;
+    background: var(--c);
+    color: #fff;
+    border-radius: 13px;
+    font-size: 1.4rem;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.18), inset 0 0 0 2px rgba(255,255,255,0.25);
+}
+.stufe--woelfli .stufe__icon { color: var(--woelfli-ink); }
+.stufe__name {
+    font-family: "Bricolage Grotesque", sans-serif;
+    font-size: clamp(1.6rem, 4.5vw, 2.4rem);
+    font-weight: 800;
+    letter-spacing: -0.5px;
+    margin: 0;
+    color: var(--rw-ink);
+}
+.stufe__age {
+    margin-left: auto;
+    padding: 0.35rem 0.85rem;
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--rw-ink);
+    background: var(--rw-kraft);
+    border: 1.5px dashed var(--c);
+    border-radius: 999px;
+    white-space: nowrap;
+}
+
+.stufe__body {
+    display: grid;
+    grid-template-columns: 1fr 1.15fr;
+    gap: clamp(1.5rem, 4vw, 2.8rem);
+    align-items: start;
+}
+.stufe__info p { font-size: 1.02rem; line-height: 1.62; color: var(--rw-ink-soft); margin: 0 0 1.3rem; }
+
+/* Programm-Button trägt die Stufenfarbe (Outline → füllt sich passend) */
+.stufe .thread-btn { --btn-color: var(--c); }
+.stufe--woelfli .thread-btn { --btn-on: var(--woelfli-ink); --btn-rest: var(--woelfli-ink); }
+
+.stufe__leaders-title {
+    font-family: "Caveat", cursive;
+    font-size: 1.6rem;
+    color: var(--c);
+    margin: 0 0 0.9rem;
+    transform: rotate(-1.5deg);
+}
+.leadergrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(135px, 1fr));
+    gap: clamp(0.9rem, 2vw, 1.4rem);
+}
+.leadergrid--solo { grid-template-columns: minmax(150px, 200px); }
+
+/* ---- Gestickte Leiter-Foto-Karte ---- */
+.leader {
+    position: relative;
+    margin: 0;
+    padding: 8px 8px 12px;
+    text-align: center;
+    background-color: var(--rw-card);
+    background-image: repeating-linear-gradient(45deg, rgba(60, 45, 20, 0.05) 0 2px, transparent 2px 5px);
+    border: 4px solid var(--c);
+    border-radius: 15px;
+    box-shadow: inset 0 0 0 2px rgba(255, 255, 255, 0.45), 0 8px 18px rgba(40, 30, 15, 0.16);
+    transition: transform 0.2s cubic-bezier(0.2, 0.8, 0.25, 1), box-shadow 0.2s ease;
+}
+.leader:nth-child(2n) { transform: rotate(1.4deg); }
+.leader:nth-child(2n+1) { transform: rotate(-1.4deg); }
+.leader:hover {
+    transform: translateY(-6px) rotate(0);
+    box-shadow: inset 0 0 0 2px rgba(255, 255, 255, 0.45), 0 16px 28px rgba(40, 30, 15, 0.26);
+}
+.leader__pin {
+    position: absolute;
+    top: -7px; left: 50%;
+    width: 14px; height: 14px;
+    transform: translateX(-50%);
+    border-radius: 50%;
+    background: radial-gradient(circle at 35% 30%, #fff 0 18%, var(--c) 55%, rgba(0,0,0,0.45) 120%);
+    box-shadow: 0 2px 3px rgba(0, 0, 0, 0.4);
+    z-index: 3;
+}
+.leader img {
+    display: block;
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    border-radius: 9px;
+    border: 1px solid var(--rw-line);
+}
+.leader__name {
+    font-family: "Bricolage Grotesque", sans-serif;
+    font-size: 1.05rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--rw-ink);
+    margin-top: 0.55rem;
+}
+.leader__role {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    margin-top: 0.4rem;
+    padding: 0.2rem 0.6rem;
+    font-size: 0.72rem;
+    font-weight: 700;
+    color: #fff;
+    background: var(--c);
+    border-radius: 999px;
+}
+.stufe--woelfli .leader__role { color: var(--woelfli-ink); }
+.leader--lead { border-style: solid; box-shadow: inset 0 0 0 2px rgba(255, 255, 255, 0.45), 0 0 0 3px color-mix(in srgb, var(--c) 30%, transparent), 0 8px 18px rgba(40, 30, 15, 0.16); }
+
+.leader--group img { filter: saturate(0.92); }
+.leader__tag {
+    position: absolute;
+    top: 14px; right: -6px;
+    padding: 0.18rem 0.55rem;
+    font-size: 0.66rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--rw-ink);
+    background: var(--rw-kraft);
+    border: 1px solid var(--rw-line);
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+/* ================================================================
+   DOKUMENTE — Organigramm & Stufenmodell
+================================================================ */
+.dok {
+    max-width: 900px;
+    margin: 0 auto clamp(2.4rem, 5vw, 3.5rem);
+    padding-inline: clamp(1rem, 4vw, 2.5rem);
+    scroll-margin-top: calc(var(--nav-h) + 10px);
+}
+.dok__head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-bottom: 1.1rem;
+}
+.dok__title { font-family: "Bricolage Grotesque", sans-serif; font-size: clamp(1.4rem, 3.5vw, 2rem); font-weight: 800; margin: 0; color: var(--rw-ink); }
+.dok__sub { font-size: 0.95rem; color: var(--rw-ink-soft); margin: 0.2rem 0 0; }
+.dok__frame {
+    background: var(--rw-card);
+    border: 1px solid var(--rw-line);
+    border-radius: 6px;
+    padding: 0.7rem;
+    box-shadow: 0 12px 26px rgba(40, 30, 15, 0.14);
+}
+.dok__frame img { display: block; width: 100%; height: auto; border-radius: 3px; }
+
+/* ================================================================
+   RESPONSIVE
+================================================================ */
+@media (max-width: 760px) {
+    .stufe__body { grid-template-columns: 1fr; }
+    .stufe__leaders-title { transform: none; }
+}
+@media (max-width: 420px) {
+    .leadergrid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .leader { transition: none !important; }
+    .leader:hover { transform: none; }
 }
