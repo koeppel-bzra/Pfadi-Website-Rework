@@ -62,6 +62,10 @@
 }
 .stufe__info p { font-size: 1.02rem; line-height: 1.62; color: var(--rw-ink-soft); margin: 0 0 1.3rem; }
 
+/* Programm-Button trägt die Stufenfarbe (Outline → füllt sich passend) */
+.stufe .thread-btn { --btn-color: var(--c); }
+.stufe--woelfli .thread-btn { --btn-on: var(--woelfli-ink); --btn-rest: var(--woelfli-ink); }
+
 .stufe__leaders-title {
     font-family: "Caveat", cursive;
     font-size: 1.6rem;

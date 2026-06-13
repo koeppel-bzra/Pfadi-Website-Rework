@@ -76,6 +76,9 @@
 }
 .sc-programm-child img:hover { transform: rotate(0) scale(1.02); }
 .sc-programm-child p { font-size: 0.96rem; color: var(--rw-ink-soft); margin: 0 0 0.4rem; }
+/* Download-Button trägt die Stufenfarbe */
+.sc-programm-child .thread-btn { --btn-color: var(--c); }
+.sc-programm-child.woelfli .thread-btn { --btn-on: var(--woelfli-ink); --btn-rest: var(--woelfli-ink); }
 
 /* ================================================================
    DETAILPROGRAMM — ausklappbar

@@ -117,12 +117,14 @@ html.js [data-reveal].is-visible { opacity: 1; transform: none; }
     gap: 0.15rem;
 }
 .right-nav > ul > li {
+    position: relative;
     display: flex;
     align-items: center;
     gap: 0.4rem;
     padding: 0.45rem 0.8rem;
     border-radius: 9px;
     border: 1.5px solid transparent;
+    cursor: pointer;
     transition: background 0.18s ease, border-color 0.18s ease, transform 0.12s ease;
 }
 .right-nav > ul > li i { font-size: 0.82rem; color: var(--rw-ink-soft); width: 15px; text-align: center; }
@@ -132,6 +134,13 @@ html.js [data-reveal].is-visible { opacity: 1; transform: none; }
     font-size: 0.92rem;
     font-weight: 600;
     white-space: nowrap;
+}
+/* Ganzer Nav-Eintrag klickbar (nicht nur die Schrift) */
+.right-nav > ul > li > a::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
 }
 .right-nav > ul > li:hover { background: var(--rw-paper-2); transform: translateY(-1px); }
 .right-nav > ul > li:hover i,
@@ -147,16 +156,22 @@ html.js [data-reveal].is-visible { opacity: 1; transform: none; }
 .right-nav > ul > li:has(strong) i,
 .right-nav > ul > li:has(strong) > a { color: var(--rw-ink); }
 
-/* Mitglied-werden CTA: gestempelter roter Button */
+/* Mitglied-werden CTA: voller roter Button, weicher Schatten */
 .right-nav > ul > li.nav-mitglied {
     margin-left: auto;
     background: var(--pfadi-color);
-    border: 2px solid var(--rw-ink);
-    box-shadow: 2px 2px 0 var(--rw-ink);
+    border-color: transparent;
+    box-shadow: 0 4px 12px var(--accent-glow);
 }
 .right-nav > ul > li.nav-mitglied i,
 .right-nav > ul > li.nav-mitglied > a { color: #fff; font-weight: 700; }
-.right-nav > ul > li.nav-mitglied:hover { transform: translate(-1px, -1px); box-shadow: 3px 3px 0 var(--rw-ink); }
+.right-nav > ul > li.nav-mitglied:hover {
+    background: var(--primary-red-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 7px 18px var(--accent-glow);
+}
+.right-nav > ul > li.nav-mitglied:hover i,
+.right-nav > ul > li.nav-mitglied:hover > a { color: #fff; }
 .right-nav > ul > li.nav-mitglied:has(strong) { background: var(--pfadi-color); }
 
 #dark-mode-toggle, .hamburger {
@@ -164,16 +179,16 @@ html.js [data-reveal].is-visible { opacity: 1; transform: none; }
     width: 38px; height: 38px;
     display: flex; align-items: center; justify-content: center;
     background: var(--rw-card);
-    border: 2px solid var(--rw-ink);
+    border: 1.5px solid var(--rw-line);
     border-radius: 9px;
-    box-shadow: 2px 2px 0 var(--rw-ink);
+    box-shadow: var(--shadow-sm);
     color: var(--rw-ink);
     font-size: 1rem;
     cursor: pointer;
-    transition: transform 0.12s ease, box-shadow 0.12s ease;
+    transition: transform 0.14s ease, box-shadow 0.2s ease, border-color 0.2s ease;
 }
-#dark-mode-toggle:hover, .hamburger:hover { transform: translate(-1px, -1px); box-shadow: 3px 3px 0 var(--rw-ink); }
-#dark-mode-toggle:active, .hamburger:active { transform: translate(1px, 1px); box-shadow: 1px 1px 0 var(--rw-ink); }
+#dark-mode-toggle:hover, .hamburger:hover { transform: translateY(-2px); border-color: var(--pfadi-color); box-shadow: 0 6px 14px rgba(40, 30, 15, 0.18); }
+#dark-mode-toggle:active, .hamburger:active { transform: translateY(0); box-shadow: var(--shadow-sm); }
 .hamburger { display: none; }
 
 /* Mobile-Navigation */
@@ -201,29 +216,56 @@ html.js [data-reveal].is-visible { opacity: 1; transform: none; }
 }
 
 /* ================================================================
-   STAMPED BUTTONS
+   BUTTONS — Outline, füllt sich beim Hover mit der Brand-/Stufenfarbe
+   Steuerung über drei Variablen:
+     --btn-color : Rand + Füllfarbe (Standard: Pfadi-Rot)
+     --btn-on    : Textfarbe wenn gefüllt
+     --btn-rest  : Textfarbe im Ruhezustand (Outline)
+   Farb-Varianten: --woelfli / --pfadi / --pio / --green / --solid / --light
 ================================================================ */
 .thread-btn {
+    --btn-color: var(--pfadi-color);
+    --btn-on:    #fff;
+    --btn-rest:  var(--btn-color);
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
-    padding: 0.72rem 1.25rem;
+    padding: 0.72rem 1.3rem;
     font-family: "Bricolage Grotesque", sans-serif;
     font-size: 1rem;
     font-weight: 700;
     text-decoration: none;
-    color: var(--rw-ink);
-    background: var(--rw-card);
-    border: 2px solid var(--rw-ink);
+    color: var(--btn-rest);
+    background: transparent;
+    border: 2px solid var(--btn-color);
     border-radius: 11px;
-    box-shadow: 3px 3px 0 var(--rw-ink);
-    transition: transform 0.14s ease, box-shadow 0.14s ease;
+    transition: background 0.2s ease, color 0.2s ease,
+                transform 0.14s ease, box-shadow 0.2s ease;
     cursor: pointer;
 }
-.thread-btn:hover { transform: translate(-1px, -1px); box-shadow: 5px 5px 0 var(--rw-ink); }
-.thread-btn:active { transform: translate(2px, 2px); box-shadow: 1px 1px 0 var(--rw-ink); }
+.thread-btn i { transition: transform 0.2s ease; }
+.thread-btn:hover {
+    background: var(--btn-color);
+    color: var(--btn-on);
+    transform: translateY(-2px);
+    box-shadow: 0 7px 18px color-mix(in srgb, var(--btn-color) 42%, transparent);
+}
+.thread-btn:hover i { transform: translateX(2px); }
+.thread-btn:active { transform: translateY(0); box-shadow: 0 3px 9px color-mix(in srgb, var(--btn-color) 38%, transparent); }
 .thread-btn:focus-visible { outline: 3px solid var(--pio-color); outline-offset: 3px; }
-.thread-btn--solid { background: var(--pfadi-color); color: #fff; border-color: var(--rw-ink); }
+
+/* Gefüllt von Anfang an (primäre CTAs) */
+.thread-btn--solid { background: var(--btn-color); color: var(--btn-on); }
+.thread-btn--solid:hover { background: color-mix(in srgb, var(--btn-color) 86%, #000); border-color: color-mix(in srgb, var(--btn-color) 86%, #000); }
+
+/* Farb-Varianten */
+.thread-btn--woelfli { --btn-color: var(--woelfli-color); --btn-on: var(--woelfli-ink); --btn-rest: var(--woelfli-ink); }
+.thread-btn--pfadi   { --btn-color: var(--pfadi-color); }
+.thread-btn--pio     { --btn-color: var(--pio-color); }
+.thread-btn--green   { --btn-color: var(--primary-green); }
+
+/* Für dunkle/farbige Hintergründe (heller Outline → füllt sich weiss) */
+.thread-btn--light { --btn-color: var(--rw-thread); --btn-on: var(--rw-ink); --btn-rest: var(--rw-thread); }
 
 /* ================================================================
    SEKTIONS-KÖPFE & SEITEN-INTRO
@@ -263,7 +305,7 @@ html.js [data-reveal].is-visible { opacity: 1; transform: none; }
 .page-intro__eyebrow {
     font-family: "Caveat", cursive;
     font-size: clamp(1.3rem, 3vw, 1.75rem);
-    color: var(--pio-color);
+    color: var(--pfadi-color);
     margin: 0 0 0.2rem;
     transform: rotate(-1.5deg);
     display: inline-block;
@@ -278,6 +320,39 @@ html.js [data-reveal].is-visible { opacity: 1; transform: none; }
     text-transform: uppercase;
 }
 .page-intro__lead { font-size: clamp(1rem, 1.6vw, 1.15rem); line-height: 1.55; color: var(--rw-ink-soft); margin: 0 auto; max-width: 46ch; }
+
+/* ================================================================
+   WIP — "Seite in Arbeit" (Mobile Küche, Mitglied werden)
+================================================================ */
+.wip {
+    max-width: 620px;
+    margin: clamp(1rem, 4vw, 2.5rem) auto clamp(3rem, 8vw, 5rem);
+    padding: clamp(2rem, 6vw, 3.5rem) clamp(1.4rem, 5vw, 2.8rem);
+    text-align: center;
+    background: var(--rw-card);
+    border: 1px solid var(--rw-line);
+    border-top: 6px solid var(--pfadi-color);
+    border-radius: 12px;
+    box-shadow: 0 14px 30px rgba(40, 30, 15, 0.14);
+}
+.wip__icon {
+    width: 88px; height: 88px;
+    margin: 0 auto 1.3rem;
+    display: grid; place-items: center;
+    font-size: 2.1rem;
+    color: var(--pfadi-color);
+    background: var(--pfadi-color-light);
+    border: 2px dashed var(--pfadi-color);
+    border-radius: 50%;
+}
+.wip h2 {
+    font-family: "Bricolage Grotesque", sans-serif;
+    font-size: clamp(1.4rem, 3.5vw, 2rem);
+    font-weight: 800;
+    margin: 0 0 0.7rem;
+    color: var(--rw-ink);
+}
+.wip p { font-size: 1.05rem; line-height: 1.65; color: var(--rw-ink-soft); margin: 0 auto 1.6rem; max-width: 42ch; }
 
 /* ================================================================
    QUICKNAV — angepinnte Papier-Reiter
@@ -406,7 +481,7 @@ html.js [data-reveal].is-visible { opacity: 1; transform: none; }
     align-items: center;
     justify-content: center;
 }
-.lightbox img {
+.lightbox > img {
     max-width: 90vw; max-height: 84vh;
     padding: 10px 10px 26px;
     background: var(--rw-card);
@@ -432,17 +507,18 @@ html.js [data-reveal].is-visible { opacity: 1; transform: none; }
 .cookie-box a { color: var(--pfadi-color); }
 #accept-btn {
     display: inline-flex;
-    padding: 0.55rem 1.4rem;
+    padding: 0.6rem 1.5rem;
     font-family: "Bricolage Grotesque", sans-serif;
     font-weight: 700;
     color: #fff;
     background: var(--pfadi-color);
-    border: 2px solid var(--rw-ink);
-    border-radius: 9px;
-    box-shadow: 2px 2px 0 var(--rw-ink);
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px var(--accent-glow);
     cursor: pointer;
+    transition: background 0.2s ease, transform 0.14s ease, box-shadow 0.2s ease;
 }
-#accept-btn:hover { transform: translate(-1px, -1px); box-shadow: 3px 3px 0 var(--rw-ink); }
+#accept-btn:hover { background: var(--primary-red-dark); transform: translateY(-2px); box-shadow: 0 7px 18px var(--accent-glow); }
 
 /* ================================================================
    REDUCED MOTION (Basis)

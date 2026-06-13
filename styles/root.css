@@ -9,6 +9,11 @@
 
     --primary-blue:       #005EB6;
 
+    /* Natur-Grün — vierte Brand-Farbe (Logo), sparsam für Natur-Akzente */
+    --primary-green:      #2E7D3A;
+    --primary-green-dark: #21602C;
+    --primary-green-light: rgba(46, 125, 58, 0.10);
+
     --primary-black:      #1c1c1c;
     --primary-gray:       #7F8C8D;
     --primary-gray-light: #BDC3C7;
@@ -161,6 +166,10 @@
     --pfadi-color-light:   rgba(244, 29, 25, 0.15);
     --pio-color-light:     rgba(0, 94, 182, 0.15);
 
+    /* Grün etwas heller auf dunklem Grund */
+    --primary-green:       #4FA85C;
+    --primary-green-light: rgba(79, 168, 92, 0.16);
+
     /* Shadows deeper on dark */
     --shadow-sm: 0 2px  4px rgba(0, 0, 0, 0.35);
     --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.45);
@@ -180,31 +189,9 @@
     or other values that don't auto-flip)
 ================================================ */
 
-/* Black download buttons → white-outlined in dark mode */
-.dark-mode .sc-programm-child a,
-.dark-mode .wip-btn {
-    background: transparent;
-    color: var(--text);
-    border-color: var(--border);
-}
-.dark-mode .sc-programm-child a:hover,
-.dark-mode .wip-btn:hover {
-    background: var(--primary-red);
-    border-color: var(--primary-red);
-    color: var(--text-white);
-}
-
-/* Stufe programm-link buttons */
-.dark-mode .stufe-programm-link {
-    background: transparent;
-    color: var(--text);
-    border-color: var(--border);
-}
-.dark-mode .stufe-programm-link:hover {
-    background: var(--primary-red);
-    border-color: var(--primary-red);
-    color: var(--text-white);
-}
+/* Hinweis: Die früheren Dark-Mode-Overrides für alte Button-Klassen
+   (.sc-programm-child a, .wip-btn, .stufe-programm-link) wurden entfernt —
+   die neuen Outline-Buttons (.thread-btn) funktionieren in beiden Themes. */
 
 /* ---- index.html: links/spans with hardcoded var(--primary-black) color ---- */
 .dark-mode .aktuelleanlaesse a {

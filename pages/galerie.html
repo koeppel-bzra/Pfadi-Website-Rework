@@ -2,58 +2,36 @@
 <html lang="de">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Galerie – Pfadi Regulastein</title>
-    <script type="module" src="../src/main.js"></script>
-    <script defer src="../src/galerie.js"></script>
-    <script src="https://kit.fontawesome.com/920aa667f6.js" crossorigin="anonymous"></script>
+    <meta name="description" content="Eindrücke aus den Lagern und Aktivitäten der Pfadi Regulastein." />
+    <link rel="icon" type="image/png" href="../images/logo_transparent3.png" />
+    <script defer src="https://kit.fontawesome.com/920aa667f6.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="../styles/root.css">
-    <link rel="stylesheet" href="../styles/nav.css">
+    <link rel="stylesheet" href="../styles/rework-base.css">
     <link rel="stylesheet" href="../styles/galerie.css">
+    <script defer src="../src/main.js"></script>
+    <script defer src="../src/rework.js"></script>
+    <script defer src="../src/galerie.js"></script>
   </head>
   <body>
-
     <header>
       <nav class="top-nav" id="navbar">
         <div class="left-nav">
-          <a href="/index.html">
-            <img src="../images/logo_transparent3.png" alt="Pfadi" width="50" height="50">
-          </a>
+          <a href="../index-rework.html"><img src="../images/logo_transparent3.png" alt="Pfadi Regulastein Logo" width="50" height="50"></a>
           <div class="title">
             <h2>PFADI REGULASTEIN</h2>
-            <div class="subtitle">
-              <h6>Gommiswald - Rieden - Ernetschwil</h6>
-            </div>
+            <div class="subtitle"><h6>Gommiswald - Rieden - Ernetschwil</h6></div>
           </div>
         </div>
-
         <div class="right-nav">
           <ul>
-            <li>
-              <i class="fa-solid fa-house"></i>
-              <a href="../index.html">Home</a>
-            </li>
-            <li>
-              <i class="fa-solid fa-calendar-days"></i>
-              <a href="programm.html">Programm</a>
-            </li>
-            <li>
-              <i class="fa-solid fa-campground"></i>
-              <a href="stufen.html">Stufen</a>
-            </li>
-            <li>
-              <i class="fa-solid fa-utensils"></i>
-              <a href="vermietung.html">Mobile Küche</a>
-            </li>
-            <li>
-              <i class="fa-solid fa-images"></i>
-              <a href="galerie.html"><strong>Galerie</strong></a>
-            </li>
-            <li class="nav-mitglied">
-              <i class="fa-solid fa-user-plus"></i>
-              <a href="mitglied-werden.html">Mitglied werden</a>
-            </li>
+            <li><i class="fa-solid fa-house"></i><a href="../index-rework.html">Home</a></li>
+            <li><i class="fa-solid fa-calendar-days"></i><a href="programm-rework.html">Programm</a></li>
+            <li><i class="fa-solid fa-campground"></i><a href="stufen-rework.html">Stufen</a></li>
+            <li><i class="fa-solid fa-utensils"></i><a href="vermietung.html">Mobile Küche</a></li>
+            <li><i class="fa-solid fa-images"></i><a href="galerie.html"><strong>Galerie</strong></a></li>
+            <li class="nav-mitglied"><i class="fa-solid fa-user-plus"></i><a href="mitglied-werden.html">Mitglied werden</a></li>
           </ul>
           <button type="button" id="dark-mode-toggle" aria-label="Darkmode umschalten">🌙</button>
           <div class="hamburger">☰</div>
@@ -62,54 +40,75 @@
     </header>
 
     <main>
-
-      <section class="title-section">
-        <h1 class="title-title">GALERIE</h1>
-        <hr>
-        <p>Eindrücke aus unseren Lagern und Aktivitäten.</p>
-        <nav class="galerie-quicknav">
-          <a href="#pfila-2026"><i class="fa-solid fa-tent"></i> Pfila 2026</a>
+      <section class="page-intro">
+        <p class="page-intro__eyebrow">Aus unseren Lagern</p>
+        <h1 class="page-intro__title">Galerie</h1>
+        <p class="page-intro__lead">Eindrücke aus unseren Lagern und Aktivitäten.</p>
+        <nav class="jumptabs" aria-label="Schnellnavigation">
+          <a href="#pfila-2026"><i class="fa-solid fa-tent" aria-hidden="true"></i> Pfila 2026</a>
           <span class="quicknav-divider"></span>
-          <a href="#pfila-tag1"><i class="fa-solid fa-images"></i> Tag 1</a>
-          <a href="#pfila-tag2"><i class="fa-solid fa-images"></i> Tag 2</a>
+          <a href="#pfila-tag1"><i class="fa-solid fa-images" aria-hidden="true"></i> Tag 1</a>
+          <a href="#pfila-tag2"><i class="fa-solid fa-images" aria-hidden="true"></i> Tag 2</a>
         </nav>
       </section>
 
-  
       <div id="galerie-container"></div>
 
-    <!-- Lightbox -->
-    <div id="lightbox" class="lightbox" role="dialog" aria-modal="true" aria-label="Foto Vollansicht">
-      <button type="button" class="lb-close" aria-label="Schliessen"><i class="fa-solid fa-xmark"></i></button>
-      <button type="button" class="lb-prev" aria-label="Vorheriges Foto"><i class="fa-solid fa-chevron-left"></i></button>
-      <button type="button" class="lb-next" aria-label="Nächstes Foto"><i class="fa-solid fa-chevron-right"></i></button>
-      <div class="lb-image-wrap">
-        <img id="lb-img" src="" alt="">
+      <!-- Lightbox -->
+      <div id="lightbox" class="lightbox" role="dialog" aria-modal="true" aria-label="Foto Vollansicht">
+        <button type="button" class="lb-close" aria-label="Schliessen"><i class="fa-solid fa-xmark"></i></button>
+        <button type="button" class="lb-prev" aria-label="Vorheriges Foto"><i class="fa-solid fa-chevron-left"></i></button>
+        <button type="button" class="lb-next" aria-label="Nächstes Foto"><i class="fa-solid fa-chevron-right"></i></button>
+        <div class="lb-image-wrap">
+          <img id="lb-img" src="" alt="">
+        </div>
+        <div class="lb-footer">
+          <span id="lb-caption" class="lb-caption"></span>
+          <span id="lb-counter" class="lb-counter"></span>
+        </div>
       </div>
-      <div class="lb-footer">
-        <span id="lb-caption" class="lb-caption"></span>
-        <span id="lb-counter" class="lb-counter"></span>
-      </div>
-    </div>
+    </main>
 
-    <footer>
-      <div class="footer">
-        <div class="sponsoren">
-          <h3>Sponsoren</h3>
-          <p><a rel="noopener" href="https://www.raiffeisen.ch/benken/de.html" target="_blank">Raiffeisenbank Benken</a></p>
-          <p><a rel="noopener" href="https://www.raiffeisen.ch/am-ricken/de.html" target="_blank">Raiffeisenbank am Ricken</a></p>
-          <p><a rel="noopener" href="https://gommiswald.ch/" target="_blank">Gemeinde Gommiswald</a></p>
-          <p><a rel="noopener" href="https://ortsgemeinde-gommiswald.ch/" target="_blank">Ortsgemeinde Gommiswald</a></p>
-          <p><a rel="noopener" href="https://www.schreinerwerk.com/firma/" target="_blank">Schreinerei Kaufmann Gommiswald</a></p>
-          <p><a rel="noopener" href="https://www.jugendundsport.ch/de" target="_blank">Jugend &amp; Sport</a></p>
+    <footer class="site-footer">
+      <div class="site-footer__top">
+        <div class="site-footer__brand">
+          <img src="../images/logo_transparent3.png" alt="" width="54" height="54">
+          <div>
+            <strong>Pfadi Regulastein</strong>
+            <span class="site-footer__motto">Allzeit bereit.</span>
+          </div>
         </div>
-        <div class="social-media">
-          <h3>Social Media</h3>
-          <a title="Instagram" rel="noopener" target="_blank" href="https://www.instagram.com/pfadi.regulastein/"><i class="fa-brands fa-instagram fa-2xl"></i></a>
-          <a title="Facebook" rel="noopener" target="_blank" href="https://www.facebook.com/pfadi.regulastein"><i class="fa-brands fa-facebook fa-2xl"></i></a>
+        <div class="site-footer__social">
+          <a rel="noopener" target="_blank" href="https://www.instagram.com/pfadi.regulastein/"><i class="fa-brands fa-instagram" aria-hidden="true"></i> Instagram</a>
+          <a rel="noopener" target="_blank" href="https://www.facebook.com/pfadi.regulastein"><i class="fa-brands fa-facebook" aria-hidden="true"></i> Facebook</a>
         </div>
+      </div>
+      <div class="site-footer__sponsors">
+        <span class="site-footer__sponsors-label">Unterstützt von</span>
+        <ul>
+          <li><a rel="noopener" href="https://www.raiffeisen.ch/benken/de.html" target="_blank">Raiffeisenbank Benken</a></li>
+          <li><a rel="noopener" href="https://www.raiffeisen.ch/am-ricken/de.html" target="_blank">Raiffeisenbank am Ricken</a></li>
+          <li><a rel="noopener" href="https://gommiswald.ch/" target="_blank">Gemeinde Gommiswald</a></li>
+          <li><a rel="noopener" href="https://ortsgemeinde-gommiswald.ch/" target="_blank">Ortsgemeinde Gommiswald</a></li>
+          <li><a rel="noopener" href="https://www.schreinerwerk.com/firma/" target="_blank">Schreinerei Kaufmann</a></li>
+          <li><a rel="noopener" href="https://www.jugendundsport.ch/de" target="_blank">Jugend &amp; Sport</a></li>
+        </ul>
       </div>
     </footer>
 
+    <div id="cookie-banner">
+      <div class="cookie-box">
+        <h3>Datenschutzerklärung</h3>
+        <p>
+        Um die Bedienung unserer Website angenehm zu gestalten, verwenden wir Cookies. Für den Fotos-Bereich
+        setzen wir Social Plugins ein, die Facebook-Beiträge einblenden. Zudem nutzen wir Tracking-Tools, um
+        die Seite laufend zu verbessern. Durch die weitere Nutzung erklären Sie sich damit einverstanden.<br><br>
+        Die Pfadi Regulastein ist Teil der Pfadibewegung Schweiz, deren Datenschutzerklärung in unserer
+        Abteilung gilt.<br>
+        <a rel="noopener" href="https://pfadi.swiss/de/verband/datenschutz/dse/" target="_blank">Datenschutzerklärung Pfadibewegung Schweiz</a>
+        </p>
+        <button id="accept-btn">Akzeptieren</button>
+      </div>
+    </div>
   </body>
 </html>

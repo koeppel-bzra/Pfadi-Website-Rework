@@ -19,7 +19,7 @@
 .hero__eyebrow {
     font-family: "Caveat", cursive;
     font-size: clamp(1.3rem, 3vw, 1.7rem);
-    color: var(--pio-color);
+    color: var(--pfadi-color);
     margin: 0 0 0.4rem;
     transform: rotate(-1.5deg);
     display: inline-block;
@@ -103,20 +103,78 @@
     position: absolute;
     top: calc(50% - 18px);
     width: 38px; height: 38px;
-    border: 2px solid var(--rw-ink);
+    border: none;
     border-radius: 50%;
-    background: var(--rw-card);
-    color: var(--rw-ink);
+    background: var(--pfadi-color);
+    color: #fff;
     font-size: 1.3rem;
     line-height: 1;
     cursor: pointer;
-    box-shadow: 2px 2px 0 var(--rw-ink);
-    transition: transform 0.12s ease;
+    box-shadow: 0 4px 12px var(--accent-glow);
+    transition: transform 0.14s ease, background 0.2s ease;
 }
 #back { left: -14px; }
 #forward { right: -14px; }
 #back:hover, #forward:hover { transform: scale(1.08); }
 #back:active, #forward:active { transform: scale(0.94); }
+
+/* ================================================================
+   STUFENPROGRAMME — Quicklinks (Eltern finden Programme sofort)
+================================================================ */
+.proglinks { max-width: 1080px; margin: 0 auto clamp(2.6rem, 7vw, 4.5rem); padding-inline: clamp(1rem, 4vw, 2.5rem); }
+.proglinks__head { text-align: center; margin-bottom: clamp(1.2rem, 3vw, 1.9rem); }
+.proglinks__eyebrow {
+    font-family: "Caveat", cursive;
+    font-size: clamp(1.2rem, 2.8vw, 1.6rem);
+    color: var(--pfadi-color);
+    transform: rotate(-1.5deg);
+    display: inline-block;
+    margin: 0;
+}
+.proglinks__title {
+    font-family: "Bricolage Grotesque", sans-serif;
+    font-size: clamp(1.5rem, 4.4vw, 2.3rem);
+    font-weight: 800;
+    letter-spacing: -0.5px;
+    margin: 0.1rem 0 0;
+    color: var(--rw-ink);
+}
+.proglinks__grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(225px, 1fr)); gap: clamp(0.9rem, 2.5vw, 1.5rem); }
+.proglink {
+    --c: var(--pfadi-color);
+    display: flex;
+    align-items: center;
+    gap: 0.9rem;
+    padding: 1.1rem 1.3rem;
+    text-decoration: none;
+    background: var(--rw-card);
+    border: 1px solid var(--rw-line);
+    border-left: 6px solid var(--c);
+    border-radius: 12px;
+    box-shadow: 0 8px 18px rgba(40, 30, 15, 0.12);
+    transition: transform 0.16s ease, box-shadow 0.2s ease;
+}
+.proglink--woelfli { --c: var(--woelfli-color); }
+.proglink--pfadi   { --c: var(--pfadi-color); }
+.proglink--pio     { --c: var(--pio-color); }
+.proglink__icon {
+    flex: 0 0 auto;
+    width: 48px; height: 48px;
+    display: grid; place-items: center;
+    background: var(--c);
+    color: #fff;
+    border-radius: 12px;
+    font-size: 1.3rem;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.18), inset 0 0 0 2px rgba(255,255,255,0.22);
+}
+.proglink--woelfli .proglink__icon { color: var(--woelfli-ink); }
+.proglink__text { display: flex; flex-direction: column; line-height: 1.25; }
+.proglink__label { font-family: "Bricolage Grotesque", sans-serif; font-weight: 800; font-size: 1.05rem; color: var(--rw-ink); }
+.proglink__sub { font-size: 0.85rem; color: var(--rw-ink-soft); }
+.proglink__arrow { margin-left: auto; color: var(--c); font-size: 1.05rem; transition: transform 0.2s ease; }
+.proglink:hover { transform: translateY(-3px); box-shadow: 0 14px 28px rgba(40, 30, 15, 0.2); }
+.proglink:hover .proglink__arrow { transform: translateX(4px); }
+.proglink:focus-visible { outline: 3px solid var(--c); outline-offset: 3px; }
 
 /* ================================================================
    LEITERTEAM-TEASER (verlinkt zur Stufen-Seite)
@@ -125,15 +183,16 @@
     position: relative;
     margin: 0 0 clamp(3rem, 7vw, 5rem);
     padding: clamp(2.2rem, 6vw, 3.6rem) clamp(1rem, 4vw, 2.5rem);
+    background-color: #234A37;
     background-image:
-        radial-gradient(rgba(255, 0, 0, 0.03) 0.9px, transparent 1.1px),
-        radial-gradient(rgba(255, 0, 0, 0.22) 0.9px, transparent 1.1px),
-        radial-gradient(120% 90% at 50% 0%, rgba(254, 0, 0, 0.883) 40%, rgba(255, 0, 0, 0.764) 100%);
-    background-size: 6px 6px, 9px 9px, 100% 100%;
-    background-position: 0 0, 3px 4px, 0 0;
+        radial-gradient(rgba(0, 0, 0, 0.10) 0.9px, transparent 1.1px),
+        radial-gradient(rgba(255, 255, 255, 0.045) 0.9px, transparent 1.1px),
+        radial-gradient(135% 105% at 50% 0%, #2F6048 0%, #234A37 52%, #142F23 100%);
+    background-size: 7px 7px, 11px 11px, 100% 100%;
+    background-position: 0 0, 4px 5px, 0 0;
     border-top: 3px dashed var(--rw-thread-dim);
     border-bottom: 3px dashed var(--rw-thread-dim);
-    box-shadow: inset 0 0 70px rgba(0, 0, 0, 0.45);
+    box-shadow: inset 0 0 90px rgba(8, 26, 16, 0.45);
 }
 .board__head { text-align: center; max-width: 640px; margin: 0 auto clamp(1.8rem, 4vw, 2.4rem); }
 .board__eyebrow {
@@ -161,6 +220,8 @@
     max-width: 820px;
     margin: 0 auto;
 }
+/* Nur Stufenleitende: drei kompakte Aufnäher, mittig */
+.patchwall--leads { max-width: 560px; grid-template-columns: repeat(3, 1fr); }
 
 .patch {
     --patch-color: var(--pfadi-color);
@@ -270,7 +331,8 @@ html.js .board .patch { opacity: 0; }
 }
 
 .board__cta { display: flex; justify-content: center; margin-top: clamp(1.8rem, 4vw, 2.6rem); }
-.board__cta .thread-btn { background: var(--rw-card); }
+/* Auf dem roten Anschlagbrett: heller Outline-Button, füllt sich weiss */
+.board__cta .thread-btn { --btn-color: #fff; --btn-on: var(--primary-red-dark); --btn-rest: #fff; }
 
 .board__foot {
     display: flex;
@@ -341,6 +403,7 @@ html.js .board .patch { opacity: 0; }
 .pillar--blue   { --c: var(--pio-color); }
 .pillar--red    { --c: var(--pfadi-color); }
 .pillar--yellow { --c: var(--woelfli-color); }
+.pillar--green  { --c: var(--primary-green); }
 .pillar__tab {
     position: absolute;
     top: -22px; left: 1.5rem;
@@ -446,6 +509,7 @@ html.js .board .patch { opacity: 0; }
     .side-image { display: none; }
     .slide-show { margin: 0; transform: rotate(-1deg); }
     .patchwall { grid-template-columns: repeat(2, 1fr); }
+    .patchwall--leads { grid-template-columns: repeat(3, 1fr); gap: 0.6rem; }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -453,4 +517,6 @@ html.js .board .patch { opacity: 0; }
     .board.is-visible .patch { animation: none !important; }
     .patch { transition: none !important; }
     .patch:hover, .patch:focus-visible { transform: none; }
+    .proglink, .proglink__arrow { transition: none !important; }
+    .proglink:hover { transform: none; }
 }
