@@ -78,7 +78,8 @@
 .slide-show::before {
     content: "";
     position: absolute;
-    top: -12px; left: 50%;
+    top: -13px;
+    left: 50%;
     width: 84px; height: 26px;
     transform: translateX(-50%) rotate(-3deg);
     background: rgba(216, 198, 166, 0.72);
