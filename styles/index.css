@@ -441,10 +441,10 @@ html.js .board .patch { opacity: 0; }
     width: 18px; height: 18px;
     border-radius: 50%;
     background: var(--rw-card);
-    border: 4px solid var(--pio-color);
+    border: 4px solid var(--pfadi-color);
 }
 .timeline__item--now::before { border-color: var(--pfadi-color); background: var(--pfadi-color); }
-.timeline__year { font-family: "Bricolage Grotesque", sans-serif; font-size: 1.5rem; font-weight: 800; color: var(--pfadi-color); line-height: 1; display: block; margin-bottom: 0.35rem; }
+.timeline__year { font-family: "Bricolage Grotesque", sans-serif; font-size: 1.5rem; font-weight: 800; line-height: 1; display: block; margin-bottom: 0.35rem; }
 .timeline__item p { font-size: 1rem; line-height: 1.6; color: var(--rw-ink-soft); margin: 0; }
 .timeline__item strong { color: var(--rw-ink); }
 

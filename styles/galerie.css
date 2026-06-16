@@ -25,6 +25,21 @@
     border-bottom: 3px dashed var(--rw-line);
 }
 .album-header-left { display: flex; align-items: center; gap: 0.8rem; flex-wrap: wrap; }
+.album-header-right { display: inline-flex; align-items: center; gap: 0.9rem; }
+/* Album auf-/zuklappbar (<details>/<summary>), Standard: offen */
+summary.album-header { cursor: pointer; list-style: none; }
+summary.album-header::-webkit-details-marker { display: none; }
+summary.album-header:focus-visible { outline: 3px solid var(--pio-color); outline-offset: 3px; border-radius: 6px; }
+.album-toggle {
+    display: grid;
+    place-items: center;
+    width: 34px; height: 34px;
+    border-radius: 50%;
+    color: var(--pfadi-color);
+    background: var(--pfadi-color-light);
+    transition: transform 0.25s ease;
+}
+.galerie-album[open] .album-toggle { transform: rotate(180deg); }
 .album-header h2 {
     font-family: "Bricolage Grotesque", sans-serif;
     font-size: clamp(1.6rem, 4.5vw, 2.4rem);

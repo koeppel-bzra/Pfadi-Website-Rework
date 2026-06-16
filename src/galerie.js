@@ -33,22 +33,28 @@ function closeLightbox() {
     document.body.style.overflow = '';
 }
 
-// ----- Render -----
-function renderImage() {
-    const item = album[currentIndex];
-    lbImg.classList.add('fading');
+let loadToken = 0;
 
-    setTimeout(() => {
-        lbImg.src           = item.src;
-        lbImg.alt           = item.alt;
+function renderImage() {
+    const item    = album[currentIndex];
+    const myToken  = ++loadToken;        // diese Anfrage markieren
+
+    // Pfeile + Ladezustand sofort
+    lbPrev.disabled = currentIndex === 0;
+    lbNext.disabled = currentIndex === album.length - 1;
+    lightbox.classList.add('is-loading');   // -> Spinner via CSS
+
+    const pre = new Image();
+    pre.onload = pre.onerror = () => {
+        if (myToken !== loadToken) return;  // veraltet -> ignorieren
+        lbImg.src             = item.src;
+        lbImg.alt             = item.alt;
         lbCaption.textContent = item.caption;
         lbCounter.textContent = `${currentIndex + 1} / ${album.length}`;
-        lbPrev.disabled     = currentIndex === 0;
-        lbNext.disabled     = currentIndex === album.length - 1;
         resetZoom(false);
-        lbImg.classList.remove('fading');
-        hasTimeout = null;
-    }, 120);
+        lightbox.classList.remove('is-loading');
+    };
+    pre.src = item.src;                  // Download startet hier
 }
 
 // ----- Navigate -----

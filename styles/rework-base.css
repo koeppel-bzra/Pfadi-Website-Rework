@@ -194,7 +194,11 @@ html.js [data-reveal].is-visible { opacity: 1; transform: none; }
 /* Mobile-Navigation */
 @media (max-width: 1100px) {
     .top-nav { padding: 0.55rem 1rem; }
-    .right-nav { margin-left: auto; }
+    .right-nav {
+         margin-left: auto; 
+            flex: 0;
+        }
+
     .right-nav > ul {
         display: none;
         position: fixed;
