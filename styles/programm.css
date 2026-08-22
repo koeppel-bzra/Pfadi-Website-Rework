@@ -59,7 +59,7 @@
 .sc-programm-child.woelfli .hjp-tag { color: var(--woelfli-ink); }
 .sc-programm-child h3 { font-family: "Bricolage Grotesque", sans-serif; font-size: 1.15rem; font-weight: 800; margin: 0.3rem 0 0; color: var(--rw-ink); }
 .sc-programm-child h6 { font-family: "Caveat", cursive; font-size: 1.4rem; font-weight: 600; margin: 0; color: var(--c); }
-.sc-programm-child.woelfli h6 { color: var(--woelfli-ink); }
+.sc-programm-child.woelfli h6 { color: var(--woelfli-accent); }
 .sc-programm-child img {
     width: 100%;
     max-width: 230px;
@@ -78,7 +78,7 @@
 .sc-programm-child p { font-size: 0.96rem; color: var(--rw-ink-soft); margin: 0 0 0.4rem; }
 /* Download-Button trägt die Stufenfarbe */
 .sc-programm-child .thread-btn { --btn-color: var(--c); }
-.sc-programm-child.woelfli .thread-btn { --btn-on: var(--woelfli-ink); --btn-rest: var(--woelfli-ink); }
+.sc-programm-child.woelfli .thread-btn { --btn-on: var(--woelfli-ink); --btn-rest: var(--woelfli-accent); }
 
 /* ================================================================
    DETAILPROGRAMM — ausklappbar

@@ -23,7 +23,12 @@
     --rw-thread:     #F5F0E4;
     --rw-thread-dim: rgba(245, 240, 228, 0.66);
 
-    --woelfli-ink:   #7A5C00;
+    /* Text/Icon AUF einer Goldfläche (Wölfli-Icon, Badge, gefüllter Button) —
+       bleibt in beiden Themes dunkel, damit es auf Gold lesbar bleibt. */
+    --woelfli-ink:    #7A5C00;
+    /* Gold-Akzenttext AUF Karten/Seite (Button-Outline, Alter, „Mehr"-Link) —
+       hell/dunkel je nach Theme. */
+    --woelfli-accent: #7A5C00;
     --nav-h:         66px;
 }
 
@@ -37,11 +42,18 @@ body.dark-mode {
     --rw-line:       #353A43;
     --rw-felt:       #141C18;
     --rw-felt-2:     #0E1410;
-    --woelfli-ink:   #F5B800;
+    /* --woelfli-ink bleibt dunkel (Kontrast auf Gold); nur der Akzent wird hell. */
+    --woelfli-accent: #F5B800;
 }
 
 body {
     margin: 0;
+    /* Sticky-Footer: Body füllt mind. die Bildschirmhöhe, main wächst,
+       damit der Footer auch bei wenig Inhalt am unteren Rand sitzt. */
+    min-height: 100vh;
+    min-height: 100dvh;
+    display: flex;
+    flex-direction: column;
     background-color: var(--rw-paper);
     background-image:
         radial-gradient(rgba(120, 100, 60, 0.05) 1px, transparent 1.3px),
@@ -55,6 +67,7 @@ button, input, select, textarea { font-family: inherit; }
 
 main {
     width: 100%;
+    flex: 1 0 auto;
     padding-top: var(--nav-h);
     overflow-x: clip;
 }
@@ -263,7 +276,7 @@ html.js [data-reveal].is-visible { opacity: 1; transform: none; }
 .thread-btn--solid:hover { background: color-mix(in srgb, var(--btn-color) 86%, #000); border-color: color-mix(in srgb, var(--btn-color) 86%, #000); }
 
 /* Farb-Varianten */
-.thread-btn--woelfli { --btn-color: var(--woelfli-color); --btn-on: var(--woelfli-ink); --btn-rest: var(--woelfli-ink); }
+.thread-btn--woelfli { --btn-color: var(--woelfli-color); --btn-on: var(--woelfli-ink); --btn-rest: var(--woelfli-accent); }
 .thread-btn--pfadi   { --btn-color: var(--pfadi-color); }
 .thread-btn--pio     { --btn-color: var(--pfadi-color); }
 .thread-btn--green   { --btn-color: var(--primary-green); }
@@ -274,7 +287,7 @@ html.js [data-reveal].is-visible { opacity: 1; transform: none; }
 /* ================================================================
    SEKTIONS-KÖPFE & SEITEN-INTRO
 ================================================================ */
-.section-head { text-align: center; margin: 0 auto clamp(1.6rem, 4vw, 2.6rem); }
+.section-head { text-align: center; margin-top: 3vw; }
 .section-head__eyebrow {
     font-family: "Caveat", cursive;
     font-size: clamp(1.3rem, 3vw, 1.7rem);

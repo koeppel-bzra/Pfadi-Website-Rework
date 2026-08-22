@@ -193,33 +193,6 @@
    (.sc-programm-child a, .wip-btn, .stufe-programm-link) wurden entfernt —
    die neuen Outline-Buttons (.thread-btn) funktionieren in beiden Themes. */
 
-/* ---- index.html: links/spans with hardcoded var(--primary-black) color ---- */
-.dark-mode .aktuelleanlaesse a {
-    color: var(--text-secondary);
-}
-.dark-mode .wichtige-links_span {
-    color: var(--text-secondary);
-}
-.dark-mode .wichtige-links > div > p > a {
-    color: var(--text-secondary);
-}
-
-/* ---- stufen.html: black borders on dok-section + dok-header ---- */
-.dark-mode .dok-section {
-    border-left-color: var(--border);
-}
-.dark-mode .dok-header {
-    border-bottom-color: var(--border);
-}
-
-/* ---- stufen quicknav: black hover bg for organigramm / stufenmodell ---- */
-.dark-mode .stufen-quicknav a[href="#organigramm"]:hover,
-.dark-mode .stufen-quicknav a[href="#stufenmodell"]:hover {
-    background: var(--bg-mid);
-    border-color: var(--border);
-    color: var(--text);
-}
-
 /* ---- programm.html summary: woelfli dark text needs lighter shade ---- */
 .dark-mode .programm-details.woelfli[open] summary,
 .dark-mode .programm-details.woelfli summary:hover {
@@ -236,10 +209,11 @@
     background: var(--bg-light);
 }
 
-/* Iframe border */
-.dark-mode .anlaesse > iframe {
+/* Google-Kalender-Iframe (Aktuelle Anlässe): im Dark Mode nicht als grelles
+   weisses Feld stehen lassen, sondern invertieren + Farbton zurückdrehen. */
+.dark-mode .events iframe {
     border-color: var(--border);
-    filter: invert(0.85) hue-rotate(180deg);
+    filter: invert(0.9) hue-rotate(180deg);
 }
 
 /* ================================================

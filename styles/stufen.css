@@ -64,7 +64,7 @@
 
 /* Programm-Button trägt die Stufenfarbe (Outline → füllt sich passend) */
 .stufe .thread-btn { --btn-color: var(--c); }
-.stufe--woelfli .thread-btn { --btn-on: var(--woelfli-ink); --btn-rest: var(--woelfli-ink); }
+.stufe--woelfli .thread-btn { --btn-on: var(--woelfli-ink); --btn-rest: var(--woelfli-accent); }
 
 .stufe__leaders-title {
     font-family: "Caveat", cursive;
